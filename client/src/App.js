@@ -1,11 +1,11 @@
-import Form from "./components/Form";
+import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Form />
+      <Home />
     </div>
   );
 }
