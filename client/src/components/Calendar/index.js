@@ -46,17 +46,7 @@ export default function Calendar() {
         }
       }
     }
-    // function setDays(monthIndex) {
-    //   let options = [];
-    //   let optionCount = $("#select-day option").length;
-    //   let daysCount = daysInMonth[monthIndex];
-
-    //   for (let i = optionCount; i < daysCount; i++) {
-    //     options.push({ value: i + 1, label: i + 1 });
-    //   }
-
-    //   setdays(options);
-    // }
+    
 
     function setYears(val) {
       let year = d.getFullYear();
