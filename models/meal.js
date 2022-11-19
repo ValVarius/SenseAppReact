@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const mealSchema = new Schema({
   date: { type: String, required: true },
-  // author: { type: String, required: true },
   weight: Number,
   title: {type: String, required: true},
   food: String,
