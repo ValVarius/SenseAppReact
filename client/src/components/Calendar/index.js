@@ -2,16 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import $ from "jquery";
 
-
-export default function Calendar() {
-  const [days, setdays] = useState();
-
+export default function Calendar(props) {
   useEffect(() => {
     let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-    let d = new Date();
-
-    setDate(d);
+    setDate();
     setYears(5); // set the next five years in dropdown
 
     $("#select-month").change(function () {
@@ -19,11 +13,12 @@ export default function Calendar() {
       setDays(monthIndex);
     });
 
-    function setDate(date) {
-      setDays(date.getMonth());
-      $("#select-day").val(date.getDate());
-      $("#select-month").val(date.getMonth());
-      $("#select-year").val(date.getFullYear());
+    // display the desired date
+    function setDate() {
+      setDays(props.date.month);
+      $("#select-day").val(props.date.day);
+      $("#select-month").val(props.date.month);
+      $("#select-year").val(props.date.year);
     }
 
     // make sure the number of days correspond with the selected month
@@ -46,10 +41,10 @@ export default function Calendar() {
         }
       }
     }
-    
 
+    // Display an appropriate # of years
     function setYears(val) {
-      let year = d.getFullYear();
+      let year = props.date.year;
       for (let i = 0; i < val; i++) {
         $("#select-year").append(
           $("<option></option>")
@@ -58,18 +53,20 @@ export default function Calendar() {
         );
       }
     }
-
-    let month = d.getMonth() + 1;
-    let day = d.getDate();
-    let year = d.getFullYear();
-    let today = month + "|" + day + "|" + year;
-    console.log(today);
   }, []);
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    props.setDate({
+      ...props.date,
+      [name]: value,
+    });
+  };
+
   return (
-    <div className="select-date float-right">
-      <select id="select-day"></select>
-      <select id="select-month">
+    <div className="select-date float-right" onChange={handleChange}>
+      <select name="day" id="select-day"></select>
+      <select name="month" id="select-month">
         <option value="0">January</option>
         <option value="1">February</option>
         <option value="2">March</option>
@@ -83,7 +80,7 @@ export default function Calendar() {
         <option value="10">November</option>
         <option value="11">December</option>
       </select>
-      <select id="select-year"></select>
+      <select name="year" id="select-year"></select>
       <button className="btn btn-outline-danger" id="daysearch">
         Search
       </button>
