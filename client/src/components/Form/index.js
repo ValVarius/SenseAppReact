@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
+import API from "../../utils/API";
 
 export default function Form() {
   const [info, setInfo] = useState({
@@ -18,6 +19,27 @@ export default function Form() {
     howLong: "",
     other: "",
   });
+
+  const handleChange = (event) => {
+    // console.log(event);
+    const { name, value } = event.target;
+    setInfo({
+      ...info,
+      [name]: value,
+    });
+  };
+  const handleFormSubmit = (event) => {
+
+    event.preventDefault()
+
+    API.mealRegistration(info)
+          .then((newMeal) => {
+            console.log(newMeal);
+          })
+            
+
+  }
+
   return (
     <div className="container">
       <form className="form" id="foodform">
@@ -28,6 +50,7 @@ export default function Form() {
             name="title"
             type="time"
             id="mealTitle"
+            onChange={handleChange}
           >
             <option value="breakfast">Breakfast</option>
             <option value="mid-morning">Mid-Morning Snack</option>
@@ -47,6 +70,7 @@ export default function Form() {
             name="food"
             type="text"
             defaultValue={""}
+            onChange={handleChange}
           />
         </div>
         <div className="row">
@@ -58,6 +82,7 @@ export default function Form() {
             name="time"
             type="time"
             id="time"
+            onChange={handleChange}
           >
             <option value="5:00am">5:00am</option>
             <option value="6:00am">6:00am</option>
@@ -90,6 +115,7 @@ export default function Form() {
                 aria-label="Amount"
                 name="weight"
                 id="weightInput"
+                onChange={handleChange}
               />
               <span className="input-group-text">lb</span>
             </div>
@@ -104,6 +130,7 @@ export default function Form() {
                 role="switch"
                 id="bloat"
                 name="bloating"
+                onChange={handleChange}
               />
               <label
                 className="form-check-label"
@@ -121,6 +148,7 @@ export default function Form() {
                 role="switch"
                 id="head"
                 name="headache"
+                onChange={handleChange}
               />
               <label
                 className="form-check-label"
@@ -138,6 +166,7 @@ export default function Form() {
                 role="switch"
                 id="gas"
                 name="gas"
+                onChange={handleChange}
               />
               <label
                 className="form-check-label"
@@ -155,6 +184,7 @@ export default function Form() {
                 role="switch"
                 id="itchiness"
                 name="itchiness"
+                onChange={handleChange}
               />
               <label
                 className="form-check-label"
@@ -172,6 +202,7 @@ export default function Form() {
                 role="switch"
                 id="reflux"
                 name="reflux"
+                onChange={handleChange}
               />
               <label
                 className="form-check-label"
@@ -189,6 +220,7 @@ export default function Form() {
                 role="switch"
                 id="redness"
                 name="redness"
+                onChange={handleChange}
               />
               <label
                 className="form-check-label"
@@ -206,6 +238,7 @@ export default function Form() {
                 role="switch"
                 id="noseRunning"
                 name="noseRunning"
+                onChange={handleChange}
               />
               <label
                 className="form-check-label"
@@ -230,6 +263,7 @@ export default function Form() {
                 name="howLong"
                 id="inlineRadio1"
                 defaultValue="Immediately"
+                onChange={handleChange}
               />
               <label className="form-check-label" htmlFor="inlineRadio1">
                 Immediately
@@ -242,6 +276,7 @@ export default function Form() {
                 name="howLong"
                 id="inlineRadio2"
                 defaultValue="Within 1st Hour"
+                onChange={handleChange}
               />
               <label className="form-check-label" htmlFor="inlineRadio2">
                 Within 1st Hour
@@ -254,6 +289,7 @@ export default function Form() {
                 name="howLong"
                 id="inlineRadio3"
                 defaultValue="1 to 2 Hours"
+                onChange={handleChange}
               />
               <label className="form-check-label" htmlFor="inlineRadio3">
                 1 to 2 Hours
@@ -266,6 +302,7 @@ export default function Form() {
                 name="howLong"
                 id="inlineRadio1"
                 defaultValue="2 - 4 hours"
+                onChange={handleChange}
               />
               <label className="form-check-label" htmlFor="inlineRadio1">
                 2 - 4 hours
@@ -284,6 +321,7 @@ export default function Form() {
             rows={1}
             id="other"
             defaultValue={""}
+            onChange={handleChange}
           />
         </div>
         <div className="row">
@@ -292,6 +330,7 @@ export default function Form() {
             className="btn btn-outline-danger"
             id="savebtn"
             value="Send form data!"
+            onClick={handleFormSubmit}
           >
             Save
           </button>
