@@ -8,7 +8,7 @@ function App() {
     day: "",
     month: "",
     year: "",
-    date: "",
+    date: ""
   });
 
   useEffect(() => {

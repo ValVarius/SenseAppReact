@@ -3,47 +3,51 @@ import "./style.css";
 import API from "../../utils/API";
 
 export default function Form(props) {
-  
   const [info, setInfo] = useState({
-    date: props.date.date,
+    date: (props.date.month + "|" + props.date.day + "|" + props.date.year),
     weight: "",
-    title: "",
+    title: "breakfast",
     food: "",
     time: "",
-    bloating: "",
-    headache: "",
-    gas: "",
-    itchiness: "",
-    reflux: "",
-    redness: "",
-    noseRunning: "",
+    bloating: false,
+    headache: false,
+    gas: false,
+    itchiness: false,
+    reflux: false,
+    redness: false,
+    noseRunning: false,
     howLong: "",
     other: "",
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setInfo({
-      ...info,
+
+    setInfo(prevState => ({
+      ...prevState,
       [name]: value,
-    });
+  }))
+
+  };
+  const handleCheckbox = (event) => {
+    setInfo(prevState => ({
+      ...prevState,
+      [event.target.name]: event.target.checked,
+  }))
+    // setInfo({ [event.target.name]: event.target.checked });
   };
   const handleFormSubmit = (event) => {
-
-    event.preventDefault()
+    event.preventDefault();
 
     console.log(info);
 
-    API.mealRegistration(info)
-          .then((newMeal) => {
-            console.log(newMeal);
-          })
-            
-
-  }
+    API.mealRegistration(info).then((newMeal) => {
+      console.log(newMeal);
+    });
+  };
 
   return (
-    <div className="container">
+    <div className="container" >
       <form className="form" id="foodform">
         <div className="row">
           <select
@@ -110,16 +114,20 @@ export default function Form(props) {
         <div className="row">
           <div className="col">
             <div className="input-group mb-3" id="weight">
-              <span className="input-group-text">Morning Weight</span>
-              <input
-                type="text"
-                className="form-control"
-                aria-label="Amount"
-                name="weight"
-                id="weightInput"
-                onChange={handleChange}
-              />
-              <span className="input-group-text">lb</span>
+              {info.title === "breakfast" ? (
+                <>
+                  <span className="input-group-text">Morning Weight</span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Amount"
+                    name="weight"
+                    id="weightInput"
+                    onChange={handleChange}
+                  />
+                  <span className="input-group-text">lb</span>
+                </>
+              ) : null}
             </div>
           </div>
         </div>
@@ -132,7 +140,7 @@ export default function Form(props) {
                 role="switch"
                 id="bloat"
                 name="bloating"
-                onChange={handleChange}
+                onChange={handleCheckbox}
               />
               <label
                 className="form-check-label"
@@ -150,7 +158,7 @@ export default function Form(props) {
                 role="switch"
                 id="head"
                 name="headache"
-                onChange={handleChange}
+                onChange={handleCheckbox}
               />
               <label
                 className="form-check-label"
@@ -168,7 +176,7 @@ export default function Form(props) {
                 role="switch"
                 id="gas"
                 name="gas"
-                onChange={handleChange}
+                onChange={handleCheckbox}
               />
               <label
                 className="form-check-label"
@@ -186,7 +194,7 @@ export default function Form(props) {
                 role="switch"
                 id="itchiness"
                 name="itchiness"
-                onChange={handleChange}
+                onChange={handleCheckbox}
               />
               <label
                 className="form-check-label"
@@ -204,7 +212,7 @@ export default function Form(props) {
                 role="switch"
                 id="reflux"
                 name="reflux"
-                onChange={handleChange}
+                onChange={handleCheckbox}
               />
               <label
                 className="form-check-label"
@@ -222,7 +230,7 @@ export default function Form(props) {
                 role="switch"
                 id="redness"
                 name="redness"
-                onChange={handleChange}
+                onChange={handleCheckbox}
               />
               <label
                 className="form-check-label"
@@ -240,7 +248,7 @@ export default function Form(props) {
                 role="switch"
                 id="noseRunning"
                 name="noseRunning"
-                onChange={handleChange}
+                onChange={handleCheckbox}
               />
               <label
                 className="form-check-label"
