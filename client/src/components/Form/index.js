@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import "./style.css";
 import API from "../../utils/API";
 
-export default function Form() {
+export default function Form(props) {
+  
   const [info, setInfo] = useState({
-    date: "",
+    date: props.date.date,
     weight: "",
     title: "",
     food: "",
@@ -21,7 +22,6 @@ export default function Form() {
   });
 
   const handleChange = (event) => {
-    // console.log(event);
     const { name, value } = event.target;
     setInfo({
       ...info,
@@ -31,6 +31,8 @@ export default function Form() {
   const handleFormSubmit = (event) => {
 
     event.preventDefault()
+
+    console.log(info);
 
     API.mealRegistration(info)
           .then((newMeal) => {

@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import Calendar from "../Calendar";
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <nav className="navbar navbar-expand" aria-label="">
       <div className="container-fluid">
@@ -13,7 +13,9 @@ export default function Navbar() {
             id="navbarlogo"
           />
         </a>
-        <Calendar />
+        { props.date.day ? <Calendar date={props.date} setDate={props.setDate} /> : null }
+
+        {/* <Calendar date={props.date} setDate={props.setDate}/> */}
       </div>
     </nav>
   );

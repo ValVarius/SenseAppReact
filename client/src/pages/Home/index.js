@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 
 import Form from "../../components/Form";
 
-export default function Home() {
+export default function Home(props) {
+  
   return (
     <div>
-      <Form />
+      <Form date={props.date} setDate={props.setDate}/>
     </div>
   );
 }
