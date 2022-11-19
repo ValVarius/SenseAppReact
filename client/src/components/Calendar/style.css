@@ -1,21 +1,28 @@
-#date{
-    margin-right: 25px; 
-    color: black
-  }
 
-  .select-date {
-    margin: auto;
-    font-size: 4vw;
-  }
-  .select-date > select {
-    color: #040c0e;
-    font-style: oblique;
-    background-color: #dca36e;
-    border-radius: 10px;
-    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
-    /* min-height: 5vw; */
-  }
-  .select-date > select:hover {
-    transition: 0.3s all linear;
-    box-shadow: 0px 0px 5px #aac5c6;
-  }
+select{
+  margin-right: 5px;
+}
+
+#date {
+  margin-right: 25px;
+  color: black;
+}
+.select-date {
+  font-size: large;
+  text-align: center;
+  overflow: auto;
+}
+.select-date > select {
+  color: #040c0e;
+  font-style: oblique;
+  background-color: #dca36e;
+  border-radius: 10px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
+}
+.select-date > select:hover {
+  transition: 0.3s all linear;
+  box-shadow: 0px 0px 5px #aac5c6;
+}
+#select-year{
+  margin-right: 5px;
+}
