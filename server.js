@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
+const fileUpload = require("express-fileupload");
+
 const mongoose = require("mongoose");
 
 const routes = require("./routes");
@@ -10,10 +12,10 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(fileUpload());
 
 const origins = [
   "http://localhost:3000", // Development
-  
 ];
 
 app.use(
@@ -29,10 +31,10 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/senseappDB",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/senseappDB", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // Start the API server
 app.listen(PORT, function () {
