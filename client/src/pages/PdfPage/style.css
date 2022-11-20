@@ -1,0 +1,9 @@
+#loadPdf {
+  /* background-color: #dca36e; */
+  width: 50%;
+  margin: auto;
+  margin-top: 25px;
+}
+#inputGroupFileAddon03:hover {
+  background-color: #dca36e;
+}

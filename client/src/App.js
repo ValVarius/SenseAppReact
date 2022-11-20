@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
+import PdfPage from "./pages/PdfPage";
 import Navbar from "./components/Navbar";
-import React, { useState, useEffect, } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   // This should be passed to the form and calendar component
@@ -8,7 +9,7 @@ function App() {
     day: "",
     month: "",
     year: "",
-    date: ""
+    date: "",
   });
 
   useEffect(() => {
@@ -24,7 +25,9 @@ function App() {
   return (
     <div>
       <Navbar date={date} setDate={setDate} />
-      { date.day ? <Home date={date} setDate={setDate} /> : null }
+      {date.day ? <Home date={date} setDate={setDate} /> : null}
+
+      {/* <PdfPage/> */}
 
       {/* <Home date={date} setDate={setDate} /> */}
     </div>
