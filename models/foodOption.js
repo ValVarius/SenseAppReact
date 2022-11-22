@@ -3,11 +3,21 @@ const Schema = mongoose.Schema;
 
 const foodOptionSchema = new Schema({
   name: { type: String, required: true },
-  category: String,
+  category: {
+    String,
+    enum: [
+      "Nuts/OilsMiscFood",
+      "Herb/Spice",
+      "Grain/Starch",
+      "Seafood",
+      "Dairy/Eggs",
+      "Meat",
+      "Fruit",
+      "Vegetable",
+    ],
+    required: true
+  },
   color: String,
-
-
-  // date: { type: Date, default: Date.now }
 });
 
 const FoodOption = mongoose.model("foodOptions", foodOptionSchema);
