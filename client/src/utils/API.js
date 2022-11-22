@@ -17,6 +17,12 @@ const API = {
     pdfRead:function(data){
         return axios.post(`${BASE_URL}/api/pdf`,data)
     },
+    storeUserMenu:function(data){
+        return axios.post(`${BASE_URL}/api/menu`,data)
+    },
+    getMenu:function(){
+        return axios.get(`${BASE_URL}/api/menu`)
+    },
     
 
 

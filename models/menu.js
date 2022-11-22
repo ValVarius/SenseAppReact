@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const foodOptionSchema = new Schema({
+const MenuSchema = new Schema({
   name: { type: String, required: true },
   category: {
-    String,
+    type: String,
+    required: true,
     enum: [
       "Nuts/OilsMiscFood",
       "Herb/Spice",
@@ -14,12 +15,11 @@ const foodOptionSchema = new Schema({
       "Meat",
       "Fruit",
       "Vegetable",
-    ],
-    required: true
+    ]
   },
   color: String,
 });
 
-const FoodOption = mongoose.model("foodOptions", foodOptionSchema);
+const Menu = mongoose.model("Menu", MenuSchema);
 
-module.exports = FoodOption;
+module.exports = Menu;
