@@ -23,6 +23,9 @@ function App() {
     });
   }, []);
 
+
+  
+
   return (
     <div>
       <Navbar date={date} setDate={setDate} />
