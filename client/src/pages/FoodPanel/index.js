@@ -18,78 +18,152 @@ export default function FoodPanel() {
 
   return (
     <div className="container" id="panelContainer">
-      <h1>Vegetables</h1>
-      {menu
-        ? menu.map((item) => {
-            if (item.category === "Vegetable") {
-              return <button key={item._id}>{item.name}</button>;
-            }
-            else return ""
-          })
-        : ""}
-        <h1>Fruit</h1>
-      {menu
-        ? menu.map((item) => {
-            if (item.category === "Fruit") {
-              return <button key={item._id}>{item.name}</button>;
-            }
-            else return ""
-          })
-        : ""}
-      <h1>Meats</h1>
-      {menu
-        ? menu.map((item) => {
-            if (item.category === "Meat") {
-              return <button key={item._id}>{item.name}</button>;
-            }
-            else return ""
-          })
-        : ""}
-        <h1>Dairy/Eggs</h1>
-      {menu
-        ? menu.map((item) => {
-            if (item.category === "Dairy/Eggs") {
-              return <button key={item._id}>{item.name}</button>;
-            }
-            else return ""
-          })
-        : ""}
-        <h1>Grain/Starch</h1>
-      {menu
-        ? menu.map((item) => {
-            if (item.category === "Grain/Starch") {
-              return <button key={item._id}>{item.name}</button>;
-            }
-            else return ""
-          })
-        : ""}
-         <h1>Herb/Spice</h1>
-      {menu
-        ? menu.map((item) => {
-            if (item.category === "Grain/Starch") {
-              return <button key={item._id}>{item.name}</button>;
-            }
-            else return ""
-          })
-        : ""}
-      <h1>Seafood</h1>
-      {menu
-        ? menu.map((item) => {
-            if (item.category === "Seafood") {
-              return <button key={item._id}>{item.name}</button>;
-            }
-            else return ""
-          })
-        : ""}
-      <h1>Nuts/OilsMiscFood</h1>
-      {menu
-        ? menu.map((item) => {
-            if (item.category === "Nuts/OilsMiscFood") {
-              return <button key={item._id}>{item.name}</button>;
-            }
-            else return ""
-          })
-        : ""}
+      <div className="row">
+        <div className="col">
+          <h2 className="menutitle"> Vegetables/Legumes</h2>
+          {menu
+            ? menu.map((item) => {
+                if (item.category === "Vegetable") {
+                  return (
+                    <button
+                      type="button"
+                      className="btn btn-success menubutton"
+                      key={item._id}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                } else return "";
+              })
+            : ""}
+        </div>
+        <div className="col">
+          <h2 className="menutitle"> Fruit</h2>
+          {menu
+            ? menu.map((item) => {
+                if (item.category === "Fruit") {
+                  return (
+                    <button
+                      type="button"
+                      className="btn btn-success menubutton"
+                      key={item._id}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                } else return "";
+              })
+            : ""}
+        </div>
+        <div className="col">
+          <h2 className="menutitle"> Meats</h2>
+          {menu
+            ? menu.map((item) => {
+                if (item.category === "Meat") {
+                  return (
+                    <button
+                      type="button"
+                      className="btn btn-success menubutton"
+                      key={item._id}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                } else return "";
+              })
+            : ""}
+        
+          <h2 className="menutitle"> Dairy/Eggs</h2>
+          {menu
+            ? menu.map((item) => {
+                if (item.category === "Dairy/Eggs") {
+                  return (
+                    <button
+                      type="button"
+                      className="btn btn-success menubutton"
+                      key={item._id}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                } else return "";
+              })
+            : ""}
+        
+          <h2 className="menutitle"> Grain/Starch</h2>
+          {menu
+            ? menu.map((item) => {
+                if (item.category === "Grain/Starch") {
+                  return (
+                    <button
+                      type="button"
+                      className="btn btn-success menubutton"
+                      key={item._id}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                } else return "";
+              })
+            : ""}
+        </div>
+
+        <div className="col">
+          <h2 className="menutitle"> Herb/Spice</h2>
+          {menu
+            ? menu.map((item) => {
+                if (item.category === "Herb/Spice") {
+                  return (
+                    <button
+                      type="button"
+                      className="btn btn-success menubutton"
+                      key={item._id}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                } else return "";
+              })
+            : ""}
+        </div>
+        <div className="col">
+          <h2 className="menutitle"> Seafood</h2>
+          {menu
+            ? menu.map((item) => {
+                if (item.category === "Seafood") {
+                  return (
+                    <button
+                      type="button"
+                      className="btn btn-success menubutton"
+                      key={item._id}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                } else return "";
+              })
+            : ""}
+        </div>
+
+        <div className="col">
+          <h2 className="menutitle"> Nuts/OilsMiscFood</h2>
+          {menu
+            ? menu.map((item) => {
+                if (item.category === "Nuts/OilsMiscFood") {
+                  return (
+                    <button
+                      type="button"
+                      className="btn btn-success menubutton"
+                      key={item._id}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                } else return "";
+              })
+            : ""}
+        </div>
+      </div>
     </div>
   );
 }
