@@ -75,7 +75,8 @@ let meats = [
   { name: "VEAL", category: "Meat", color: "green" },
   { name: "BISON", category: "Meat", color: "green" },
   { name: "VENISON", category: "Meat", color: "green" },
-  { name: "CHICKEN TURKEY", category: "Meat", color: "green" },
+  { name: "CHICKEN", category: "Meat", color: "green" },
+  { name: "TURKEY", category: "Meat", color: "green" },
 ];
 
 let dairyEggs = [
