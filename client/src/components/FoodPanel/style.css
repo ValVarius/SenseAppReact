@@ -1,0 +1,19 @@
+.menubutton{
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 5%
+
+
+}
+.col{
+    max-width: 20%;
+}
+.menutitle{
+    font-size: 20px;
+    font-size: large;
+    font-size: 5%
+}
+#category-select{
+    max-width: 50%;
+    margin: auto;
+}

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./style.css";
 import API from "../../utils/API";
+import FoodPanel from "../FoodPanel";
 
 export default function Form(props) {
   const [info, setInfo] = useState({
-    date: (props.date.month + "|" + props.date.day + "|" + props.date.year),
+    date: props.date.month + "|" + props.date.day + "|" + props.date.year,
     weight: "",
     title: "breakfast",
-    food: "",
+    food: [],
     time: "",
     bloating: false,
     headache: false,
@@ -23,17 +24,16 @@ export default function Form(props) {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setInfo(prevState => ({
+    setInfo((prevState) => ({
       ...prevState,
       [name]: value,
-  }))
-
+    }));
   };
   const handleCheckbox = (event) => {
-    setInfo(prevState => ({
+    setInfo((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.checked,
-  }))
+    }));
     // setInfo({ [event.target.name]: event.target.checked });
   };
   const handleFormSubmit = (event) => {
@@ -47,7 +47,7 @@ export default function Form(props) {
   };
 
   return (
-    <div className="container" >
+    <div className="container">
       <form className="form" id="foodform">
         <div className="row">
           <select
@@ -66,16 +66,17 @@ export default function Form(props) {
           </select>
         </div>
         <div className="row">
+          <FoodPanel food={info.food} setInfo={setInfo} />
           <label htmlFor="food eaten" className="form-label">
             Food Eaten:
           </label>
-          <textarea
+          <textarea disabled
             className="form-control"
             id="foodeaten"
             rows={4}
             name="food"
+            value={info.food}
             type="text"
-            defaultValue={""}
             onChange={handleChange}
           />
         </div>

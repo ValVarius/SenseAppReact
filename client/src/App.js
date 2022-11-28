@@ -29,8 +29,8 @@ function App() {
   return (
     <div>
       <Navbar date={date} setDate={setDate} />
-      {/* {date.day ? <Home date={date} setDate={setDate} /> : null} */}
-      <FoodPanel/>
+      {date.day ? <Home date={date} setDate={setDate} /> : null}
+      {/* <FoodPanel/> */}
       {/* <PdfPage/> */}
 
     </div>
