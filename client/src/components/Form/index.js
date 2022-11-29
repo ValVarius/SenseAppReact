@@ -70,15 +70,22 @@ export default function Form(props) {
           <label htmlFor="food eaten" className="form-label">
             Food Eaten:
           </label>
-          <textarea disabled
-            className="form-control"
-            id="foodeaten"
-            rows={4}
-            name="food"
-            value={info.food}
-            type="text"
-            onChange={handleChange}
-          />
+          {info.food
+            ? info.food.map((result) => {
+                return (
+                  <button
+                    type="button"
+                    className="btn btn-success menubutton"
+                    key={result}
+                    name="food"
+                    value={result}
+                    // onClick={deleteItem}
+                  >
+                    {result}
+                  </button>
+                );
+              })
+            : ""}
         </div>
         <div className="row">
           {/* <div class="col timeslot" id="timeslots"> */}
