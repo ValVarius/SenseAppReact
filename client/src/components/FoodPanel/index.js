@@ -11,8 +11,6 @@ export default function FoodPanel(props) {
   const [searchedItem, setSearchedItem] = useState();
   const [searchedCategory, setSearchedCategory] = useState();
 
-  // setSearchedItem("");
-
   useEffect(() => {
     API.getMenu().then((result) => {
       setMenu(result.data);
@@ -24,8 +22,10 @@ export default function FoodPanel(props) {
   // });
 
   let handleSearch = (event) => {
+    setSearchedCategory("");
     setSearchedItem(event.target.value);
   };
+
   let addItem = (event) => {
     props.setInfo((prevState) => ({
       ...prevState,
@@ -36,15 +36,16 @@ export default function FoodPanel(props) {
   };
 
   let handleSearchedCategory = (event) => {
+    setSearchedItem("");
     setSearchedCategory(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   return (
     <>
       <div className="row">
         <input
-          //aria-label="Search Name"
+          aria-label="Search Name"
           value={searchedItem ? searchedItem : ""}
           name="searchedItem"
           type="text"
@@ -60,6 +61,7 @@ export default function FoodPanel(props) {
           name=""
           onChange={handleSearchedCategory}
         >
+          <option value="">Category</option>
           <option value="Vegetable">Vegetables</option>
           <option value="Fruit">Fruit</option>
           <option value="Meat">Meats</option>

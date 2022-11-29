@@ -46,6 +46,15 @@ export default function Form(props) {
     });
   };
 
+  const deleteItem = (event) => {
+    setInfo((prevState) => ({
+      ...prevState,
+      food: info.food.filter((item) => {
+        return item !== event.target.value
+      } ),
+    }));
+  }
+
   return (
     <div className="container">
       <form className="form" id="foodform">
@@ -73,16 +82,25 @@ export default function Form(props) {
           {info.food
             ? info.food.map((result) => {
                 return (
-                  <button
-                    type="button"
-                    className="btn btn-success menubutton"
-                    key={result}
-                    name="food"
-                    value={result}
-                    // onClick={deleteItem}
-                  >
-                    {result}
-                  </button>
+                  <div key={result}>
+                    <button
+                      type="button"
+                      className="btn btn-success menubutton"
+                      name="food"
+                      value={result}
+                    >
+                      {result}
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-danger menubutton"
+                      
+                      value={result}
+                      onClick={deleteItem}
+                    >
+                      DELETE
+                    </button>
+                  </div>
                 );
               })
             : ""}
