@@ -22,6 +22,7 @@ export default function FoodPanel(props) {
   // });
 
   let handleSearch = (event) => {
+    event.preventDefault()
     setSearchedCategory("");
     setSearchedItem(event.target.value);
   };
@@ -40,6 +41,7 @@ export default function FoodPanel(props) {
     setSearchedCategory(event.target.value);
     // console.log(event.target.value);
   };
+  
 
   return (
     <>
@@ -50,6 +52,7 @@ export default function FoodPanel(props) {
           name="searchedItem"
           type="text"
           placeholder="Search Item"
+          onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
           onChange={handleSearch}
         />
       </div>

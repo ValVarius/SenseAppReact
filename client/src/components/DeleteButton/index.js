@@ -5,7 +5,8 @@ export default function DeleteButton (props) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.preventDefault()
     setIsDeleting(true);
     // do something async
     setTimeout(() => {
@@ -20,7 +21,6 @@ export default function DeleteButton (props) {
 
   return (
     <button
-      // onClick={handleClick()}
       onClick={() => {
         handleClick();
         props.deleteItem(props.item);
