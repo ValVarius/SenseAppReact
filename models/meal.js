@@ -5,7 +5,7 @@ const mealSchema = new Schema({
   date: { type: String, required: true },
   weight: Number,
   title: {type: String, required: true},
-  food: String,
+  food: [String],
   time: String,
   bloating: Boolean,
   headache: Boolean,

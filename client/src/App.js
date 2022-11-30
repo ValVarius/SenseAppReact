@@ -1,6 +1,6 @@
 import Home from "./pages/Home";
 import PdfPage from "./pages/PdfPage";
-import FoodPanel from "./pages/FoodPanel";
+import FoodPanel from "./components/FoodPanel";
 import Navbar from "./components/Navbar";
 import React, { useState, useEffect } from "react";
 

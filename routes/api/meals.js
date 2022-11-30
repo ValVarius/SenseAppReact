@@ -5,7 +5,9 @@ const mealsController = require("../../controllers/mealsController");
 router
 .route("/")
 .get(mealsController.findAll)
-.post(mealsController.create);
+.post(mealsController.create)
+.delete(mealsController.removeByDateTitle)
+
 
 // Matches with "/api/meals/:id"
 router
