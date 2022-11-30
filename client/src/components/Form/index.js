@@ -43,10 +43,14 @@ export default function Form(props) {
     event.preventDefault();
 
     console.log(info);
-
-    API.mealRegistration(info).then((newMeal) => {
+    API.deletePrevious(info).then((res) => {
+      console.log(res);
+      API.mealRegistration(info).then((newMeal) => {
       console.log(newMeal);
     });
+    });
+
+    
   };
 
   const deleteItem = (item) => {
