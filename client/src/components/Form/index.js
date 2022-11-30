@@ -23,6 +23,7 @@ export default function Form(props) {
   });
 
   const handleChange = (event) => {
+    event.preventDefault();
     const { name, value } = event.target;
 
     setInfo((prevState) => ({
@@ -31,6 +32,7 @@ export default function Form(props) {
     }));
   };
   const handleCheckbox = (event) => {
+    event.preventDefault();
     setInfo((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.checked,
@@ -48,7 +50,6 @@ export default function Form(props) {
   };
 
   const deleteItem = (item) => {
-    console.log(item);
     setTimeout(() => {
       setInfo((prevState) => ({
         ...prevState,
@@ -59,9 +60,11 @@ export default function Form(props) {
     }, 3750);
   };
 
+  
+
   return (
     <div className="container">
-      <form className="form" id="foodform">
+      <form className="form" id="foodform" >
         <div className="row">
           <select
             className="form-select"
