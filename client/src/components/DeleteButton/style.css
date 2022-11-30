@@ -59,17 +59,7 @@ button {
   border-top: 0;
 }
 
-/* @keyframes lid-open {
-  0% {
-    rotate: 0;
-  }
-  15%,
-  90% {
-    rotate: -60deg;
-    translate: -70% -20%;
-    width: 20px;
-  }
-} */
+
 @keyframes open {
   0% {
     rotate: 0;

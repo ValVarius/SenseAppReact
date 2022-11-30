@@ -47,14 +47,17 @@ export default function Form(props) {
     });
   };
 
-  const deleteItem = (event) => {
-    setInfo((prevState) => ({
-      ...prevState,
-      food: info.food.filter((item) => {
-        return item !== event.target.value
-      } ),
-    }));
-  }
+  const deleteItem = (item) => {
+    console.log(item);
+    setTimeout(() => {
+      setInfo((prevState) => ({
+        ...prevState,
+        food: info.food.filter((res) => {
+          return res !== item;
+        }),
+      }));
+    }, 3750);
+  };
 
   return (
     <div className="container">
@@ -101,7 +104,7 @@ export default function Form(props) {
                     >
                       DELETE
                     </button> */}
-                    <DeleteButton/>
+                    <DeleteButton deleteItem={deleteItem} item={result} />
                   </div>
                 );
               })

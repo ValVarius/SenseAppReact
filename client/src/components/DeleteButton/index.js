@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 
-export default function DeleteButton () {
+export default function DeleteButton (props) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
 
@@ -16,10 +16,15 @@ export default function DeleteButton () {
       }, 1250);
     }, 2500);
   };
+  
 
   return (
     <button
-      onClick={handleClick}
+      // onClick={handleClick()}
+      onClick={() => {
+        handleClick();
+        props.deleteItem(props.item);
+      }}
       className={isDeleting || isDeleted ? "deleting" : ""}
       disabled={isDeleting || isDeleted}
     >
