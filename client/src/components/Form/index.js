@@ -46,11 +46,9 @@ export default function Form(props) {
     API.deletePrevious(info).then((res) => {
       console.log(res);
       API.mealRegistration(info).then((newMeal) => {
-      console.log(newMeal);
+        console.log(newMeal);
+      });
     });
-    });
-
-    
   };
 
   const deleteItem = (item) => {
@@ -61,15 +59,13 @@ export default function Form(props) {
           return res !== item;
         }),
       }));
-    }, 3750);
+    }, 1750);
   };
-
-  
 
   return (
     <div className="container">
-      <form className="form" id="foodform" >
-        <div className="row">
+      <form className="form" id="foodform">
+        
           <select
             className="form-select"
             aria-label="Default select example"
@@ -84,7 +80,7 @@ export default function Form(props) {
             <option value="afternoon">Afternoon Snack</option>
             <option value="dinner">Dinner</option>
           </select>
-        </div>
+        
         <div className="row">
           <FoodPanel food={info.food} setInfo={setInfo} />
           <label htmlFor="food eaten" className="form-label">
@@ -93,25 +89,17 @@ export default function Form(props) {
           {info.food
             ? info.food.map((result) => {
                 return (
-                  <div key={result}>
-                    <button
-                      type="button"
-                      className="btn btn-success"
-                      name="food"
-                      value={result}
-                    >
-                      {result}
-                    </button>
-                    {/* <button
-                      type="button"
-                      className="btn btn-danger"
-                      
-                      value={result}
-                      onClick={deleteItem}
-                    >
-                      DELETE
-                    </button> */}
-                    <DeleteButton deleteItem={deleteItem} item={result} />
+                  <div className="row justify-content-center foodeaten" key={result}>
+                      <button
+                        type="button"
+                        className="btn btn-success foodeaten-button"
+                        name="food"
+                        value={result}
+                      >
+                        {result}
+                      </button>
+
+                      <DeleteButton deleteItem={deleteItem} item={result} />
                   </div>
                 );
               })

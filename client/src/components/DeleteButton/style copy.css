@@ -1,32 +1,27 @@
 
-.delbuttuon {
-  /* margin-top: 10px; */
-  margin: auto;
-  margin-left: 5px;
+button {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   border: 0;
   background: #ff2c6c;
-  font-size: 10px;
-  font-weight: 1000;
+  font-size: 22px;
+  font-weight: 400;
   font-family: "Euclid Circular A";
   color: #f9f9f9;
   padding: 0 0 0 24px;
-  width: 100px;
-  height: 30px;
+  width: 210px;
+  height: 64px;
+  text-align: left;
   cursor: pointer;
   transition: 0.3s;
-  text-align: center;
 }
 
 .button-text {
-  /* flex: 0 0 120px; */
-  /* flex: 0 0 10px; */
-  /* text-align: left; */
-  /* text-align: left; */
-  /* margin-left: 0%; */
+  flex: 0 0 120px;
+  text-align: center;
 }
 
 .animation {
@@ -34,9 +29,8 @@
   overflow: hidden;
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
-  margin-left: 5px;
+  width: 64px;
+  height: 64px;
   /* scale: 1; */
 }
 
@@ -44,8 +38,8 @@
   overflow: hidden;
   position: relative;
   translate: 0 2px;
-  width: 12px;
-  height: 15px;
+  width: 20px;
+  height: 22px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border: 2px solid #ffffff;
@@ -61,18 +55,18 @@
   90% {
     rotate: -75deg;
     translate: -70% -20%;
-    width: 7px;
+    width: 20px;
   }
 }
 
 .lid {
   position: absolute;
-  top: 10px;
+  top: 19px;
   left: 50%;
   translate: -50% 0;
   transform-origin: 0% 0%;
-  width: 8px;
-  height: 1px;
+  width: 24px;
+  height: 2px;
   background: #ffffff;
 }
 
@@ -99,8 +93,8 @@
   top: -30%;
   left: 50%;
   translate: -50% 0;
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: #ffffff;
 }
@@ -136,13 +130,13 @@ button:disabled {
 }
 
 button.deleting .lid {
-  animation: open 1.5s both;
+  animation: open 2.5s both;
 }
 
 button.deleting .balls {
-  animation: drop 2 linear 0.75s;
+  animation: drop 2 linear 1.25s;
 }
 
 button.deleting .filler {
-  animation: fill 1.5s both;
+  animation: fill 2.5s both;
 }

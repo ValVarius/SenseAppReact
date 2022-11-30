@@ -47,6 +47,7 @@ export default function FoodPanel(props) {
       <div className="row">
         <input
           aria-label="Search Name"
+          id="namesearch"
           value={searchedItem ? searchedItem : ""}
           name="searchedItem"
           type="text"

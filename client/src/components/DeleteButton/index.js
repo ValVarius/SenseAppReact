@@ -14,8 +14,8 @@ export default function DeleteButton (props) {
       setIsDeleted(true);
       setTimeout(() => {
         setIsDeleted(false);
-      }, 1250);
-    }, 2500);
+      }, 625);
+    }, 1500);
   };
   
 
@@ -25,7 +25,7 @@ export default function DeleteButton (props) {
         handleClick();
         props.deleteItem(props.item);
       }}
-      className={isDeleting || isDeleted ? "deleting" : ""}
+      className={isDeleting || isDeleted ? "delbuttuon deleting " : "delbuttuon "}
       disabled={isDeleting || isDeleted}
     >
       <span className="button-text">
