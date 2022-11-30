@@ -6,7 +6,7 @@ export default function DeleteButton (props) {
   const [isDeleted, setIsDeleted] = useState(false);
 
   const handleClick = (event) => {
-    event.preventDefault()
+    // event.preventDefault()
     setIsDeleting(true);
     // do something async
     setTimeout(() => {
