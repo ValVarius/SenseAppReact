@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import API from "../../utils/API";
 import FoodPanel from "../FoodPanel";
+import DeleteButton from "../DeleteButton";
 
 export default function Form(props) {
   const [info, setInfo] = useState({
@@ -85,21 +86,22 @@ export default function Form(props) {
                   <div key={result}>
                     <button
                       type="button"
-                      className="btn btn-success menubutton"
+                      className="btn btn-success"
                       name="food"
                       value={result}
                     >
                       {result}
                     </button>
-                    <button
+                    {/* <button
                       type="button"
-                      className="btn btn-danger menubutton"
+                      className="btn btn-danger"
                       
                       value={result}
                       onClick={deleteItem}
                     >
                       DELETE
-                    </button>
+                    </button> */}
+                    <DeleteButton/>
                   </div>
                 );
               })
