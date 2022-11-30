@@ -39,7 +39,6 @@ export default function FoodPanel(props) {
   let handleSearchedCategory = (event) => {
     setSearchedItem("");
     setSearchedCategory(event.target.value);
-    // console.log(event.target.value);
   };
   
 
@@ -62,10 +61,9 @@ export default function FoodPanel(props) {
           className="form-select"
           aria-label="Default select example"
           id="category-select"
-          name=""
-          onChange={handleSearchedCategory}
+          onClick={handleSearchedCategory}
         >
-          <option value="">Category</option>
+          <option value="">Search by Category</option>
           <option value="Vegetable">Vegetables</option>
           <option value="Fruit">Fruit</option>
           <option value="Meat">Meats</option>
