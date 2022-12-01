@@ -25,7 +25,6 @@ export default function Calendar(props) {
       // make sure the number of days correspond with the selected month
   const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const  setDays = () => {
-    console.log(props.date.month);
     var optionCount = $("#select-day option").length,
       daysCount = daysInMonth[props.date.month-1];
 
@@ -48,7 +47,6 @@ export default function Calendar(props) {
   // Display an appropriate # of years
   const setYears = () => {
       let year = props.date.year;
-      console.log(year);
       for (let i = 0; i < 5; i++) {
         $("#select-year").append(
           $("<option></option>")
