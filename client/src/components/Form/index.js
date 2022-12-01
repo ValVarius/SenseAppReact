@@ -23,7 +23,7 @@ export default function Form(props) {
   });
 
   const handleChange = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     const { name, value } = event.target;
 
     setInfo((prevState) => ({
@@ -32,7 +32,7 @@ export default function Form(props) {
     }));
   };
   const handleCheckbox = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     setInfo((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.checked,
