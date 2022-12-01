@@ -28,6 +28,7 @@ export default function FoodPanel(props) {
   };
 
   let addItem = (event) => {
+    // check if value already exist and only store if it doesn...
     props.setInfo((prevState) => ({
       ...prevState,
       food: props.food.concat(event.target.value),
