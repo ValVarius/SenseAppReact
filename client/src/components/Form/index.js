@@ -150,7 +150,7 @@ export default function Form(props) {
         </div>
 
         <label id="reactionslabel" htmlFor="food eaten" className="form-label">
-          How long after meal:
+          Side Effects:
         </label>
         <div className="checks">
           <div className="form-check form-switch">

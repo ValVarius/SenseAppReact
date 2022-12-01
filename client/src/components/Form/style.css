@@ -44,25 +44,28 @@
 
 #timeandweight {
   display: flex;
+  margin: auto;
   margin-top: 10px;
+
 }
 
 #time {
   width: fit-content;
-  /* margin-top: 10px; */
+  height: fit-content;
+  
 }
 #weight {
   width: fit-content;
   margin: auto;
   margin-right: 0%;
 }
+
+
+/* FORM CHECK INPUT RADIO BUTTON */
 .form-check {
   margin: auto;
   width: fit-content;
 }
-
-/* FORM CHECK INPUT RADIO BUTTON */
-
 .checks {
   display: flex;
   margin-top: 10px;
