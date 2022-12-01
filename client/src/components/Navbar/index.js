@@ -15,7 +15,6 @@ export default function Navbar(props) {
         </a>
         { props.date.day ? <Calendar date={props.date} setDate={props.setDate} /> : null }
 
-        {/* <Calendar date={props.date} setDate={props.setDate}/> */}
       </div>
     </nav>
   );
