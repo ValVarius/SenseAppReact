@@ -45,7 +45,7 @@ export default function FoodPanel(props) {
 
   return (
     <>
-      <div className="row">
+      
         <input
           aria-label="Search Name"
           id="namesearch"
@@ -56,9 +56,9 @@ export default function FoodPanel(props) {
           onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
           onChange={handleSearch}
         />
-      </div>
+      
       {/* MAYBE THE MENU BY CATEGORY CAN APPEAR AS A MODAL?? */}
-      <div className="row">
+     
         <select
           className="form-select"
           aria-label="Default select example"
@@ -75,7 +75,7 @@ export default function FoodPanel(props) {
           <option value="Seafood">Seafood</option>
           <option value="Nuts/OilsMiscFood">Nuts/OilsMiscFood</option>
         </select>
-      </div>
+      
       <div>
         {searchedCategory
           ? menu.map((item) => {
