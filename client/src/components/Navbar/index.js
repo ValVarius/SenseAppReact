@@ -14,8 +14,8 @@ export default function Navbar(props) {
           />
         </a>
         { props.date.day ? <Calendar date={props.date} setDate={props.setDate} /> : null }
+              {/* {date.date ? <Calendar date={date} setDate={setDate}/> : ""} */}
 
-        {/* <Calendar date={props.date} setDate={props.setDate}/> */}
       </div>
     </nav>
   );

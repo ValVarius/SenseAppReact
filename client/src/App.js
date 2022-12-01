@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import PdfPage from "./pages/PdfPage";
 import FoodPanel from "./components/FoodPanel";
+import Calendar from "./components/Calendar";
 import Navbar from "./components/Navbar";
 import React, { useState, useEffect } from "react";
 
@@ -29,7 +30,8 @@ function App() {
   return (
     <div>
       <Navbar date={date} setDate={setDate} />
-      {date.day ? <Home date={date} setDate={setDate} /> : null}
+      {date.date ? <Home date={date} setDate={setDate} /> : null}
+      {/* {date.date ? <Calendar date={date} setDate={setDate}/> : ""} */}
       {/* <FoodPanel/> */}
       {/* <PdfPage/> */}
 
