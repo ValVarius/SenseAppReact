@@ -1,5 +1,4 @@
-
-#foodform{
+#foodform {
   margin-top: 20px;
   padding-top: 30px;
 }
@@ -22,15 +21,19 @@
   box-shadow: 0px 0px 5px #aac5c6;
   background-color: rgba(2, 228, 231, 0.8);
 }
+#mealTitle option {
+  font-size: 20px;
+}
+
 .foodeaten {
-  width: 100%;
+  margin-top: 5px;
+  display: flex;
 }
 
 .foodeaten-button {
   max-width: 300px;
-  margin:auto;
+  margin: auto;
   margin-right: 5px;
-  /* margin-left: 30%; */
 }
 
 #other {
@@ -39,18 +42,31 @@
   margin: auto;
 }
 
+#timeandweight {
+  display: flex;
+  margin-top: 10px;
+}
+
 #time {
   width: fit-content;
-  max-width: 50%;
-  margin: auto;
+  /* margin-top: 10px; */
 }
 #weight {
   width: fit-content;
-  max-width: 50%;
   margin: auto;
+  margin-right: 0%;
+}
+.form-check {
+  margin: auto;
+  width: fit-content;
 }
 
 /* FORM CHECK INPUT RADIO BUTTON */
+
+.checks {
+  display: flex;
+  margin-top: 10px;
+}
 .form-check-input {
   box-shadow: 0px 0px 5px #aac5c6;
   border: 0.2vw solid rgba(2, 228, 231, 0.8);
@@ -64,23 +80,23 @@
   border: 0.1vw solid #344056;
   background-color: rgba(2, 228, 231, 0.8);
 }
-
-#dropDown {
-  border: 0.2vw solid rgba(2, 228, 231, 0.8);
-  color: #fbfbf8;
-  background-color: #344056;
-  box-shadow: 0px 0px 5px #aac5c6;
+/* RADIOS */
+.form-label{
+  margin: auto;
+  margin-top: 10px;
+  font-size: large;
+  font-weight: 1000;
 }
-#dropDown:hover {
-  transition: 0.3s all linear;
-  background-color: rgba(2, 228, 231, 0.8);
+#howlong{
+  display: flex;
+  margin-bottom: 20px;
 }
-
 /* Save Button */
 #savebtn {
   transition: 0.3s all linear;
   box-shadow: 0px 0px 5px #aac5c6;
-  max-width: 50%;
+  width: 200px;
   margin: auto;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
