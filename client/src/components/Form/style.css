@@ -2,25 +2,26 @@
   margin-top: 20px;
   padding-top: 30px;
 }
-
 #mealTitle {
   box-shadow: 0px 0px 5px #aac5c6;
   border-radius: 10px;
   text-align: center;
   font-size: xx-large;
   font-weight: bolder;
-  background-color: #1b3239;
+  background-color: #344056;
   max-width: 80%;
   margin: auto;
   border: 0.2vw solid rgba(2, 228, 231, 0.8);
   color: #fbfbf8;
-  background-color: #344056;
+  /* background-image: "../../public/icons8-down-arrow-flaticons-lineal-color-96.png"; */
 }
 #mealTitle:hover {
   transition: 0.3s all linear;
   box-shadow: 0px 0px 5px #aac5c6;
+  color: #fbfbf8;
   background-color: rgba(2, 228, 231, 0.8);
 }
+
 #mealTitle option {
   font-size: 20px;
 }
@@ -46,20 +47,17 @@
   display: flex;
   margin: auto;
   margin-top: 10px;
-
 }
 
 #time {
   width: fit-content;
   height: fit-content;
-  
 }
 #weight {
   width: fit-content;
   margin: auto;
   margin-right: 0%;
 }
-
 
 /* FORM CHECK INPUT RADIO BUTTON */
 .form-check {
@@ -84,13 +82,13 @@
   background-color: rgba(2, 228, 231, 0.8);
 }
 /* RADIOS */
-.form-label{
+.form-label {
   margin: auto;
   margin-top: 10px;
   font-size: large;
   font-weight: 1000;
 }
-#howlong{
+#howlong {
   display: flex;
   margin-bottom: 20px;
 }

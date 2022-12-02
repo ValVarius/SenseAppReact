@@ -1,60 +1,42 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
-import $ from "jquery";
+// import $ from "jquery";
 
 export default function Calendar(props) {
+  const [daysOptions, setdaysOptions] = useState([]);
+  const [yearOptions, setyearOptions] = useState([]);
   useEffect(() => {
-    
-    setDays();
-    setYears();
-    // setDate();
-    // setYears(5); // set the next five years in dropdown
-
-    // $("#select-month").change(function () {
-    //   let monthIndex = $("#select-month").val();
-    //   setDays(monthIndex);
-    // });
-
-    
-
-    
-
-    
+    setyearOptions(setYears());
+    setdaysOptions(setDays());
   }, []);
 
-      // make sure the number of days correspond with the selected month
+  // make sure the number of days correspond with the selected month
   const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  const  setDays = () => {
-    var optionCount = $("#select-day option").length,
-      daysCount = daysInMonth[props.date.month-1];
-
-    if (optionCount < daysCount) {
-      for (var i = optionCount; i < daysCount; i++) {
-        $("#select-day").append(
-          $("<option></option>")
-            .attr("value", i + 1)
-            .text(i + 1)
-        );
-      }
-    } else {
-      for (var i = daysCount; i < optionCount; i++) {
-        var optionItem = "#select-day option[value=" + (i + 1) + "]";
-        $(optionItem).remove();
-      }
+  const setDays = () => {
+    let display = [];
+    for (let i = 1; i <= daysInMonth[props.date.month - 1]; i++) {
+      display.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
     }
-  }
 
-  // Display an appropriate # of years
+    return display;
+  };
   const setYears = () => {
-      let year = props.date.year;
-      for (let i = 0; i < 5; i++) {
-        $("#select-year").append(
-          $("<option></option>")
-            .attr("value", year - i)
-            .text(year - i)
-        );
-      }
+    let display = [];
+    for (let i = 0; i < 3; i++) {
+      display.push(
+        <option key={props.date.year - i} value={props.date.year - i}>
+          {props.date.year - i}
+        </option>
+      );
     }
+
+    return display;
+  };
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -66,8 +48,20 @@ export default function Calendar(props) {
 
   return (
     <div className="select-date float-right" onChange={handleChange}>
-      <select name="day" id="select-day" value={props.date.day} onChange={handleChange}></select>
-      <select name="month" id="select-month" value={props.date.month-1} onChange={handleChange}>
+      <select
+        name="day"
+        id="select-day"
+        value={props.date.day}
+        onChange={handleChange}
+      >
+        {daysOptions}
+      </select>
+      <select
+        name="month"
+        id="select-month"
+        value={props.date.month - 1}
+        onChange={handleChange}
+      >
         <option value="0">January</option>
         <option value="1">February</option>
         <option value="2">March</option>
@@ -81,7 +75,7 @@ export default function Calendar(props) {
         <option value="10">November</option>
         <option value="11">December</option>
       </select>
-      <select name="year" id="select-year"></select>
+      <select name="year" id="select-year">{yearOptions}</select>
       <button className="btn btn-outline-danger" id="daysearch">
         Search
       </button>
