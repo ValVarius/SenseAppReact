@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import API from "../../utils/API";
 import "./style.css";
 // import $ from "jquery";
 
 export default function Calendar(props) {
   const [daysOptions, setdaysOptions] = useState([]);
   const [yearOptions, setyearOptions] = useState([]);
+
   useEffect(() => {
     setyearOptions(setYears());
     setdaysOptions(setDays());
@@ -37,17 +39,26 @@ export default function Calendar(props) {
     return display;
   };
 
-
-  const handleChange = (event) => {
+  const handleChange =  (event) => {
     const { name, value } = event.target;
     props.setDate({
       ...props.date,
       [name]: value,
-    });
-  };
+      // date: props.date.month + "|" + props.date.day + "|" + props.date.year,
+    })
 
+  }
+
+  const searchDay = (event) => {
+    event.preventDefault();
+    // console.log(props.date);
+    console.log(event);
+    API.getMealsbyDay(props.date).then(res => {
+      console.log(res);
+    });
+  }
   return (
-    <div className="select-date float-right" onChange={handleChange}>
+    <div className="select-date float-right" >
       <select
         name="day"
         id="select-day"
@@ -59,24 +70,36 @@ export default function Calendar(props) {
       <select
         name="month"
         id="select-month"
-        value={props.date.month - 1}
+        value={props.date.month}
         onChange={handleChange}
       >
-        <option value="0">January</option>
-        <option value="1">February</option>
-        <option value="2">March</option>
-        <option value="3">April</option>
-        <option value="4">May</option>
-        <option value="5">June</option>
-        <option value="6">July</option>
-        <option value="7">August</option>
-        <option value="8">September</option>
-        <option value="9">October</option>
-        <option value="10">November</option>
-        <option value="11">December</option>
+        {/* <option value="0">January</option> */}
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
       </select>
-      <select name="year" id="select-year">{yearOptions}</select>
-      <button className="btn btn-outline-danger" id="daysearch">
+      <select
+        name="year"
+        id="select-year"
+        value={props.date.year}
+        onChange={handleChange}
+      >
+        {yearOptions}
+      </select>
+      <button
+        className="btn btn-outline-danger"
+        id="daysearch"
+        onClick={searchDay}
+      >
         Search
       </button>
     </div>

@@ -20,5 +20,8 @@ const API = {
   getMenu: function () {
     return axios.get(`${BASE_URL}/api/menu`);
   },
+  getMealsbyDay: function (data) {
+    return axios.get(`${BASE_URL}/api/meals`,data);
+  },
 };
 export default API;
