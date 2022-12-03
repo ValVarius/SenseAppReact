@@ -21,7 +21,7 @@ const API = {
     return axios.get(`${BASE_URL}/api/menu`);
   },
   getMealsbyDay: function (data) {
-    return axios.get(`${BASE_URL}/api/meals`,data);
+    return axios.get(`${BASE_URL}/api/meals/day?date=${data}`);
   },
 };
 export default API;
