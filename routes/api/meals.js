@@ -9,11 +9,18 @@ router
 .delete(mealsController.removeByDateTitle)
 
 
-// Matches with "/api/meals/:id"
+// Matches with "/api/meals/id/:id"
 router
-  .route("/:id")
+  .route("/id/:id")
   .get(mealsController.findById)
   .put(mealsController.update)
   .delete(mealsController.remove);
+
+// Matches with "/api/meals/day"
+router
+  .route("/day")
+  .get(mealsController.findAll)
+  // .put(mealsController.update)
+  // .delete(mealsController.remove);
 
 module.exports = router;

@@ -46,15 +46,21 @@ export default function Calendar(props) {
       [name]: value,
       // date: props.date.month + "|" + props.date.day + "|" + props.date.year,
     })
-
+    props.setDate({
+      ...props.date,
+      [name]: value,
+      date: event.target.parentElement.children[1].value + "|" + event.target.parentElement.children[0].value + "|" + event.target.parentElement.children[2].value,
+    })
   }
 
   const searchDay = (event) => {
     event.preventDefault();
     // console.log(props.date);
-    console.log(event);
-    API.getMealsbyDay(props.date).then(res => {
-      console.log(res);
+    // console.log("Day: ", event.target.parentElement.children[0].value);
+    // console.log("Month: ", event.target.parentElement.children[1].value);
+    // console.log("Year: ", event.target.parentElement.children[2].value);
+    API.getMealsbyDay(props.date.date).then(res => {
+      console.log(res.data);
     });
   }
   return (
