@@ -3,6 +3,7 @@ import PdfPage from "./pages/PdfPage";
 import FoodPanel from "./components/FoodPanel";
 import Calendar from "./components/Calendar";
 import Navbar from "./components/Navbar";
+import background from "./public/newdots.jpg";
 import React, { useState, useEffect } from "react";
 
 function App() {
@@ -24,19 +25,23 @@ function App() {
     });
   }, []);
 
-
-  
-
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        width: "100vw",
+        height: "100vh",
+      }}
+    >
       <Navbar date={date} setDate={setDate} />
       {date.date ? <Home date={date} setDate={setDate} /> : null}
       {/* {date.date ? <Calendar date={date} setDate={setDate}/> : ""} */}
       {/* <FoodPanel/> */}
       {/* <PdfPage/> */}
       {/* <img src="./public/icons8-down-arrow-flaticons-lineal-color-96.png"></img> */}
-      
-
     </div>
   );
 }
