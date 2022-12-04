@@ -22,17 +22,24 @@ export default function FoodPanel(props) {
   // });
 
   let handleSearch = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     setSearchedCategory("");
     setSearchedItem(event.target.value);
   };
 
   let addItem = (event) => {
     // check if value already exist and only store if it doesn...
-    props.setInfo((prevState) => ({
-      ...prevState,
-      food: props.food.concat(event.target.value),
-    }));
+    
+    let check = (item) => {
+      return item === event.target.value;
+    };
+    if (!props.food.some(check)) {
+      props.setInfo((prevState) => ({
+        ...prevState,
+        food: props.food.concat(event.target.value),
+      }));
+    }
+    
     setSearchedItem("");
     setSearchedCategory("");
   };
@@ -41,41 +48,41 @@ export default function FoodPanel(props) {
     setSearchedItem("");
     setSearchedCategory(event.target.value);
   };
-  
 
   return (
     <>
-      
-        <input
-          aria-label="Search Name"
-          id="namesearch"
-          value={searchedItem ? searchedItem : ""}
-          name="searchedItem"
-          type="text"
-          placeholder="Search Item"
-          onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-          onChange={handleSearch}
-        />
-      
+      <input
+        aria-label="Search Name"
+        id="namesearch"
+        value={searchedItem ? searchedItem : ""}
+        name="searchedItem"
+        type="text"
+        placeholder="Search Item"
+        onKeyPress={(e) => {
+          e.key === "Enter" && e.preventDefault();
+        }}
+        onChange={handleSearch}
+      />
+
       {/* MAYBE THE MENU BY CATEGORY CAN APPEAR AS A MODAL?? */}
-     
-        <select
-          className="form-select"
-          aria-label="Default select example"
-          id="category-select"
-          onClick={handleSearchedCategory}
-        >
-          <option value="">Search by Category</option>
-          <option value="Vegetable">Vegetables</option>
-          <option value="Fruit">Fruit</option>
-          <option value="Meat">Meats</option>
-          <option value="Dairy/Eggs">Dairy/Eggs</option>
-          <option value="Grain/Starch">Grain/Starch</option>
-          <option value="Herb/Spice">Herb/Spice</option>
-          <option value="Seafood">Seafood</option>
-          <option value="Nuts/OilsMiscFood">Nuts/OilsMiscFood</option>
-        </select>
-      
+
+      <select
+        className="form-select"
+        aria-label="Default select example"
+        id="category-select"
+        onClick={handleSearchedCategory}
+      >
+        <option value="">Search by Category</option>
+        <option value="Vegetable">Vegetables</option>
+        <option value="Fruit">Fruit</option>
+        <option value="Meat">Meats</option>
+        <option value="Dairy/Eggs">Dairy/Eggs</option>
+        <option value="Grain/Starch">Grain/Starch</option>
+        <option value="Herb/Spice">Herb/Spice</option>
+        <option value="Seafood">Seafood</option>
+        <option value="Nuts/OilsMiscFood">Nuts/OilsMiscFood</option>
+      </select>
+
       <div>
         {searchedCategory
           ? menu.map((item) => {
