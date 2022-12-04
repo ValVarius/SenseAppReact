@@ -7,21 +7,54 @@ import DeleteButton from "../DeleteButton";
 export default function Form(props) {
   const [info, setInfo] = useState({
     // date: props.date.month + "|" + props.date.day + "|" + props.date.year,
-    date: props.date.date,
-    weight: "",
     title: "breakfast",
-    food: [],
-    time: "",
-    bloating: false,
-    headache: false,
-    gas: false,
-    itchiness: false,
-    reflux: false,
-    redness: false,
-    noseRunning: false,
-    howLong: "",
-    other: "",
   });
+
+  useEffect(() => {
+    setInfo((prevState) => ({
+      ...prevState,
+      date: props.date.date,
+      weight: "",
+      food: [],
+      time: "",
+      bloating: false,
+      headache: false,
+      gas: false,
+      itchiness: false,
+      reflux: false,
+      redness: false,
+      noseRunning: false,
+      howLong: "",
+      other: "",
+    }));
+    for (let i = 0; i < props.logs.length; i++) {
+      if (props.logs[i].title === info.title) {
+        setInfo((prevState) => ({
+          ...prevState,
+          date: props.logs[i].date,
+          weight: props.logs[i].weight,
+          food: props.logs[i].food,
+          time: props.logs[i].time,
+          bloating: props.logs[i].bloating,
+          headache: props.logs[i].headache,
+          gas: props.logs[i].gas,
+          itchiness: props.logs[i].itchiness,
+          reflux: props.logs[i].reflux,
+          redness: props.logs[i].redness,
+          noseRunning: props.logs[i].noseRunning,
+          howLong: props.logs[i].howLong,
+          other: props.logs[i].other,
+        }));
+      }
+    }
+  }, [info.title]);
+
+  useEffect(() => {
+    setInfo((prevState) => ({
+      ...prevState,
+      date: props.date.date,
+    }));
+  }, [props.date.date]);
 
   const handleChange = (event) => {
     // event.preventDefault();
@@ -63,14 +96,6 @@ export default function Form(props) {
       }));
     }, 1750);
   };
-
-  useEffect(() =>{
-    setInfo((prevState) => ({
-      ...prevState,
-      date: props.date.date,
-    }));
-     console.log("value changed!")
-    }, [props.date.date]);
 
   return (
     <div className="container">
@@ -173,6 +198,7 @@ export default function Form(props) {
               role="switch"
               id="bloat"
               name="bloating"
+              checked={info.bloating}
               onChange={handleCheckbox}
             />
             <label
@@ -190,6 +216,7 @@ export default function Form(props) {
               role="switch"
               id="head"
               name="headache"
+              checked={info.headache}
               onChange={handleCheckbox}
             />
             <label
@@ -207,6 +234,7 @@ export default function Form(props) {
               role="switch"
               id="gas"
               name="gas"
+              checked={info.gas}
               onChange={handleCheckbox}
             />
             <label
@@ -224,6 +252,7 @@ export default function Form(props) {
               role="switch"
               id="itchiness"
               name="itchiness"
+              checked={info.itchiness}
               onChange={handleCheckbox}
             />
             <label
@@ -242,6 +271,7 @@ export default function Form(props) {
               role="switch"
               id="reflux"
               name="reflux"
+              checked={info.reflux}
               onChange={handleCheckbox}
             />
             <label
@@ -259,6 +289,7 @@ export default function Form(props) {
               role="switch"
               id="redness"
               name="redness"
+              checked={info.redness}
               onChange={handleCheckbox}
             />
             <label
@@ -276,6 +307,7 @@ export default function Form(props) {
               role="switch"
               id="noseRunning"
               name="noseRunning"
+              checked={info.noseRunning}
               onChange={handleCheckbox}
             />
             <label
@@ -300,6 +332,7 @@ export default function Form(props) {
               name="howLong"
               id="inlineRadio1"
               defaultValue="Immediately"
+              checked={info.howLong=="Immediately" ? true:false}
               onChange={handleChange}
             />
             <label className="form-check-label" htmlFor="inlineRadio1">
@@ -313,6 +346,7 @@ export default function Form(props) {
               name="howLong"
               id="inlineRadio2"
               defaultValue="Within 1st Hour"
+              checked={info.howLong=="Within 1st Hour" ? true:false}
               onChange={handleChange}
             />
             <label className="form-check-label" htmlFor="inlineRadio2">
@@ -326,6 +360,7 @@ export default function Form(props) {
               name="howLong"
               id="inlineRadio3"
               defaultValue="1 to 2 Hours"
+              checked={info.howLong=="1 to 2 Hours" ? true:false}
               onChange={handleChange}
             />
             <label className="form-check-label" htmlFor="inlineRadio3">
@@ -339,6 +374,7 @@ export default function Form(props) {
               name="howLong"
               id="inlineRadio1"
               defaultValue="2 - 4 hours"
+              checked={info.howLong=="2 - 4 hours" ? true:false}
               onChange={handleChange}
             />
             <label className="form-check-label" htmlFor="inlineRadio1">
