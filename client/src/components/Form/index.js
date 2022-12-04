@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import API from "../../utils/API";
 import FoodPanel from "../FoodPanel";
@@ -6,7 +6,8 @@ import DeleteButton from "../DeleteButton";
 
 export default function Form(props) {
   const [info, setInfo] = useState({
-    date: props.date.month + "|" + props.date.day + "|" + props.date.year,
+    // date: props.date.month + "|" + props.date.day + "|" + props.date.year,
+    date: props.date.date,
     weight: "",
     title: "breakfast",
     food: [],
@@ -33,6 +34,7 @@ export default function Form(props) {
   };
   const handleCheckbox = (event) => {
     // event.preventDefault();
+    console.log(event);
     setInfo((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.checked,
@@ -62,9 +64,20 @@ export default function Form(props) {
     }, 1750);
   };
 
+  useEffect(() =>{
+    setInfo((prevState) => ({
+      ...prevState,
+      date: props.date.date,
+    }));
+     console.log("value changed!")
+    }, [props.date.date]);
+
   return (
     <div className="container">
       <form className="form" id="foodform">
+        <div name="date" onChange={handleChange}>
+          {props.date.date}
+        </div>
         <select
           className="form-select"
           aria-label="Default select example"

@@ -6,7 +6,7 @@ const API = {
     return axios.post(`${BASE_URL}/api/meals`, data);
   },
   deletePrevious: function(data) {
-    return axios.delete(`${BASE_URL}/api/meals`, data)
+    return axios.delete(`${BASE_URL}/api/meals`, {data})
   },
   deleteId: function (id) {
     return axios.delete(`${BASE_URL}/api/meals/${id}`);
