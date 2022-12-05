@@ -8,45 +8,57 @@ export default function Form(props) {
   const [info, setInfo] = useState({
     // date: props.date.month + "|" + props.date.day + "|" + props.date.year,
     title: "breakfast",
+    date: props.date.date,
+    weight: "",
+    food: [],
+    time: "",
+    bloating: { occurred: false, when: "Immediately" },
+    headache: { occurred: false, when: "Immediately" },
+    gas: { occurred: false, when: "Immediately" },
+    itchiness: { occurred: false, when: "Immediately" },
+    reflux: { occurred: false, when: "Immediately" },
+    redness: { occurred: false, when: "Immediately" },
+    noseRunning: { occurred: false, when: "Immediately" },
+    other: "",
   });
 
   useEffect(() => {
+    console.log(info.bloating);
     setInfo((prevState) => ({
       ...prevState,
       date: props.date.date,
       weight: "",
       food: [],
       time: "",
-      bloating: false,
-      headache: false,
-      gas: false,
-      itchiness: false,
-      reflux: false,
-      redness: false,
-      noseRunning: false,
-      howLong: "",
+      bloating: { occurred: false, when: "Immediately" },
+      headache: { occurred: false, when: "Immediately" },
+      gas: { occurred: false, when: "Immediately" },
+      itchiness: { occurred: false, when: "Immediately" },
+      reflux: { occurred: false, when: "Immediately" },
+      redness: { occurred: false, when: "Immediately" },
+      noseRunning: { occurred: false, when: "Immediately" },
       other: "",
     }));
-    for (let i = 0; i < props.logs.length; i++) {
-      if (props.logs[i].title === info.title) {
-        setInfo((prevState) => ({
-          ...prevState,
-          date: props.logs[i].date,
-          weight: props.logs[i].weight,
-          food: props.logs[i].food,
-          time: props.logs[i].time,
-          bloating: props.logs[i].bloating,
-          headache: props.logs[i].headache,
-          gas: props.logs[i].gas,
-          itchiness: props.logs[i].itchiness,
-          reflux: props.logs[i].reflux,
-          redness: props.logs[i].redness,
-          noseRunning: props.logs[i].noseRunning,
-          howLong: props.logs[i].howLong,
-          other: props.logs[i].other,
-        }));
-      }
-    }
+    // for (let i = 0; i < props.logs.length; i++) {
+    //   if (props.logs[i].title === info.title) {
+    //     setInfo((prevState) => ({
+    //       ...prevState,
+    //       date: props.logs[i].date,
+    //       weight: props.logs[i].weight,
+    //       food: props.logs[i].food,
+    //       time: props.logs[i].time,
+    //       bloating: props.logs[i].bloating,
+    //       headache: props.logs[i].headache,
+    //       gas: props.logs[i].gas,
+    //       itchiness: props.logs[i].itchiness,
+    //       reflux: props.logs[i].reflux,
+    //       redness: props.logs[i].redness,
+    //       noseRunning: props.logs[i].noseRunning,
+    //       howLong: props.logs[i].howLong,
+    //       other: props.logs[i].other,
+    //     }));
+    //   }
+    // }
   }, [info.title]);
 
   useEffect(() => {
@@ -67,23 +79,37 @@ export default function Form(props) {
   };
   const handleCheckbox = (event) => {
     // event.preventDefault();
-    console.log(event);
+    console.log(event.target.name);
+    console.log(event.target.checked);
+    // console.log(event.target.parentElement.parentElement.children[1].value);
+
     setInfo((prevState) => ({
       ...prevState,
-      [event.target.name]: event.target.checked,
+      [event.target.name]: {
+        occurred: event.target.checked,
+        when: "Immediately",
+      },
     }));
-    // setInfo({ [event.target.name]: event.target.checked });
   };
+  const handleRadio = (event) => {
+    console.log(event.target);
+    console.log(event.target.name);
+    console.log(event.target.value);
+    setInfo((prevState) => ({
+      ...prevState,
+      [event.target.name]: {occurred:true, when:event.target.value}
+    }));
+  }
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
     console.log(info);
-    API.deletePrevious(info).then((res) => {
-      console.log(res);
-      API.mealRegistration(info).then((newMeal) => {
-        console.log(newMeal);
-      });
-    });
+    // API.deletePrevious(info).then((res) => {
+    //   console.log(res);
+    //   API.mealRegistration(info).then((newMeal) => {
+    //     console.log(newMeal);
+    //   });
+    // });
   };
 
   const deleteItem = (item) => {
@@ -96,6 +122,7 @@ export default function Form(props) {
       }));
     }, 1750);
   };
+
 
   return (
     <div className="container">
@@ -190,166 +217,167 @@ export default function Form(props) {
         <label id="reactionslabel" htmlFor="food eaten" className="form-label">
           Side Effects:
         </label>
-        <div className= "effect">
-        <div className="checks">
+        <div className="effect">
           {/* BLOATING  */}
-          <div className="form-check form-switch">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="bloat"
-              name="bloating"
-              checked={info.bloating}
-              onChange={handleCheckbox}
-            />
-            <label
-              className="form-check-label"
-              htmlFor="flexSwitchCheckDefault"
-            >
-              Bloating
-            </label>
-          </div>
-          
-          <div className="timeframeDiv">
-            <div className="form-check form-check-inline">
+          <div className="checks">
+            <div className="form-check form-switch">
               <input
                 className="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio1"
-                defaultValue="Immediately"
-                checked={info.howLong == "Immediately" ? true : false}
-                onChange={handleChange}
+                type="checkbox"
+                role="switch"
+                id="bloat"
+                name="bloating"
+                checked={info.bloating.occurred}
+                onChange={handleCheckbox}
               />
-              <label className="form-check-label" htmlFor="inlineRadio1">
-                Immediately
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Bloating
               </label>
             </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio2"
-                defaultValue="Within 1st Hour"
-                checked={info.howLong == "Within 1st Hour" ? true : false}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio2">
-                1st Hour
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio3"
-                defaultValue="1 to 2 Hours"
-                checked={info.howLong == "1 to 2 Hours" ? true : false}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio3">
-                1 to 2 Hours
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio1"
-                defaultValue="2 - 4 hours"
-                checked={info.howLong == "2 - 4 hours" ? true : false}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio1">
-                2 - 4 hours
-              </label>
+
+            <div className="timeframeDiv">
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="bloating"
+                  id="inlineRadio1"
+                  defaultValue="Immediately"
+                  checked={info.bloating.when == "Immediately"&& info.bloating.occurred ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  Immediately
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="bloating"
+                  id="inlineRadio2"
+                  defaultValue="Within 1st Hour"
+                  checked={info.bloating.when == "Within 1st Hour" && info.bloating.occurred ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio2">
+                  1st Hour
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="bloating"
+                  id="inlineRadio3"
+                  defaultValue="1 to 2 Hours"
+                  checked={info.bloating.when == "1 to 2 Hours"&& info.bloating.occurred ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio3">
+                  1 to 2 Hours
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="bloating"
+                  id="inlineRadio1"
+                  defaultValue="2 - 4 hours"
+                  checked={info.bloating.when == "2 - 4 hours" && info.bloating.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  2 - 4 hours
+                </label>
+              </div>
             </div>
           </div>
           {/* HEADACHE */}
-          </div><div className="checks">
-          <div className="form-check form-switch">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="head"
-              name="headache"
-              checked={info.headache}
-              onChange={handleCheckbox}
-            />
-            <label
-              className="form-check-label"
-              htmlFor="flexSwitchCheckDefault"
-            >
-              Headache
-            </label>
-          </div>
-          <div className="timeframeDiv">
-            <div className="form-check form-check-inline">
+          <div className="checks">
+            <div className="form-check form-switch">
               <input
                 className="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio1"
-                defaultValue="Immediately"
-                checked={info.howLong == "Immediately" ? true : false}
-                onChange={handleChange}
+                type="checkbox"
+                role="switch"
+                id="head"
+                name="headache"
+                checked={info.headache}
+                onChange={handleCheckbox}
               />
-              <label className="form-check-label" htmlFor="inlineRadio1">
-                Immediately
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Headache
               </label>
             </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio2"
-                defaultValue="Within 1st Hour"
-                checked={info.howLong == "Within 1st Hour" ? true : false}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio2">
-                1st Hour
-              </label>
+            <div className="timeframeDiv">
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="howLong"
+                  id="inlineRadio1"
+                  defaultValue="Immediately"
+                  checked={info.howLong == "Immediately" ? true : false}
+                  onChange={handleChange}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  Immediately
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="howLong"
+                  id="inlineRadio2"
+                  defaultValue="Within 1st Hour"
+                  checked={info.howLong == "Within 1st Hour" ? true : false}
+                  onChange={handleChange}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio2">
+                  1st Hour
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="howLong"
+                  id="inlineRadio3"
+                  defaultValue="1 to 2 Hours"
+                  checked={info.howLong == "1 to 2 Hours" ? true : false}
+                  onChange={handleChange}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio3">
+                  1 to 2 Hours
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="howLong"
+                  id="inlineRadio1"
+                  defaultValue="2 - 4 hours"
+                  checked={info.howLong == "2 - 4 hours" ? true : false}
+                  onChange={handleChange}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  2 - 4 hours
+                </label>
+              </div>
             </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio3"
-                defaultValue="1 to 2 Hours"
-                checked={info.howLong == "1 to 2 Hours" ? true : false}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio3">
-                1 to 2 Hours
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio1"
-                defaultValue="2 - 4 hours"
-                checked={info.howLong == "2 - 4 hours" ? true : false}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="inlineRadio1">
-                2 - 4 hours
-              </label>
-            </div>
-          </div>
           </div>
 
           {/* HEADACHE */}
-         {/* <div className="form-check form-switch">
+          {/* <div className="form-check form-switch">
             <input
               className="form-check-input"
               type="checkbox"
