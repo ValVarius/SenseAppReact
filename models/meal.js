@@ -4,21 +4,66 @@ const Schema = mongoose.Schema;
 const mealSchema = new Schema({
   date: { type: String, required: true },
   weight: Number,
-  title: {type: String, required: true},
+  title: { type: String, required: true },
   food: [String],
   time: String,
-  bloating: Boolean,
-  headache: Boolean,
-  gas: Boolean,
-  itchiness: Boolean,
-  reflux: Boolean,
-  redness: Boolean,
-  noseRunning: Boolean,
-  howLong: String,
+  bloating: {
+    occurred: Boolean,
+    when: {
+      type: String,
+      required: true,
+      enum: ["Immediately", "Within 1st Hour", "1 to 2 Hours", "2 - 4 hours"],
+    },
+  },
+  headache: {
+    occurred: Boolean,
+    when: {
+      type: String,
+      required: true,
+      enum: ["Immediately", "Within 1st Hour", "1 to 2 Hours", "2 - 4 hours"],
+    },
+  },
+  gas: {
+    occurred: Boolean,
+    when: {
+      type: String,
+      required: true,
+      enum: ["Immediately", "Within 1st Hour", "1 to 2 Hours", "2 - 4 hours"],
+    },
+  },
+  itchiness: {
+    occurred: Boolean,
+    when: {
+      type: String,
+      required: true,
+      enum: ["Immediately", "Within 1st Hour", "1 to 2 Hours", "2 - 4 hours"],
+    },
+  },
+  reflux: {
+    occurred: Boolean,
+    when: {
+      type: String,
+      required: true,
+      enum: ["Immediately", "Within 1st Hour", "1 to 2 Hours", "2 - 4 hours"],
+    },
+  },
+  redness: {
+    occurred: Boolean,
+    when: {
+      type: String,
+      required: true,
+      enum: ["Immediately", "Within 1st Hour", "1 to 2 Hours", "2 - 4 hours"],
+    },
+  },
+  noseRunning: {
+    occurred: Boolean,
+    when: {
+      type: String,
+      required: true,
+      enum: ["Immediately", "Within 1st Hour", "1 to 2 Hours", "2 - 4 hours"],
+    },
+  },
   other: String,
-
-
-  // date: { type: Date, default: Date.now }
 });
 
 const Meal = mongoose.model("Meal", mealSchema);

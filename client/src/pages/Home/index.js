@@ -20,8 +20,8 @@ export default function Home(props) {
   
   return (
     <div>
-      {/* {retrieved ? <Form date={props.date} setDate={props.setDate} logs={logs}/>: ""} */}
-     <Form date={props.date} setDate={props.setDate} />
+      {retrieved ? <Form date={props.date} setDate={props.setDate} logs={logs}/>: ""}
+     {/* <Form date={props.date} setDate={props.setDate} /> */}
     </div>
   );
 }
