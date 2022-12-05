@@ -306,7 +306,7 @@ export default function Form(props) {
                 role="switch"
                 id="head"
                 name="headache"
-                checked={info.headache}
+                checked={info.headache.occurred}
                 onChange={handleCheckbox}
               />
               <label
@@ -321,11 +321,11 @@ export default function Form(props) {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="howLong"
+                  name="headache"
                   id="inlineRadio1"
                   defaultValue="Immediately"
-                  checked={info.howLong == "Immediately" ? true : false}
-                  onChange={handleChange}
+                  checked={info.headache.when == "Immediately" && info.headache.occurred ? true : false}
+                  onChange={handleRadio}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio1">
                   Immediately
@@ -335,11 +335,11 @@ export default function Form(props) {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="howLong"
+                  name="headache"
                   id="inlineRadio2"
                   defaultValue="Within 1st Hour"
-                  checked={info.howLong == "Within 1st Hour" ? true : false}
-                  onChange={handleChange}
+                  checked={info.headache.when == "Within 1st Hour"&& info.headache.occurred  ? true : false}
+                  onChange={handleRadio}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                   1st Hour
@@ -349,11 +349,11 @@ export default function Form(props) {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="howLong"
+                  name="headache"
                   id="inlineRadio3"
                   defaultValue="1 to 2 Hours"
-                  checked={info.howLong == "1 to 2 Hours" ? true : false}
-                  onChange={handleChange}
+                  checked={info.headache.when == "1 to 2 Hours"&& info.headache.occurred  ? true : false}
+                  onChange={handleRadio}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio3">
                   1 to 2 Hours
@@ -363,11 +363,11 @@ export default function Form(props) {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="howLong"
+                  name="headache"
                   id="inlineRadio1"
                   defaultValue="2 - 4 hours"
-                  checked={info.howLong == "2 - 4 hours" ? true : false}
-                  onChange={handleChange}
+                  checked={info.headache.when == "2 - 4 hours"&& info.headache.occurred  ? true : false}
+                  onChange={handleRadio}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio1">
                   2 - 4 hours
@@ -375,26 +375,8 @@ export default function Form(props) {
               </div>
             </div>
           </div>
-
-          {/* HEADACHE */}
-          {/* <div className="form-check form-switch">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="head"
-              name="headache"
-              checked={info.headache}
-              onChange={handleCheckbox}
-            />
-            <label
-              className="form-check-label"
-              htmlFor="flexSwitchCheckDefault"
-            >
-              Headache
-            </label>
-          </div>
-
+          {/* GAS */}
+          <div className="checks">
           <div className="form-check form-switch">
             <input
               className="form-check-input"
@@ -402,7 +384,7 @@ export default function Form(props) {
               role="switch"
               id="gas"
               name="gas"
-              checked={info.gas}
+              checked={info.gas.occurred}
               onChange={handleCheckbox}
             />
             <label
@@ -412,7 +394,67 @@ export default function Form(props) {
               Gas
             </label>
           </div>
-
+            <div className="timeframeDiv">
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="gas"
+                  id="inlineRadio1"
+                  defaultValue="Immediately"
+                  checked={info.gas.when == "Immediately" && info.gas.occurred ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  Immediately
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="gas"
+                  id="inlineRadio2"
+                  defaultValue="Within 1st Hour"
+                  checked={info.gas.when == "Within 1st Hour"&& info.gas.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio2">
+                  1st Hour
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="gas"
+                  id="inlineRadio3"
+                  defaultValue="1 to 2 Hours"
+                  checked={info.gas.when == "1 to 2 Hours"&& info.gas.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio3">
+                  1 to 2 Hours
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="gas"
+                  id="inlineRadio1"
+                  defaultValue="2 - 4 hours"
+                  checked={info.gas.when == "2 - 4 hours"&& info.gas.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  2 - 4 hours
+                </label>
+              </div>
+            </div>
+          </div>
+          {/* ITCHINESS */}
+          <div className="checks">
           <div className="form-check form-switch">
             <input
               className="form-check-input"
@@ -420,7 +462,7 @@ export default function Form(props) {
               role="switch"
               id="itchiness"
               name="itchiness"
-              checked={info.itchiness}
+              checked={info.itchiness.occurred}
               onChange={handleCheckbox}
             />
             <label
@@ -430,7 +472,67 @@ export default function Form(props) {
               Itchiness
             </label>
           </div>
-
+            <div className="timeframeDiv">
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="itchiness"
+                  id="inlineRadio1"
+                  defaultValue="Immediately"
+                  checked={info.itchiness.when == "Immediately" && info.itchiness.occurred ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  Immediately
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="itchiness"
+                  id="inlineRadio2"
+                  defaultValue="Within 1st Hour"
+                  checked={info.itchiness.when == "Within 1st Hour"&& info.itchiness.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio2">
+                  1st Hour
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="itchiness"
+                  id="inlineRadio3"
+                  defaultValue="1 to 2 Hours"
+                  checked={info.itchiness.when == "1 to 2 Hours"&& info.itchiness.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio3">
+                  1 to 2 Hours
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="itchiness"
+                  id="inlineRadio1"
+                  defaultValue="2 - 4 hours"
+                  checked={info.itchiness.when == "2 - 4 hours"&& info.itchiness.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  2 - 4 hours
+                </label>
+              </div>
+            </div>
+          </div>
+          {/* REFLUX */}
+          <div className="checks">
           <div className="form-check form-switch">
             <input
               className="form-check-input"
@@ -438,7 +540,7 @@ export default function Form(props) {
               role="switch"
               id="reflux"
               name="reflux"
-              checked={info.reflux}
+              checked={info.reflux.occurred}
               onChange={handleCheckbox}
             />
             <label
@@ -448,7 +550,67 @@ export default function Form(props) {
               Reflux
             </label>
           </div>
-
+            <div className="timeframeDiv">
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="reflux"
+                  id="inlineRadio1"
+                  defaultValue="Immediately"
+                  checked={info.reflux.when == "Immediately" && info.reflux.occurred ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  Immediately
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="reflux"
+                  id="inlineRadio2"
+                  defaultValue="Within 1st Hour"
+                  checked={info.reflux.when == "Within 1st Hour"&& info.reflux.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio2">
+                  1st Hour
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="reflux"
+                  id="inlineRadio3"
+                  defaultValue="1 to 2 Hours"
+                  checked={info.reflux.when == "1 to 2 Hours"&& info.reflux.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio3">
+                  1 to 2 Hours
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="reflux"
+                  id="inlineRadio1"
+                  defaultValue="2 - 4 hours"
+                  checked={info.reflux.when == "2 - 4 hours"&& info.reflux.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  2 - 4 hours
+                </label>
+              </div>
+            </div>
+          </div>
+          {/* REDNESS */}
+          <div className="checks">
           <div className="form-check form-switch">
             <input
               className="form-check-input"
@@ -456,7 +618,7 @@ export default function Form(props) {
               role="switch"
               id="redness"
               name="redness"
-              checked={info.redness}
+              checked={info.redness.occurred}
               onChange={handleCheckbox}
             />
             <label
@@ -466,7 +628,67 @@ export default function Form(props) {
               Redness/Flushing
             </label>
           </div>
-
+            <div className="timeframeDiv">
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="redness"
+                  id="inlineRadio1"
+                  defaultValue="Immediately"
+                  checked={info.redness.when == "Immediately" && info.redness.occurred ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  Immediately
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="redness"
+                  id="inlineRadio2"
+                  defaultValue="Within 1st Hour"
+                  checked={info.redness.when == "Within 1st Hour"&& info.redness.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio2">
+                  1st Hour
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="redness"
+                  id="inlineRadio3"
+                  defaultValue="1 to 2 Hours"
+                  checked={info.redness.when == "1 to 2 Hours"&& info.redness.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio3">
+                  1 to 2 Hours
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="redness"
+                  id="inlineRadio1"
+                  defaultValue="2 - 4 hours"
+                  checked={info.redness.when == "2 - 4 hours"&& info.redness.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  2 - 4 hours
+                </label>
+              </div>
+            </div>
+          </div>
+          {/* RUNNING NOSE */}
+          <div className="checks">
           <div className="form-check form-switch">
             <input
               className="form-check-input"
@@ -474,7 +696,7 @@ export default function Form(props) {
               role="switch"
               id="noseRunning"
               name="noseRunning"
-              checked={info.noseRunning}
+              checked={info.noseRunning.occurred}
               onChange={handleCheckbox}
             />
             <label
@@ -483,7 +705,67 @@ export default function Form(props) {
             >
               Nose Running
             </label>
-          </div> */}
+          </div>
+            <div className="timeframeDiv">
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="noseRunning"
+                  id="inlineRadio1"
+                  defaultValue="Immediately"
+                  checked={info.noseRunning.when == "Immediately" && info.noseRunning.occurred ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  Immediately
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="noseRunning"
+                  id="inlineRadio2"
+                  defaultValue="Within 1st Hour"
+                  checked={info.noseRunning.when == "Within 1st Hour"&& info.noseRunning.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio2">
+                  1st Hour
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="noseRunning"
+                  id="inlineRadio3"
+                  defaultValue="1 to 2 Hours"
+                  checked={info.noseRunning.when == "1 to 2 Hours"&& info.noseRunning.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio3">
+                  1 to 2 Hours
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="noseRunning"
+                  id="inlineRadio1"
+                  defaultValue="2 - 4 hours"
+                  checked={info.noseRunning.when == "2 - 4 hours"&& info.noseRunning.occurred  ? true : false}
+                  onChange={handleRadio}
+                />
+                <label className="form-check-label" htmlFor="inlineRadio1">
+                  2 - 4 hours
+                </label>
+              </div>
+            </div>
+          </div>
+         
         </div>
         {/* END OF CHECKS */}
 
