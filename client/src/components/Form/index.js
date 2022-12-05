@@ -190,7 +190,9 @@ export default function Form(props) {
         <label id="reactionslabel" htmlFor="food eaten" className="form-label">
           Side Effects:
         </label>
+        <div className= "effect">
         <div className="checks">
+          {/* BLOATING  */}
           <div className="form-check form-switch">
             <input
               className="form-check-input"
@@ -208,8 +210,146 @@ export default function Form(props) {
               Bloating
             </label>
           </div>
-
+          
+          <div className="timeframeDiv">
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="howLong"
+                id="inlineRadio1"
+                defaultValue="Immediately"
+                checked={info.howLong == "Immediately" ? true : false}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="inlineRadio1">
+                Immediately
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="howLong"
+                id="inlineRadio2"
+                defaultValue="Within 1st Hour"
+                checked={info.howLong == "Within 1st Hour" ? true : false}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="inlineRadio2">
+                1st Hour
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="howLong"
+                id="inlineRadio3"
+                defaultValue="1 to 2 Hours"
+                checked={info.howLong == "1 to 2 Hours" ? true : false}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="inlineRadio3">
+                1 to 2 Hours
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="howLong"
+                id="inlineRadio1"
+                defaultValue="2 - 4 hours"
+                checked={info.howLong == "2 - 4 hours" ? true : false}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="inlineRadio1">
+                2 - 4 hours
+              </label>
+            </div>
+          </div>
+          {/* HEADACHE */}
+          </div><div className="checks">
           <div className="form-check form-switch">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="head"
+              name="headache"
+              checked={info.headache}
+              onChange={handleCheckbox}
+            />
+            <label
+              className="form-check-label"
+              htmlFor="flexSwitchCheckDefault"
+            >
+              Headache
+            </label>
+          </div>
+          <div className="timeframeDiv">
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="howLong"
+                id="inlineRadio1"
+                defaultValue="Immediately"
+                checked={info.howLong == "Immediately" ? true : false}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="inlineRadio1">
+                Immediately
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="howLong"
+                id="inlineRadio2"
+                defaultValue="Within 1st Hour"
+                checked={info.howLong == "Within 1st Hour" ? true : false}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="inlineRadio2">
+                1st Hour
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="howLong"
+                id="inlineRadio3"
+                defaultValue="1 to 2 Hours"
+                checked={info.howLong == "1 to 2 Hours" ? true : false}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="inlineRadio3">
+                1 to 2 Hours
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="howLong"
+                id="inlineRadio1"
+                defaultValue="2 - 4 hours"
+                checked={info.howLong == "2 - 4 hours" ? true : false}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="inlineRadio1">
+                2 - 4 hours
+              </label>
+            </div>
+          </div>
+          </div>
+
+          {/* HEADACHE */}
+         {/* <div className="form-check form-switch">
             <input
               className="form-check-input"
               type="checkbox"
@@ -262,8 +402,7 @@ export default function Form(props) {
               Itchiness
             </label>
           </div>
-        </div>
-        <div className="checks">
+
           <div className="form-check form-switch">
             <input
               className="form-check-input"
@@ -316,11 +455,11 @@ export default function Form(props) {
             >
               Nose Running
             </label>
-          </div>
+          </div> */}
         </div>
         {/* END OF CHECKS */}
 
-        <label id="howLongLabel" htmlFor="food eaten" className="form-label">
+        {/* <label id="howLongLabel" htmlFor="food eaten" className="form-label">
           How long after meal:
         </label>
 
@@ -332,7 +471,7 @@ export default function Form(props) {
               name="howLong"
               id="inlineRadio1"
               defaultValue="Immediately"
-              checked={info.howLong=="Immediately" ? true:false}
+              checked={info.howLong == "Immediately" ? true : false}
               onChange={handleChange}
             />
             <label className="form-check-label" htmlFor="inlineRadio1">
@@ -346,7 +485,7 @@ export default function Form(props) {
               name="howLong"
               id="inlineRadio2"
               defaultValue="Within 1st Hour"
-              checked={info.howLong=="Within 1st Hour" ? true:false}
+              checked={info.howLong == "Within 1st Hour" ? true : false}
               onChange={handleChange}
             />
             <label className="form-check-label" htmlFor="inlineRadio2">
@@ -360,7 +499,7 @@ export default function Form(props) {
               name="howLong"
               id="inlineRadio3"
               defaultValue="1 to 2 Hours"
-              checked={info.howLong=="1 to 2 Hours" ? true:false}
+              checked={info.howLong == "1 to 2 Hours" ? true : false}
               onChange={handleChange}
             />
             <label className="form-check-label" htmlFor="inlineRadio3">
@@ -374,14 +513,14 @@ export default function Form(props) {
               name="howLong"
               id="inlineRadio1"
               defaultValue="2 - 4 hours"
-              checked={info.howLong=="2 - 4 hours" ? true:false}
+              checked={info.howLong == "2 - 4 hours" ? true : false}
               onChange={handleChange}
             />
             <label className="form-check-label" htmlFor="inlineRadio1">
               2 - 4 hours
             </label>
           </div>
-        </div>
+        </div>  */}
 
         <label htmlFor="food eaten" className="form-label">
           Other:
