@@ -83,7 +83,8 @@ export default function FoodPanel(props) {
         <option value="Nuts/OilsMiscFood">Nuts/OilsMiscFood</option>
       </select>
 
-      <div>
+      {searchedCategory || searchedItem ? 
+      <div id="foodbuttonslist">
         {searchedCategory
           ? menu.map((item) => {
               if (item.category === searchedCategory) {
@@ -102,8 +103,8 @@ export default function FoodPanel(props) {
               } else return "";
             })
           : ""}
-      </div>
-
+      
+      
       {searchedItem
         ? menu.map((result) => {
             if (
@@ -125,6 +126,11 @@ export default function FoodPanel(props) {
             } else return "";
           })
         : ""}
+        </div>
+        : ""}
+
+
+
     </>
   );
 }
