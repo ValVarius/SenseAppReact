@@ -1,3 +1,15 @@
+
+#foodbuttonslist{
+    position: absolute;
+    background-color: aliceblue;
+    border-radius: 10px;
+    left: 50%;
+    z-index: 2;
+    overflow-y:scroll;
+    height:420px;
+    
+}
+
 .menubutton{
     /* width: 100%; */
     margin-bottom: 5px;

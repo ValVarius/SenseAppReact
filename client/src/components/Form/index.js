@@ -100,8 +100,8 @@ export default function Form(props) {
   };
   const handleFormSubmit = (event) => {
     event.preventDefault();
-
-    console.log(info);
+    event.target.id= "savebtnSaved"
+    console.log(event.target.id);
     API.deletePrevious(info).then((res) => {
       console.log(res);
       API.mealRegistration(info).then((newMeal) => {
@@ -899,7 +899,7 @@ export default function Form(props) {
             </div>
           </div>
         </div>
-        {/* END OF CHECKS */}
+        {/* END OF SIDE EFFECTS */}
 
         <label htmlFor="food eaten" className="form-label">
           Other:
