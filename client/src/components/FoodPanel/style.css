@@ -1,6 +1,10 @@
 .menubutton{
-    width: 100%;
+    /* width: 100%; */
     margin-bottom: 5px;
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    width: 300px;
 }
 
 #namesearch{
@@ -8,8 +12,10 @@
     margin-top: 10px;
     width: 300px;
     border-radius: 10px;
+    font-size: 20px;
 }
 #category-select{
+    height: 60px;
     width: 300px;
     margin: auto;
     margin-top: 10px;
