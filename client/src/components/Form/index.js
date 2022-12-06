@@ -124,8 +124,13 @@ export default function Form(props) {
   return (
     <div className="container">
       <form className="form" id="foodform">
+        <div id="dateandsave">
         <div name="date" onChange={handleChange}>
           {props.date.date}
+        </div>
+        <div name="saved" onChange={handleChange}>
+          Meal Saved
+        </div>
         </div>
         <select
           className="form-select"
@@ -153,6 +158,7 @@ export default function Form(props) {
                     className="btn btn-success foodeaten-button"
                     name="food"
                     value={result}
+                    disabled
                   >
                     {result}
                   </button>
