@@ -908,7 +908,7 @@ export default function Form(props) {
           className="form-control"
           name="other"
           type="text"
-          rows={1}
+          rows={2}
           id="other"
           defaultValue={""}
           onChange={handleChange}
