@@ -1,6 +1,6 @@
 #foodform {
   margin-top: 20px;
-  padding-top: 30px;
+  /* padding-top: 30px; */
 }
 #mealTitle {
   box-shadow: 0px 0px 5px #aac5c6;
@@ -9,11 +9,10 @@
   font-size: xx-large;
   font-weight: bolder;
   background-color: #344056;
-  max-width: 80%;
+  /* max-width: 80%; */
   margin: auto;
   border: 0.2vw solid rgba(2, 228, 231, 0.8);
   color: #fbfbf8;
-  /* background-image: "../../public/icons8-down-arrow-flaticons-lineal-color-96.png"; */
 }
 #mealTitle:hover {
   transition: 0.3s all linear;
@@ -49,6 +48,7 @@
   display: flex;
   margin: auto;
   margin-top: 10px;
+  width: 80%;
 }
 
 #time {
@@ -57,6 +57,7 @@
 }
 #weight {
   width: fit-content;
+  /* max-width: 50%; */
   margin: auto;
   margin-right: 0%;
 }
@@ -66,18 +67,15 @@
   display: flex;
   margin: auto;
   width: fit-content;
-  /* margin-left: 40px; */
-  /* margin-right: 1000px; */
+  
 }
 .checks {
-  /* width: 90%; */
   display: flex;
-  /* justify-content: space-evenly; */
-  margin: auto;
-  margin-top: 10px;
-  font-size: 20px;
   border-radius: 10px;
   border: 0.1vw solid rgba(2, 228, 231, 0.8);
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
 }
 .timeframeDiv {
   /* margin: auto; */
@@ -88,10 +86,10 @@
   margin-left: 5px;
 }
 .form-switch input {
-  font-size: 30px;
+  font-size: 25px;
 }
 .form-switch {
-  font-size: 30px;
+  font-size: 20px;
   margin-left: 40px;
 }
 .form-check-inline {
@@ -131,6 +129,7 @@
   margin-top: 10px;
 }
 #savebtnSaved {
-  transition: 0.3s all linear;
-  background-color: aqua;
+  /* transition: 0.3s all linear;
+  background-color: aqua; */
+  
 }
