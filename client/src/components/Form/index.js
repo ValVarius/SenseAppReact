@@ -923,8 +923,6 @@ export default function Form(props) {
         </button>
       </form>
     </div>
-    {/* SHOULD MAKE SURE MEALCARDS ARE DISPLAYED IN PROPER ORDER */}
-    {/* {props.logs ? <MealCard log={props.logs[0]} /> :""} */}
     </>
   );
 }
