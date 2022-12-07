@@ -1,0 +1,31 @@
+.cardcontainer {
+  background-color: #fbfbf8;
+  width: 600px;
+  max-height: 100%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
+  margin-bottom: 10px;
+}
+.MealCardTitle {
+  display: flex;
+  border-bottom: 0.5px solid #9e9e9e;
+  justify-content: space-evenly;
+  padding: 3%;
+}
+.deleteMeal {
+  font-family: "Times New Roman", Times, serif;
+  margin: auto;
+}
+
+.MealCardTitle h1 {
+  margin: auto;
+  /* margin-left: -25px; */
+}
+
+.timeweight{
+    margin: auto;
+}
+.timelogged {
+  /* margin: auto; */
+}

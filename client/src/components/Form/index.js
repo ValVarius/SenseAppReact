@@ -3,6 +3,7 @@ import "./style.css";
 import API from "../../utils/API";
 import FoodPanel from "../FoodPanel";
 import DeleteButton from "../DeleteButton";
+import MealCard from "../MealCard";
 
 export default function Form(props) {
   const [info, setInfo] = useState({
@@ -100,7 +101,7 @@ export default function Form(props) {
   };
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    event.target.id= "savebtnSaved"
+    // event.target.id= "savebtnSaved"
     console.log(event.target.id);
     API.deletePrevious(info).then((res) => {
       console.log(res);
@@ -122,16 +123,13 @@ export default function Form(props) {
   };
 
   return (
+    <>
     <div className="container">
       <form className="form" id="foodform">
-        <div id="dateandsave">
         <div name="date" onChange={handleChange}>
           {props.date.date}
         </div>
-        <div name="saved" onChange={handleChange}>
-          Meal Saved
-        </div>
-        </div>
+
         <select
           className="form-select"
           aria-label="Default select example"
@@ -925,5 +923,8 @@ export default function Form(props) {
         </button>
       </form>
     </div>
+    {/* SHOULD MAKE SURE MEALCARDS ARE DISPLAYED IN PROPER ORDER */}
+    {/* {props.logs ? <MealCard log={props.logs[0]} /> :""} */}
+    </>
   );
 }
