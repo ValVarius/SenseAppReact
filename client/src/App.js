@@ -3,8 +3,8 @@ import PdfPage from "./pages/PdfPage";
 import FoodPanel from "./components/FoodPanel";
 import Calendar from "./components/Calendar";
 import Navbar from "./components/Navbar";
+import Backimage from "./public/newdots.jpg";
 import React, { useState, useEffect } from "react";
-
 
 function App() {
   // This should be passed to the form and calendar component
@@ -25,10 +25,9 @@ function App() {
     });
   }, []);
   return (
-    <div id="app" 
-    
-    >
-      
+    <div id="app">
+      {/* <img src={Backimage} id="backgroundimage" ></img> */}
+
       <Navbar date={date} setDate={setDate} />
       {date.date ? <Home date={date} setDate={setDate} /> : null}
       {/* {date.date ? <Calendar date={date} setDate={setDate}/> : ""} */}

@@ -42,38 +42,40 @@ export default function MealCard(props) {
         <div>NO Side Effects:</div>
       )}
       {props.log.bloating.occurred ? (
-        <div>Bloating...{props.log.bloating.when}</div>
+        <div>Bloating... {props.log.bloating.when}</div>
       ) : (
         ""
       )}
       {props.log.headache.occurred ? (
-        <div>Headache...{props.log.headache.when}</div>
+        <div>Headache... {props.log.headache.when}</div>
       ) : (
         ""
       )}
       {props.log.gas.occurred ? <div>Gas...{props.log.gas.when}</div> : ""}
       {props.log.itchiness.occurred ? (
-        <div>Itchiness...{props.log.itchiness.when}</div>
+        <div>Itchiness... {props.log.itchiness.when}</div>
       ) : (
         ""
       )}
       {props.log.reflux.occurred ? (
-        <div>Reflux...{props.log.reflux.when}</div>
+        <div>Reflux... {props.log.reflux.when}</div>
       ) : (
         ""
       )}
       {props.log.redness.occurred ? (
-        <div>Redness...{props.log.redness.when}</div>
+        <div>Redness... {props.log.redness.when}</div>
       ) : (
         ""
       )}
       {props.log.noseRunning.occurred ? (
-        <div>NoseRunning...{props.log.noseRunning.when}</div>
+        <div>NoseRunning... {props.log.noseRunning.when}</div>
       ) : (
         ""
       )}
 
       {/* OTHER */}
+      {props.log.other ? <div>Comments: {props.log.other}</div> : ""}
+
     </div>
   );
 }
