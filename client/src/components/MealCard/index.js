@@ -6,7 +6,7 @@ export default function MealCard(props) {
     <div className=" cardcontainer">
         {/* TITLE */}
       <div className="MealCardTitle">
-        <button type="button" class="btn btn-danger deleteMeal">
+        <button type="button" className="btn btn-danger deleteMeal">
           X
         </button>
         <h1>{props.log.title.charAt(0).toUpperCase() + props.log.title.slice(1)}</h1>

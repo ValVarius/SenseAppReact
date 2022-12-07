@@ -14,7 +14,7 @@
 }
 .cardcontainer:hover {
   transition: 0.3s all linear;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 .MealCardTitle {
   display: flex;

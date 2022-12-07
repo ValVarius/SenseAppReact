@@ -53,16 +53,22 @@ export default function Calendar(props) {
     })
   }
 
-  const searchDay = (event) => {
-    event.preventDefault();
-    // console.log(props.date);
-    // console.log("Day: ", event.target.parentElement.children[0].value);
-    // console.log("Month: ", event.target.parentElement.children[1].value);
-    // console.log("Year: ", event.target.parentElement.children[2].value);
-    API.getMealsbyDay(props.date.date).then(res => {
-      console.log(res.data);
-    });
-  }
+  // const searchDay = (event) => {
+  //   event.preventDefault();
+  //   // console.log(props.date);
+  //   // console.log("Day: ", event.target.parentElement.children[0].value);
+  //   // console.log("Month: ", event.target.parentElement.children[1].value);
+  //   // console.log("Year: ", event.target.parentElement.children[2].value);
+  //   // API.getMealsbyDay(props.date.date).then(res => {
+  //   //   console.log(res.data);
+  //   // });
+  //   props.setDate({
+  //     day: event.target.parentElement.children[0].value,
+  //     month:  event.target.parentElement.children[1].value,
+  //     year: event.target.parentElement.children[2].value,
+  //     date: event.target.parentElement.children[1].value + "|" + event.target.parentElement.children[0].value + "|" + event.target.parentElement.children[2].value,
+  //   });
+  // }
   return (
     <div className="select-date float-right" >
       <select
@@ -100,13 +106,13 @@ export default function Calendar(props) {
       >
         {yearOptions}
       </select>
-      <button
+      {/* <button
         className="btn btn-outline-danger"
         id="daysearch"
         onClick={searchDay}
       >
         Search
-      </button>
+      </button> */}
     </div>
   );
 }
