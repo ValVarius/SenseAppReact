@@ -107,6 +107,7 @@ export default function Form(props) {
       console.log(res);
       API.mealRegistration(info).then((newMeal) => {
         console.log(newMeal);
+        props.setRetrieved(false);
       });
     });
   };
