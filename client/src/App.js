@@ -28,8 +28,8 @@ function App() {
     <div id="app">
 
       <Navbar date={date} setDate={setDate} />
-      {date.date ? <Home date={date} setDate={setDate} /> : null}
-      {/* <Login/> */}
+      {/* {date.date ? <Home date={date} setDate={setDate} /> : null} */}
+      <Login/>
       {/* {date.date ? <Calendar date={date} setDate={setDate}/> : ""} */}
       {/* <FoodPanel/> */}
       {/* <PdfPage/> */}

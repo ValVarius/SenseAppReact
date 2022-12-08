@@ -18,12 +18,27 @@ button {
     font-size: 16px;
     transition: 0.4s;
   }
+  .switch{
+    background-color: #5a4f79;
+    color: #edeaf7;
+    margin-top: 20px;
+    height: 50px;
+    width: 100px;
+    margin-left: 75%;
+    margin-bottom: 20px;
+    transition: 0.3s all linear;
+    box-shadow: 0px 0px 5px #aac5c6;
+  }
+  .switch:hover{
+    background-color: #edeaf7;
+    color: #5a4f79;
+  }
   
   .login-card {
     margin: auto;
     margin-top: 50px;
     width: 400px;
-    padding: 100px 30px 64px;
+    padding: 0px 30px 64px;
     border-radius: 1.25rem;
     background: #ffffff;
     text-align: center;
@@ -90,3 +105,5 @@ button {
   .toggle.showing {
     background-image: url("hide.svg");
   }
+
+  /* SIGN UP */
