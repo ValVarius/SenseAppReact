@@ -1,4 +1,5 @@
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import PdfPage from "./pages/PdfPage";
 import FoodPanel from "./components/FoodPanel";
 import Calendar from "./components/Calendar";
@@ -28,6 +29,7 @@ function App() {
 
       <Navbar date={date} setDate={setDate} />
       {date.date ? <Home date={date} setDate={setDate} /> : null}
+      {/* <Login/> */}
       {/* {date.date ? <Calendar date={date} setDate={setDate}/> : ""} */}
       {/* <FoodPanel/> */}
       {/* <PdfPage/> */}
