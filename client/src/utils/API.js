@@ -23,5 +23,8 @@ const API = {
   getMealsbyDay: function (data) {
     return axios.get(`${BASE_URL}/api/meals/day?date=${data}`);
   },
+  createUser: function (data) {
+    return axios.post(`${BASE_URL}/api/user`, data)
+  }
 };
 export default API;

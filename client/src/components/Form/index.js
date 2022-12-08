@@ -12,7 +12,7 @@ export default function Form(props) {
     date: props.date.date,
     weight: "",
     food: [],
-    time: "",
+    time: "5:00am",
     bloating: { occurred: false, when: "Immediately" },
     headache: { occurred: false, when: "Immediately" },
     gas: { occurred: false, when: "Immediately" },
@@ -182,7 +182,6 @@ export default function Form(props) {
             <select
               className="form-select timing"
               aria-label="Default select example"
-              defaultValue="5:00am"
               value={info.time}
               name="time"
               type="time"

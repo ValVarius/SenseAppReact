@@ -1,8 +1,9 @@
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import PdfPage from "./pages/PdfPage";
-import FoodPanel from "./components/FoodPanel";
-import Calendar from "./components/Calendar";
+// import PdfPage from "./pages/PdfPage";
+// import FoodPanel from "./components/FoodPanel";
+// import Calendar from "./components/Calendar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import React, { useState, useEffect } from "react";
 
@@ -25,16 +26,23 @@ function App() {
     });
   }, []);
   return (
-    <div id="app">
-
-      <Navbar date={date} setDate={setDate} />
-      {/* {date.date ? <Home date={date} setDate={setDate} /> : null} */}
-      <Login/>
-      {/* {date.date ? <Calendar date={date} setDate={setDate}/> : ""} */}
-      {/* <FoodPanel/> */}
-      {/* <PdfPage/> */}
-      {/* <img src="./public/icons8-down-arrow-flaticons-lineal-color-96.png"></img> */}
-    </div>
+    <BrowserRouter>
+      <div id="app">
+        <Navbar date={date} setDate={setDate} />
+        <Routes>
+          <Route exact path="/" element={<Login />}></Route>
+          <Route
+            exact
+            path="/Home"
+            element={date.date ? <Home date={date} setDate={setDate} /> : null}
+          ></Route>
+        </Routes>
+        {/* {date.date ? <Calendar date={date} setDate={setDate}/> : ""} */}
+        {/* <FoodPanel/> */}
+        {/* <PdfPage/> */}
+        {/* <img src="./public/icons8-down-arrow-flaticons-lineal-color-96.png"></img> */}
+      </div>
+    </BrowserRouter>
   );
 }
 
