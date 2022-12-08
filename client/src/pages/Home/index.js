@@ -32,7 +32,7 @@ export default function Home(props) {
         {logs
           ? logs.map((result) => {
               if (result.title == "breakfast") {
-                return <MealCard log={result} key={result._id} />;
+                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} />;
               }
             })
           : ""}
@@ -40,7 +40,7 @@ export default function Home(props) {
         {logs
           ? logs.map((result) => {
               if (result.title == "mid-morning") {
-                return <MealCard log={result} key={result._id} />;
+                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} />;
               }
             })
           : ""}
@@ -48,7 +48,7 @@ export default function Home(props) {
         {logs
           ? logs.map((result) => {
               if (result.title == "lunch") {
-                return <MealCard log={result} key={result._id} />;
+                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} />;
               }
             })
           : ""}
@@ -56,7 +56,7 @@ export default function Home(props) {
         {logs
           ? logs.map((result) => {
               if (result.title == "afternoon") {
-                return <MealCard log={result} key={result._id} />;
+                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} />;
               }
             })
           : ""}
@@ -64,7 +64,7 @@ export default function Home(props) {
         {logs
           ? logs.map((result) => {
               if (result.title == "dinner") {
-                return <MealCard log={result} key={result._id} />;
+                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} />;
               }
             })
           : ""}

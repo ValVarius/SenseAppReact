@@ -1,12 +1,25 @@
 import React from "react";
 import "./style.css";
+import API from "../../utils/API";
+
 
 export default function MealCard(props) {
+
+const deletecard = (event) => {
+  console.log(event.target);
+  console.log(props.log._id);
+
+  API.deleteId(props.log._id).then((res) => {
+    console.log(res);
+    props.setRetrieved(false)
+  })
+}
+
   return (
     <div className=" cardcontainer">
         {/* TITLE */}
       <div className="MealCardTitle">
-        <button type="button" className="btn btn-danger deleteMeal">
+        <button type="button" className="btn btn-danger deleteMeal" onClick={deletecard}>
           X
         </button>
         <h1>{props.log.title.charAt(0).toUpperCase() + props.log.title.slice(1)}</h1>

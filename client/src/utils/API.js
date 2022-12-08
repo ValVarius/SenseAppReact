@@ -9,7 +9,7 @@ const API = {
     return axios.delete(`${BASE_URL}/api/meals`, {data})
   },
   deleteId: function (id) {
-    return axios.delete(`${BASE_URL}/api/meals/${id}`);
+    return axios.delete(`${BASE_URL}/api/meals/id/${id}`);
   },
   pdfRead: function (data) {
     return axios.post(`${BASE_URL}/api/pdf`, data);
