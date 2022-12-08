@@ -22,6 +22,10 @@
   border-bottom: 0.5px solid #344056;
   justify-content: space-evenly;
   padding: 3%;
+  background-color: #344056;
+  border-radius: 10px;
+
+
 }
 .deleteMeal {
   font-family: "Times New Roman", Times, serif;
