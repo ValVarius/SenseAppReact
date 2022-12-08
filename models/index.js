@@ -1,4 +1,5 @@
 module.exports = {
   Meal: require("./meal"),
-  Menu: require("./menu")
+  Menu: require("./menu"),
+  User: require("./user")
 };
