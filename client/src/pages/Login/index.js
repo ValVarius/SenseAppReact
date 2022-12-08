@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
+import API from "../../utils/API";
+
 
 export default function Login() {
   const [credentials, setCredentials] = useState({
-    name: "",
+    username: "",
     password: "",
   });
   const [registered, setRegistered] = useState(true);
@@ -32,12 +34,18 @@ export default function Login() {
   };
   const login = (event) => {
     console.log("LOGIN:");
-    console.log(credentials.name);
+    console.log(credentials.username);
     console.log(credentials.password);
-    setCredentials({
-      name: "",
-      password: "",
+
+    
+    API.createUser(credentials).then((res) => {
+      console.log(res);
+      setCredentials({
+        username: "",
+        password: "",
+      });
     });
+    
   };
   if ( registered) {
     return (
@@ -54,8 +62,8 @@ export default function Login() {
              className="control"
              type="text"
              placeholder="Username"
-             value= {credentials.name}
-             name="name"
+             value= {credentials.username}
+             name="username"
              onChange={handleChange}
            />
            <div className="password">
@@ -103,8 +111,8 @@ export default function Login() {
               className="control"
               type="text"
               placeholder="Username"
-              value= {credentials.name}
-              name="name"
+              value= {credentials.username}
+              name="username"
               onChange={handleChange}
             />
             <div className="password">
