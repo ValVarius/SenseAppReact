@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const User = require('./user');
 
 const mealSchema = new Schema({
   date: { type: String, required: true },
@@ -64,6 +65,7 @@ const mealSchema = new Schema({
     },
   },
   other: String,
+  user: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 const Meal = mongoose.model("Meal", mealSchema);
