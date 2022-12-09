@@ -57,7 +57,7 @@ export default function Form(props) {
         date: props.date.date,
         weight: "",
         food: [],
-        time: "",
+        time: "5:00am",
         bloating: { occurred: false, when: "Immediately" },
         headache: { occurred: false, when: "Immediately" },
         gas: { occurred: false, when: "Immediately" },
