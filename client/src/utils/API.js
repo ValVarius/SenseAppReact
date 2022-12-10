@@ -25,6 +25,9 @@ const API = {
   },
   createUser: function (data) {
     return axios.post(`${BASE_URL}/api/user`, data)
-  }
+  },
+  login: function (data) {
+    return axios.post(`${BASE_URL}/api/user/login`,data);
+  },
 };
 export default API;

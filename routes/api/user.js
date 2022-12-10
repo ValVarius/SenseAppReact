@@ -8,6 +8,11 @@ router
 .post(userController.create)
 .delete(userController.remove)
 
+// Matches with "/api/user/login"
+router
+.route("/login")
+.post(userController.login)
+
 
 // Matches with "/api/user/id/:id"
 router
