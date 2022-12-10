@@ -105,5 +105,8 @@ button {
   .toggle.showing {
     background-image: url("hide.svg");
   }
+  .warning{
+    color: red;
+  }
 
   /* SIGN UP */
