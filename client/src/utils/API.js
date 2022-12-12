@@ -29,5 +29,8 @@ const API = {
   login: function (data) {
     return axios.post(`${BASE_URL}/api/user/login`,data);
   },
+  getUserMeals: function (data) {
+    return axios.get(`${BASE_URL}/api/meals/day?user=${data}`,data);
+  },
 };
 export default API;

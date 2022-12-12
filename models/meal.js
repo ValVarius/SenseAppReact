@@ -65,7 +65,7 @@ const mealSchema = new Schema({
     },
   },
   other: String,
-  user: { type: Schema.Types.ObjectId, ref: "User" },
+  user: { type: Schema.Types.ObjectId, ref: "User",required: true },
 });
 
 const Meal = mongoose.model("Meal", mealSchema);
