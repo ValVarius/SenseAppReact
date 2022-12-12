@@ -9,26 +9,18 @@ export default function Home(props) {
   const [logs, setLogs] = useState([]);
   const [retrieved, setRetrieved] = useState(true);
 
-  // THIS SHOULD HAPPEN EVERYTIME DATE CHANGES?
+
   useEffect(() => {
-    // api call to retrieve todays logs.
-    // API.getMealsbyDay(props.date.date).then((res) => {
-    //   console.log(res);
-    //   setLogs(res.data);
-    //   setRetrieved(true);
-    // });
+    
     let dateMeals = []
     props.currentUser.meals.forEach(meal => {
       if (meal.date === props.date.date) {
         dateMeals.push(meal)
       }
     });
-    API.getUserMeals(props.currentUser._id).then((res) => {
-        console.log(res);
-        
-      });
+    
     setLogs(dateMeals)
-  },[props.date.date]);
+  },[props.currentUser || props.date.date]);
 
   return (
     <div className="home">

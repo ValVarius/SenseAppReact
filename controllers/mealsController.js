@@ -18,19 +18,55 @@ module.exports = {
       .then((dbModel) => {
         db.User.findByIdAndUpdate(req.body.user,
           { "$push": { "meals": dbModel } },
-          { "new": true, "upsert": true },
-          function (err, User) {
-              if (err) throw err;
-              res.json(User)
+          { "new": true, "upsert": true }
+          // function (err, User) {
+          //     if (err) throw err;
+          //     res.json(User)
 
-          }
-      );
+          // }
+      )
+      .populate("meals")
+      // .exec((err, pres2) => {
+      //   if (err) {
+      //     console.log('parent err: ' + err);
+      //     return;
+      //   }
+      //   console.log('parent re-saved:');
+      //   console.dir(pres2); // child2 not included, even though its parent ref was updated before we got here
+
+      // });
+      .then(dbUser => {
+        console.log(dbUser);
+        res.json(dbUser)
+        // if (req.session.user) {
+        //     res.json(dbUser)
+        // }
+        // if (dbUser===null) {
+        //     // req.session.user = false
+        //     console.log("WRONG USER");
+        //     res.send("no user found")
+        // }
+        // else if (bcrypt.compareSync(req.body.password, dbUser.password)) {
+        //     // req.session.user = dbUser
+        //     // console.log("JUST CREATED SESSION ", req);
+        //     console.log("PASSWORD MATCH");
+        //     res.json(dbUser)
+        // }
+        
+        // else {
+        //     // req.session.user = false
+        //     console.log("WRONG password");
+        //     res.send("incorrect password")
+        // }
+      })
+      
 
 
 
 
       })
       
+     
 
       .catch((err) => res.status(422).json(err));
   },

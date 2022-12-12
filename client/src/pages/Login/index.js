@@ -36,12 +36,9 @@ export default function Login(props) {
         : "password";
   };
   const signup = (event) => {
-    console.log("LOGIN:");
-    console.log(credentials.username);
-    console.log(credentials.password);
+    
 
     API.createUser(credentials).then((res) => {
-      console.log(res);
       setCredentials({
         username: "",
         password: "",
@@ -49,13 +46,7 @@ export default function Login(props) {
     });
   };
   const login = (event) => {
-    console.log("LOGIN:");
-    console.log(credentials.username);
-    console.log(credentials.password);
-    console.log(credentials);
-
     API.login(credentials).then((res) => {
-      console.log(res.data);
       if (res.data === "incorrect password") {
         setIncorrect("Incorrect Password");
         setNotfound("")

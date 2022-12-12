@@ -27,7 +27,6 @@ export default function Form(props) {
   useEffect(() => {
     let present = false;
 
-    console.log(props.logs);
     if (props.logs.length > 0) {
       for (let i = 0; i < props.logs.length; i++) {
         if (props.logs[i].title === info.title) {
@@ -69,7 +68,6 @@ export default function Form(props) {
         user: props.currentUser,
       }));
     }
-    console.log(info);
   }, [info.title]);
 
   useEffect(() => {
@@ -119,7 +117,6 @@ export default function Form(props) {
     // API.deletePrevious(info).then((res) => {
     //   console.log(res);
       API.mealRegistration(info).then((UserUpdate) => {
-        console.log(UserUpdate);
         props.setCurrentUser(UserUpdate.data)
         // props.setRetrieved(false);
       });
