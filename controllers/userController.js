@@ -40,8 +40,9 @@ module.exports = {
     db.User
       .findOne({username:req.body.username})
       .populate("meals")
-      .sort({ date: -1 })
+    //   .sort({ date: -1 })
       .then(dbUser => {
+        console.log(dbUser);
         // if (req.session.user) {
         //     res.json(dbUser)
         // }

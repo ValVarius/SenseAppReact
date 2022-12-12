@@ -21,17 +21,17 @@ export default function Form(props) {
     redness: { occurred: false, when: "Immediately" },
     noseRunning: { occurred: false, when: "Immediately" },
     other: "",
+    user: props.currentUser
   });
 
   useEffect(() => {
-    
     let present = false;
 
     console.log(props.logs);
     if (props.logs.length > 0) {
       for (let i = 0; i < props.logs.length; i++) {
         if (props.logs[i].title === info.title) {
-          present = true
+          present = true;
           setInfo((prevState) => ({
             ...prevState,
             date: props.logs[i].date,
@@ -46,12 +46,12 @@ export default function Form(props) {
             redness: props.logs[i].redness,
             noseRunning: props.logs[i].noseRunning,
             other: props.logs[i].other,
+            user: props.currentUser,
           }));
         }
       }
     }
-    if(!present){
-      console.log("here");
+    if (!present) {
       setInfo((prevState) => ({
         ...prevState,
         date: props.date.date,
@@ -66,8 +66,10 @@ export default function Form(props) {
         redness: { occurred: false, when: "Immediately" },
         noseRunning: { occurred: false, when: "Immediately" },
         other: "",
+        user: props.currentUser,
       }));
     }
+    console.log(info);
   }, [info.title]);
 
   useEffect(() => {
@@ -113,13 +115,15 @@ export default function Form(props) {
     event.preventDefault();
     // event.target.id= "savebtnSaved"
     console.log(event.target.id);
-    API.deletePrevious(info).then((res) => {
-      console.log(res);
-      API.mealRegistration(info).then((newMeal) => {
-        console.log(newMeal);
-        props.setRetrieved(false);
+    // meal should be store in the user pile...
+    // API.deletePrevious(info).then((res) => {
+    //   console.log(res);
+      API.mealRegistration(info).then((UserUpdate) => {
+        console.log(UserUpdate);
+        props.setCurrentUser(UserUpdate.data)
+        // props.setRetrieved(false);
       });
-    });
+    // });
   };
 
   const deleteItem = (item) => {

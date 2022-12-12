@@ -16,6 +16,10 @@ function App() {
     date: "",
   });
 
+  const [currentUser, setCurrentUser] = useState(false); 
+
+  
+
   useEffect(() => {
     let d = new Date();
     setDate({
@@ -30,11 +34,11 @@ function App() {
       <div id="app">
         <Navbar date={date} setDate={setDate} />
         <Routes>
-          <Route exact path="/" element={<Login />}></Route>
+          <Route exact path="/" element={<Login setCurrentUser={setCurrentUser} />}></Route>
           <Route
             exact
             path="/Home"
-            element={date.date ? <Home date={date} setDate={setDate} /> : null}
+            element={date.date ? <Home date={date} setDate={setDate} currentUser={currentUser} setCurrentUser= {setCurrentUser}/> : null}
           ></Route>
         </Routes>
         {/* {date.date ? <Calendar date={date} setDate={setDate}/> : ""} */}

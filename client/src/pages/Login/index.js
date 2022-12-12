@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import API from "../../utils/API";
+// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login(props) {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -10,6 +12,7 @@ export default function Login() {
   const [registered, setRegistered] = useState(true);
   const [incorrect, setIncorrect] = useState("");
   const [notfound, setNotfound] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     // event.preventDefault();
@@ -63,11 +66,13 @@ export default function Login() {
       }else if (res.data._id) {
         setIncorrect("");
         setNotfound("")
-
+        
+        props.setCurrentUser(res.data)
         setCredentials({
           username: "",
           password: "",
         });
+        navigate("/Home");
       }
     });
   };
