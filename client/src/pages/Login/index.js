@@ -8,6 +8,13 @@ export default function Login(props) {
     username: "",
     password: "",
   });
+  const [newUser, setNewUser] = useState({
+    username: "",
+    email: "",
+    first: "",
+    last: "",
+    password: "",
+  });
   const [registered, setRegistered] = useState(true);
   const [incorrect, setIncorrect] = useState("");
   const [notfound, setNotfound] = useState("");
@@ -22,6 +29,16 @@ export default function Login(props) {
       [name]: value,
     }));
   };
+  const handleSignUpChange = (event) => {
+    // event.preventDefault();
+    const { name, value } = event.target;
+
+    setNewUser((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const register = () => {
     setRegistered(!registered);
   };
@@ -35,12 +52,14 @@ export default function Login(props) {
         : "password";
   };
   const signup = () => {
-    
     // THIS SHOULD ALSO PUT THE MANU INTO THE USER DB???
-    API.createUser(credentials).then((res) => {
+    API.createUser(newUser).then((res) => {
       props.setCurrentUser(res.data);
-      setCredentials({
+      setNewUser({
         username: "",
+        email: "",
+        first: "",
+        last: "",
         password: "",
       });
       navigate("/Home");
@@ -50,16 +69,15 @@ export default function Login(props) {
     API.login(credentials).then((res) => {
       if (res.data === "incorrect password") {
         setIncorrect("Incorrect Password");
-        setNotfound("")
+        setNotfound("");
       } else if (res.data === "no user found") {
-        setNotfound("User Not Found")
+        setNotfound("User Not Found");
         setIncorrect("");
+      } else if (res.data._id) {
+        setIncorrect("");
+        setNotfound("");
 
-      }else if (res.data._id) {
-        setIncorrect("");
-        setNotfound("")
-        
-        props.setCurrentUser(res.data)
+        props.setCurrentUser(res.data);
         setCredentials({
           username: "",
           password: "",
@@ -125,10 +143,37 @@ export default function Login(props) {
             spellCheck="false"
             className="control"
             type="text"
+            placeholder="First Name"
+            value={newUser.first}
+            name="first"
+            onChange={handleSignUpChange}
+          />
+          <input
+            spellCheck="false"
+            className="control"
+            type="text"
+            placeholder="Last Name"
+            value={newUser.last}
+            name="last"
+            onChange={handleSignUpChange}
+          />
+          <input
+            spellCheck="false"
+            className="control"
+            type="text"
+            placeholder="Email Address"
+            value={newUser.email}
+            name="email"
+            onChange={handleSignUpChange}
+          />
+          <input
+            spellCheck="false"
+            className="control"
+            type="text"
             placeholder="Username"
-            value={credentials.username}
+            value={newUser.username}
             name="username"
-            onChange={handleChange}
+            onChange={handleSignUpChange}
           />
           <div className="password">
             <input
@@ -137,9 +182,9 @@ export default function Login(props) {
               id="password"
               type="password"
               placeholder="Password"
-              value={credentials.password}
+              value={newUser.password}
               name="password"
-              onChange={handleChange}
+              onChange={handleSignUpChange}
             />
             <button
               className="toggle"
