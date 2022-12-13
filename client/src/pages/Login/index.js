@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import API from "../../utils/API";
-// import { useHistory } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function Login(props) {
@@ -39,10 +38,12 @@ export default function Login(props) {
     
     // THIS SHOULD ALSO PUT THE MANU INTO THE USER DB???
     API.createUser(credentials).then((res) => {
+      props.setCurrentUser(res.data);
       setCredentials({
         username: "",
         password: "",
       });
+      navigate("/Home");
     });
   };
   const login = (event) => {
