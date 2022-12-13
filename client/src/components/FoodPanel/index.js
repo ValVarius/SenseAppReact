@@ -64,7 +64,6 @@ export default function FoodPanel(props) {
         onChange={handleSearch}
       />
 
-      {/* MAYBE THE MENU BY CATEGORY CAN APPEAR AS A MODAL?? */}
 
       <select
         className="form-select"

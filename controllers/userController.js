@@ -42,7 +42,7 @@ module.exports = {
       .populate("meals")
     //   .sort({ date: -1 })
       .then(dbUser => {
-        console.log(dbUser);
+        // console.log(dbUser);
         // if (req.session.user) {
         //     res.json(dbUser)
         // }

@@ -32,5 +32,9 @@ const API = {
   getUserMeals: function (data) {
     return axios.get(`${BASE_URL}/api/meals/day?user=${data}`,data);
   },
+  updateUser: function (data) {
+    return axios.put(`${BASE_URL}/api/user/id/${data}`,data);
+  },
+
 };
 export default API;

@@ -1,6 +1,6 @@
 //first.js
 const menuStart = [
-    { name: "ADZUKI BEANS", category: "Vegetable", color: "green" },
+  { name: "ADZUKI BEANS", category: "Vegetable", color: "green" },
   { name: "ALLSPICE", category: "Herb/Spice", color: "green" },
   { name: "ALLULOSE", category: "Nuts/OilsMiscFood", color: "green" },
   { name: "ARUGULA", category: "Vegetable", color: "green" },

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const User = require('./user');
+const User = require("./user");
 
 const mealSchema = new Schema({
   date: { type: String, required: true },
@@ -65,7 +65,22 @@ const mealSchema = new Schema({
     },
   },
   other: String,
-  user: { type: Schema.Types.ObjectId, ref: "User",required: true },
+  user: { type: Schema.Types.ObjectId, ref: "User", required: true },
+});
+
+mealSchema.pre("remove", function (next) {
+  console.log("THIS IS PRE");
+  // Remove all the assignment docs that reference the removed person.
+  // this.model('User').remove({ meal: this._id }, next);
+  console.log(this._id);
+  console.log(this.user);
+
+  // this.model('User').findOneAndUpdate({ meal: this._id },{ $pull: { meals: { _id: this._id } } }, next);
+  this.model("User").updateOne(
+    { _id: this.user },
+    { $pull: { meals: this._id } },
+    next
+  );
 });
 
 const Meal = mongoose.model("Meal", mealSchema);

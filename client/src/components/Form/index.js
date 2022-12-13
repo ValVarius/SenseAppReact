@@ -87,11 +87,6 @@ export default function Form(props) {
     }));
   };
   const handleCheckbox = (event) => {
-    // event.preventDefault();
-    console.log(event.target.name);
-    console.log(event.target.checked);
-    // console.log(event.target.parentElement.parentElement.children[1].value);
-
     setInfo((prevState) => ({
       ...prevState,
       [event.target.name]: {
@@ -101,9 +96,6 @@ export default function Form(props) {
     }));
   };
   const handleRadio = (event) => {
-    console.log(event.target);
-    console.log(event.target.name);
-    console.log(event.target.value);
     setInfo((prevState) => ({
       ...prevState,
       [event.target.name]: { occurred: true, when: event.target.value },
@@ -112,15 +104,15 @@ export default function Form(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // event.target.id= "savebtnSaved"
-    console.log(event.target.id);
+    // console.log(event.target.id);
     // meal should be store in the user pile...
-    // API.deletePrevious(info).then((res) => {
-    //   console.log(res);
+    API.deletePrevious(info).then((res) => {
+      console.log(res.data);
       API.mealRegistration(info).then((UserUpdate) => {
         props.setCurrentUser(UserUpdate.data)
         // props.setRetrieved(false);
       });
-    // });
+    });
   };
 
   const deleteItem = (item) => {

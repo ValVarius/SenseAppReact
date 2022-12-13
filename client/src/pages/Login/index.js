@@ -35,9 +35,9 @@ export default function Login(props) {
         ? "text"
         : "password";
   };
-  const signup = (event) => {
+  const signup = () => {
     
-
+    // THIS SHOULD ALSO PUT THE MANU INTO THE USER DB???
     API.createUser(credentials).then((res) => {
       setCredentials({
         username: "",
