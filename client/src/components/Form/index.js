@@ -21,7 +21,7 @@ export default function Form(props) {
     redness: { occurred: false, when: "Immediately" },
     noseRunning: { occurred: false, when: "Immediately" },
     other: "",
-    user: props.currentUser
+    user: props.currentUser,
   });
 
   useEffect(() => {
@@ -106,13 +106,41 @@ export default function Form(props) {
     // event.target.id= "savebtnSaved"
     // console.log(event.target.id);
     // meal should be store in the user pile...
-    API.deletePrevious(info).then((res) => {
-      console.log(res.data);
+    // API.deletePrevious(info).then((res) => {
+    // console.log(res.data);
+
+    // CHECK IF MEAL IS NEW OR TO BE UPDATED
+    let update = false;
+    let id = "";
+
+    for (let i = 0; i < props.logs.length; i++) {
+      if (props.logs[i].title === info.title) {
+        update = true;
+        id = props.logs[i]._id;
+        let newArr = [...props.logs];
+        let corrected = newArr[i];
+        let updated = { ...corrected, ...info };
+        newArr[i] = updated;
+        props.setLogs(newArr);
+      }
+    }
+
+    if (update) {
+      // api update
+
+      API.mealUpdate(info, id).then((res) => {
+        console.log(res);
+        // props.setCurrentUser(currentUser);
+        // FIND A WAY TO UPDATE DATA ON SCREEN.............
+      });
+    } else {
       API.mealRegistration(info).then((UserUpdate) => {
-        props.setCurrentUser(UserUpdate.data)
+        props.setCurrentUser(UserUpdate.data);
         // props.setRetrieved(false);
       });
-    });
+    }
+
+    // });
   };
 
   const deleteItem = (item) => {
