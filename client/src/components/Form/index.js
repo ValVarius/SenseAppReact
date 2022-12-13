@@ -136,7 +136,6 @@ export default function Form(props) {
     } else {
       API.mealRegistration(info).then((UserUpdate) => {
         props.setCurrentUser(UserUpdate.data);
-        // props.setRetrieved(false);
       });
     }
 

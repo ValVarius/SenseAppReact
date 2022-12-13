@@ -5,14 +5,21 @@ import API from "../../utils/API";
 
 export default function MealCard(props) {
 
-const deletecard = (event) => {
-  // console.log(event.target);
-  // console.log(props.log._id);
-
+const deletecard = () => {
+  
   API.deleteId(props.log._id).then((res) => {
     console.log(res);
-    // props.setRetrieved(false)
-    
+    // update rendered logs
+    for (let i = 0; i < props.logs.length; i++) {
+      if (props.logs[i]._id === props.log._id) {
+  
+        let newArr = [...props.logs];
+        
+        newArr.splice(i,1);
+        
+        props.setLogs(newArr);
+      }
+    }
   })
 }
 
