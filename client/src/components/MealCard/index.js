@@ -6,12 +6,13 @@ import API from "../../utils/API";
 export default function MealCard(props) {
 
 const deletecard = (event) => {
-  console.log(event.target);
-  console.log(props.log._id);
+  // console.log(event.target);
+  // console.log(props.log._id);
 
   API.deleteId(props.log._id).then((res) => {
     console.log(res);
-    props.setRetrieved(false)
+    // props.setRetrieved(false)
+    
   })
 }
 

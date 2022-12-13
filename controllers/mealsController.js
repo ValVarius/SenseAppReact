@@ -42,8 +42,7 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   removeByDateTitle: function (req, res) {
-    console.log(req.body);
-    db.Meal.deleteMany({ date: req.body.date, title: req.body.title, user: req.body.user, })
+    db.Meal.deleteOne({ date: req.body.date, title: req.body.title, user: req.body.user, })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => {
         console.log(err);

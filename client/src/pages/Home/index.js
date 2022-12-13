@@ -25,7 +25,7 @@ export default function Home(props) {
   return (
     <div className="home">
       {retrieved ? (
-        <Form date={props.date} setDate={props.setDate} logs={logs} setRetrieved={setRetrieved} currentUser={props.currentUser} setCurrentUser ={props.setCurrentUser} />
+        <Form date={props.date} setDate={props.setDate} logs={logs} setLogs={setLogs} setRetrieved={setRetrieved} currentUser={props.currentUser} setCurrentUser ={props.setCurrentUser} />
       ) : (
         ""
       )}
@@ -34,7 +34,7 @@ export default function Home(props) {
         {logs
           ? logs.map((result) => {
               if (result.title == "breakfast") {
-                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} />;
+                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} setLogs = {setLogs} />;
               }
             })
           : ""}
@@ -42,7 +42,7 @@ export default function Home(props) {
         {logs
           ? logs.map((result) => {
               if (result.title == "mid-morning") {
-                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} />;
+                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} setLogs = {setLogs} />;
               }
             })
           : ""}
@@ -50,7 +50,7 @@ export default function Home(props) {
         {logs
           ? logs.map((result) => {
               if (result.title == "lunch") {
-                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} />;
+                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} setLogs = {setLogs} />;
               }
             })
           : ""}
@@ -58,7 +58,7 @@ export default function Home(props) {
         {logs
           ? logs.map((result) => {
               if (result.title == "afternoon") {
-                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} />;
+                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} setLogs = {setLogs} />;
               }
             })
           : ""}
@@ -66,7 +66,7 @@ export default function Home(props) {
         {logs
           ? logs.map((result) => {
               if (result.title == "dinner") {
-                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} />;
+                return <MealCard log={result} key={result._id} setRetrieved = {setRetrieved} setLogs = {setLogs} />;
               }
             })
           : ""}

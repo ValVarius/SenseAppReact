@@ -35,6 +35,10 @@ const API = {
   updateUser: function (data) {
     return axios.put(`${BASE_URL}/api/user/id/${data}`,data);
   },
+  mealUpdate: function (data,id) {
+    return axios.put(`${BASE_URL}/api/meals/id/${id}`,data);
+  },
+
 
 };
 export default API;
