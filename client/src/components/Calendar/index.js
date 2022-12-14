@@ -44,7 +44,6 @@ export default function Calendar(props) {
     props.setDate({
       ...props.date,
       [name]: value,
-      // date: props.date.month + "|" + props.date.day + "|" + props.date.year,
     })
     props.setDate({
       ...props.date,
