@@ -230,5 +230,24 @@ const menuStart = [
   { name: "PEANUT", category: "Nuts/OilsMiscFood", color: "green" },
   { name: "POPPY SEED", category: "Nuts/OilsMiscFood", color: "green" },
   { name: "VANILLA", category: "Nuts/OilsMiscFood", color: "green" },
+
+
+  { name: "AGAVE,", category: "Nuts/OilsMiscFood", color: "green" },
+  { name: "CANE SUGAR", category: "Nuts/OilsMiscFood", color: "green" },
+  { name: "HONEY,", category: "Nuts/OilsMiscFood", color: "green" },
+  { name: "MAPLE SUGAR,", category: "Nuts/OilsMiscFood", color: "green" },
+  { name: "MOLASSES,", category: "Nuts/OilsMiscFood", color: "green" },
+
+  { name: "BARLEY,", category: "Grain/Starch", color: "green" },
+  { name: "MALT,,", category: "Grain/Starch", color: "green" },
+  { name: "RYE,,", category: "Grain/Starch", color: "green" },
+  { name: "SPELT,,", category: "Grain/Starch", color: "green" },
+  { name: "WHEAT,", category: "Grain/Starch", color: "green" },
+
+  { name: "COW'S MILK", category: "Dairy/Eggs", color: "green" },
+  { name: "GOAT'S MILK", category: "Dairy/Eggs", color: "green" },
+  { name: "SHEEP'S MILK", category: "Dairy/Eggs", color: "green" },
+
+
 ]
 module.exports = { menuStart };
