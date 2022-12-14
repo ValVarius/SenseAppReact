@@ -947,7 +947,6 @@ export default function Form(props) {
             value={info.other}
             onChange={handleChange}
           />
-
           <button
             type="submit"
             className="btn btn-outline-danger"
