@@ -4,20 +4,26 @@ import "./style.css";
 
 import Form from "../../components/Form";
 import MealCard from "../../components/MealCard";
+import { useNavigate } from "react-router-dom";
 
 export default function Home(props) {
   const [logs, setLogs] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    let dateMeals = [];
-    props.currentUser.meals.forEach((meal) => {
-      if (meal.date === props.date.date) {
-        dateMeals.push(meal);
-      }
-    });
+    if (!props.currentUser) navigate("/");
+    else {
+      let dateMeals = [];
 
-    setLogs(dateMeals);
-  }, [props.currentUser || props.date.date]);
+      props.currentUser.meals.forEach((meal) => {
+        if (meal.date === props.date.date) {
+          dateMeals.push(meal);
+        }
+      });
+
+      setLogs(dateMeals);
+    }
+  }, [props.currentUser, props.date.date]);
 
   return (
     <div className="home">
@@ -36,7 +42,12 @@ export default function Home(props) {
           ? logs.map((result) => {
               if (result.title == "breakfast") {
                 return (
-                  <MealCard log={result} logs={logs} key={result._id} setLogs={setLogs} />
+                  <MealCard
+                    log={result}
+                    logs={logs}
+                    key={result._id}
+                    setLogs={setLogs}
+                  />
                 );
               }
             })
@@ -46,7 +57,12 @@ export default function Home(props) {
           ? logs.map((result) => {
               if (result.title == "mid-morning") {
                 return (
-                  <MealCard log={result} logs={logs} key={result._id} setLogs={setLogs} />
+                  <MealCard
+                    log={result}
+                    logs={logs}
+                    key={result._id}
+                    setLogs={setLogs}
+                  />
                 );
               }
             })
@@ -56,7 +72,12 @@ export default function Home(props) {
           ? logs.map((result) => {
               if (result.title == "lunch") {
                 return (
-                  <MealCard log={result} logs={logs} key={result._id} setLogs={setLogs} />
+                  <MealCard
+                    log={result}
+                    logs={logs}
+                    key={result._id}
+                    setLogs={setLogs}
+                  />
                 );
               }
             })
@@ -66,7 +87,12 @@ export default function Home(props) {
           ? logs.map((result) => {
               if (result.title == "afternoon") {
                 return (
-                  <MealCard log={result} logs={logs} key={result._id} setLogs={setLogs} />
+                  <MealCard
+                    log={result}
+                    logs={logs}
+                    key={result._id}
+                    setLogs={setLogs}
+                  />
                 );
               }
             })
@@ -76,7 +102,12 @@ export default function Home(props) {
           ? logs.map((result) => {
               if (result.title == "dinner") {
                 return (
-                  <MealCard log={result} logs={logs} key={result._id} setLogs={setLogs} />
+                  <MealCard
+                    log={result}
+                    logs={logs}
+                    key={result._id}
+                    setLogs={setLogs}
+                  />
                 );
               }
             })
