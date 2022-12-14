@@ -47,6 +47,7 @@ export default function Home(props) {
                     logs={logs}
                     key={result._id}
                     setLogs={setLogs}
+                    setCurrentUser={props.setCurrentUser} currentUser={props.currentUser}
                   />
                 );
               }
@@ -62,6 +63,7 @@ export default function Home(props) {
                     logs={logs}
                     key={result._id}
                     setLogs={setLogs}
+                    setCurrentUser={props.setCurrentUser} currentUser={props.currentUser}
                   />
                 );
               }
@@ -77,6 +79,7 @@ export default function Home(props) {
                     logs={logs}
                     key={result._id}
                     setLogs={setLogs}
+                    setCurrentUser={props.setCurrentUser} currentUser={props.currentUser}
                   />
                 );
               }
@@ -92,6 +95,7 @@ export default function Home(props) {
                     logs={logs}
                     key={result._id}
                     setLogs={setLogs}
+                    setCurrentUser={props.setCurrentUser} currentUser={props.currentUser}
                   />
                 );
               }
@@ -107,6 +111,7 @@ export default function Home(props) {
                     logs={logs}
                     key={result._id}
                     setLogs={setLogs}
+                    setCurrentUser={props.setCurrentUser} currentUser={props.currentUser}
                   />
                 );
               }

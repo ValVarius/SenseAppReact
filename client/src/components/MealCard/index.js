@@ -8,16 +8,18 @@ export default function MealCard(props) {
 const deletecard = () => {
   
   API.deleteId(props.log._id).then((res) => {
-    console.log(res);
-    // update rendered logs
-    for (let i = 0; i < props.logs.length; i++) {
-      if (props.logs[i]._id === props.log._id) {
-  
-        let newArr = [...props.logs];
-        
+    console.log(props.currentUser);
+    for (let i = 0; i < props.currentUser.meals.length; i++) {
+      if (props.currentUser.meals[i]._id === props.log._id) {
+        let newArr = [...props.currentUser.meals];
         newArr.splice(i,1);
-        
         props.setLogs(newArr);
+
+        props.setCurrentUser((prevState) => ({
+          ...prevState,
+          meals: newArr
+        }));
+
       }
     }
   })
