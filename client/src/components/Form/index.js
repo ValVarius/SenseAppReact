@@ -10,7 +10,7 @@ export default function Form(props) {
     // date: props.date.month + "|" + props.date.day + "|" + props.date.year,
     title: "breakfast",
     date: props.date.date,
-    weight: "",
+    weight: "0",
     food: [],
     time: "5:00am",
     bloating: { occurred: false, when: "Immediately" },
@@ -54,7 +54,7 @@ export default function Form(props) {
       setInfo((prevState) => ({
         ...prevState,
         date: props.date.date,
-        weight: "",
+        weight: "0",
         food: [],
         time: "5:00am",
         bloating: { occurred: false, when: "Immediately" },
@@ -68,7 +68,7 @@ export default function Form(props) {
         user: props.currentUser,
       }));
     }
-  }, [info.title]);
+  }, [info.title, props.logs]);
 
   useEffect(() => {
     setInfo((prevState) => ({
@@ -104,10 +104,7 @@ export default function Form(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // event.target.id= "savebtnSaved"
-    // console.log(event.target.id);
-    // meal should be store in the user pile...
-    // API.deletePrevious(info).then((res) => {
-    // console.log(res.data);
+    
 
     // CHECK IF MEAL IS NEW OR TO BE UPDATED
     let update = false;
@@ -947,7 +944,7 @@ export default function Form(props) {
             type="text"
             rows={2}
             id="other"
-            defaultValue={info.other}
+            value={info.other}
             onChange={handleChange}
           />
 
