@@ -45,3 +45,11 @@
 .timelogged {
   /* margin: auto; */
 }
+
+@media (max-width: 1750px) {
+  .cardcontainer{
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+  }
+}

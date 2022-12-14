@@ -127,15 +127,19 @@ export default function Form(props) {
 
       API.mealUpdate(info, id).then((res) => {
         console.log(res);
-        // props.setCurrentUser(currentUser);
-        // FIND A WAY TO UPDATE DATA ON SCREEN.............
+        
       });
     } else {
       API.mealRegistration(info).then((UserUpdate) => {
         props.setCurrentUser(UserUpdate.data);
       });
     }
-
+    // window.scrollTo(0, document.body.scrollHeight, "auto");
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      left: 0,
+      behavior: 'smooth'
+    });
     // });
   };
 

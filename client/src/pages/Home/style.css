@@ -24,7 +24,10 @@ body {
 }
 @media (max-width: 1750px) {
   .home {
-    /* display: block; */
+    display: block;
+    /* display: inline-block; */
+    /* display: none; */
+    /* margin: auto; */
   }
 }
 
