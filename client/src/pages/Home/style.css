@@ -41,15 +41,20 @@ body {
 }
 
 
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
   .container {
-    max-width: 450px;
+    zoom: 0.7;
+    /* background-color: blue; */
   }
 }
 
 @media (max-width: 1000px) {
   .home {
     display: block;
+  }
+  .container {
+    zoom: 1;
+    /* background-color: blue; */
   }
 }
 
@@ -59,8 +64,24 @@ body {
     max-width: 95%;
   }
 }
-/* @media (min-width: 750px) {
+/* BIG SCREENS */
+@media (min-width: 2500px) {
   .container {
-    max-width: 95%;
+    zoom: 1.2;
   }
-} */
+}
+@media (min-width: 3500px) {
+  .container {
+    zoom: 1.4;
+  }
+}
+@media (min-width: 4500px) {
+  .container {
+    zoom: 1.6;
+  }
+}
+@media (min-width: 5500px) {
+  .container {
+    zoom: 1.8;
+  }
+}
