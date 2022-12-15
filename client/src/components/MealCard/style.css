@@ -1,9 +1,4 @@
 .cardcontainer {
-  /* background-color: rgb(46, 128, 168, 0.4); */
-  /* background-color: rgb(46, 128, 168); */
-  /* background-color: #0c2950; */
-  /* background-color: rgb(27, 50, 57,0.7); */
-
   color: white;
   width: 600px;
   max-height: 100%;
@@ -11,7 +6,6 @@
   border-radius: 10px;
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
   margin-bottom: 15px;
-  /* border: 0.1vw solid rgba(2, 228, 231, 0.8); */
   font-size: 25px;
   text-align: left;
 }
@@ -28,8 +22,6 @@
   padding: 3%;
   background-color: #344056;
   border-radius: 10px;
-
-
 }
 .deleteMeal {
   font-family: "Times New Roman", Times, serif;
@@ -47,70 +39,52 @@
   margin-right: 10px;
 }
 .timelogged {
-  /* margin: auto; */
 }
 
 /* BODY OF CARD */
 
-.cardbody{
+.cardbody {
   display: flex;
   justify-content: space-evenly;
-  
 }
-.cardtitle{
+.cardtitle {
   color: black;
   font-weight: bold;
-  /* box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45); */
   margin-top: 10px;
   text-align: center;
   margin: auto;
   margin-top: 10px;
 }
-.comm{
+.comm {
   max-width: 50%;
-
 }
-.foodItemlist{
-  /* margin: auto; */
-  
+.foodItemlist {
 }
-.sideffects{
-  /* margin: auto; */
-
+.sideffects {
 }
-.fooditem{
-  /* font-size: 25px;
-  text-align: left; */
+.fooditem {
 }
-.comments{
-  /* margin: auto; */
-  /* margin-top: 30px; */
+.comments {
   padding: 10px;
   text-align: center;
-
 }
-
 
 @media (max-width: 1500px) {
   .cardcontainer {
-    width: 400px;
-    font-size: 20px;
-
+    zoom: 0.7;
   }
   .MealCardTitle h1 {
-    font-size: 30px;
   }
-  
 }
 @media (max-width: 1000px) {
-  .cardcontainer{
+  .cardcontainer {
     margin: auto;
     margin-top: 40px;
     margin-bottom: 100px;
     width: 90%;
     font-size: 25px;
+    zoom: 1;
   }
-  
 }
 
 /* BIG SCREENS */

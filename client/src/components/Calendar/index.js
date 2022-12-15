@@ -39,45 +39,26 @@ export default function Calendar(props) {
     return display;
   };
 
-  const handleChange =  (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     props.setDate({
       ...props.date,
       [name]: value,
-    })
+    });
     props.setDate({
       ...props.date,
       [name]: value,
-      date: event.target.parentElement.children[1].value + "|" + event.target.parentElement.children[0].value + "|" + event.target.parentElement.children[2].value,
-    })
-  }
+      date:
+        event.target.parentElement.children[0].value +
+        "|" +
+        event.target.parentElement.children[1].value +
+        "|" +
+        event.target.parentElement.children[2].value,
+    });
+  };
 
-  // const searchDay = (event) => {
-  //   event.preventDefault();
-  //   // console.log(props.date);
-  //   // console.log("Day: ", event.target.parentElement.children[0].value);
-  //   // console.log("Month: ", event.target.parentElement.children[1].value);
-  //   // console.log("Year: ", event.target.parentElement.children[2].value);
-  //   // API.getMealsbyDay(props.date.date).then(res => {
-  //   //   console.log(res.data);
-  //   // });
-  //   props.setDate({
-  //     day: event.target.parentElement.children[0].value,
-  //     month:  event.target.parentElement.children[1].value,
-  //     year: event.target.parentElement.children[2].value,
-  //     date: event.target.parentElement.children[1].value + "|" + event.target.parentElement.children[0].value + "|" + event.target.parentElement.children[2].value,
-  //   });
-  // }
   return (
-    <div className="select-date float-right" >
-      <select
-        name="day"
-        id="select-day"
-        value={props.date.day}
-        onChange={handleChange}
-      >
-        {daysOptions}
-      </select>
+    <div className="select-date float-right">
       <select
         name="month"
         id="select-month"
@@ -96,6 +77,14 @@ export default function Calendar(props) {
         <option value="10">October</option>
         <option value="11">November</option>
         <option value="12">December</option>
+      </select>
+      <select
+        name="day"
+        id="select-day"
+        value={props.date.day}
+        onChange={handleChange}
+      >
+        {daysOptions}
       </select>
       <select
         name="year"

@@ -162,8 +162,8 @@ export default function Form(props) {
     <>
       <div className="container">
         <form className="form" id="foodform">
-          <div name="date" onChange={handleChange}>
-            {props.date.date}
+          <div className= "formdate" name="date" onChange={handleChange}>
+            {props.date.month}-{props.date.day}-{props.date.year} 
           </div>
 
           <select
