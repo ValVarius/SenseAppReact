@@ -39,7 +39,7 @@
 
 .MealCardTitle h1 {
   margin: auto;
-  /* margin-left: -25px; */
+  font-size: 40px;
 }
 
 .timeweight {
@@ -59,11 +59,16 @@
 }
 .cardtitle{
   color: black;
-  font-size: 25px;
   font-weight: bold;
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
   margin-top: 10px;
   text-align: center;
+  margin: auto;
+  margin-top: 10px;
+}
+.comm{
+  max-width: 50%;
+
 }
 .foodItemlist{
   /* margin: auto; */
@@ -81,15 +86,29 @@
   /* margin: auto; */
   /* margin-top: 30px; */
   padding: 10px;
+  text-align: center;
+
 }
 
 
+@media (max-width: 1400px) {
+  .cardcontainer {
+    width: 400px;
+    font-size: 20px;
 
-
-@media (max-width: 1750px) {
+  }
+  .MealCardTitle h1 {
+    font-size: 30px;
+  }
+  
+}
+@media (max-width: 1000px) {
   .cardcontainer{
     margin: auto;
     margin-top: 40px;
     margin-bottom: 100px;
+    width: 90%;
+    font-size: 25px;
   }
+  
 }
