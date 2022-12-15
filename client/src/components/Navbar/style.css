@@ -7,4 +7,27 @@
     border-radius: 0 0 10px 10px ;
     background-color: #1b3239;
   }
+
+  /* BIG SCREENS */
+@media (min-width: 2500px) {
+    .navbar  {
+      zoom: 1.4;
+    }
+  }
+  @media (min-width: 3500px) {
+    .navbar  {
+      zoom: 1.6;
+    }
+  }
+  @media (min-width: 4500px) {
+    .navbar  {
+      zoom: 1.8;
+    }
+  }
+  @media (min-width: 5500px) {
+    .navbar  {
+      zoom: 2;
+    }
+  }
+  
   
