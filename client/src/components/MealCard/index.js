@@ -116,7 +116,7 @@ export default function MealCard(props) {
         </div>
       </div>
       {/* OTHER */}
-      {props.log.other ? <div className="cardtitle">Comments:<div className= "comments">{props.log.other}</div></div> : ""}
+      {props.log.other ? <><div className="cardtitle comm">Comments:</div><div className= "comments">{props.log.other}</div></> : ""}
     </div>
   );
 }

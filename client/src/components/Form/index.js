@@ -134,10 +134,14 @@ export default function Form(props) {
         props.setCurrentUser(UserUpdate.data);
       });
     }
-    // window.scrollTo(0, document.body.scrollHeight, "auto");
+    // window.scrollTo({
+    //   top: document.body.scrollHeight,
+    //   left: 0,
+    //   behavior: 'smooth'
+    // });
     window.scrollTo({
-      top: document.body.scrollHeight,
-      left: 0,
+      top: 0,
+      left: document.body.scrollHeight,
       behavior: 'smooth'
     });
     // });
