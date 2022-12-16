@@ -16,7 +16,6 @@ export default function Home(props) {
       let dateMeals = [];
 
       props.currentUser.meals.forEach((meal) => {
-        console.log(meal.date + " vs "+ props.date.date);
         if (meal.date === props.date.date) {
           dateMeals.push(meal);
         }
@@ -24,7 +23,6 @@ export default function Home(props) {
 
       setLogs(dateMeals);
     }
-    console.log("***************************************************");
 
   }, [props.currentUser, props.date.date]);
 

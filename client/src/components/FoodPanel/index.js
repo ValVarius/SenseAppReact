@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import API from "../../utils/API";
+
+// Only for development to store the menu locally..
 // const { menuStart } = require("./menuStart.js");
 
 export default function FoodPanel(props) {
-  //   let matches = menu.filter(function(result) {
-  //     return (result.name).substring(0,searchedItem.length).toUpperCase() === searchedItem.toUpperCase()
-  // })
+
+  // API.storeUserMenu(menuStart).then((newMeal) => {
+  //   console.log(newMeal.data);
+  // });
+
   const [menu, setMenu] = useState();
   const [searchedItem, setSearchedItem] = useState();
   const [searchedCategory, setSearchedCategory] = useState();
@@ -17,9 +21,7 @@ export default function FoodPanel(props) {
     });
   }, []);
 
-  // API.storeUserMenu(menuStart).then((newMeal) => {
-  //   console.log(newMeal.data);
-  // });
+  
 
   let handleSearch = (event) => {
     event.preventDefault();

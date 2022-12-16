@@ -104,7 +104,6 @@ export default function Form(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // event.target.id= "savebtnSaved"
-    
 
     // CHECK IF MEAL IS NEW OR TO BE UPDATED
     let update = false;
@@ -126,24 +125,30 @@ export default function Form(props) {
       // api update
 
       API.mealUpdate(info, id).then((res) => {
-        console.log(res);
-        
+        // console.log(res);
       });
     } else {
       API.mealRegistration(info).then((UserUpdate) => {
         props.setCurrentUser(UserUpdate.data);
       });
     }
-    // window.scrollTo({
-    //   top: document.body.scrollHeight,
-    //   left: 0,
-    //   behavior: 'smooth'
-    // });
-    window.scrollTo({
-      top: 0,
-      left: document.body.scrollHeight,
-      behavior: 'smooth'
-    });
+
+    console.log(document.body.scrollWidth);
+
+    if (document.body.scrollWidth > 1000) {
+      window.scrollTo({
+        top: 0,
+        left: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    } else {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+
     // });
   };
 
@@ -162,8 +167,8 @@ export default function Form(props) {
     <>
       <div className="container">
         <form className="form" id="foodform">
-          <div className= "formdate" name="date" onChange={handleChange}>
-            {props.date.month}-{props.date.day}-{props.date.year} 
+          <div className="formdate" name="date" onChange={handleChange}>
+            {props.date.month}-{props.date.day}-{props.date.year}
           </div>
 
           <select
