@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = process.env.PUBLIC_URL || "http://localhost:3001";
+// const BASE_URL = process.env.PUBLIC_URL || "http://localhost:3001";
+const BASE_URL = "https://sensapp.herokuapp.com";
 const API = {
   mealRegistration: function (data) {
     return axios.post(`${BASE_URL}/api/meals`, data);
