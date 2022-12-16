@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config({ path: "./config.env" });
 
 const fileUpload = require("express-fileupload");
 
@@ -41,5 +42,3 @@ app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
 
-// const db = require("../models");
-// db.Meal.collection.insertMany(bookSeed)
