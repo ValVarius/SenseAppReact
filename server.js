@@ -27,6 +27,22 @@ app.use(
     credentials: true,
   })
 );
+app.use(routes);
+
+
+
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/senseappDB", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// Start the API server
+app.listen(PORT, function () {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
+
+
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
   // Serve static files from the React frontend app
@@ -42,15 +58,3 @@ if (process.env.NODE_ENV === "production") {
     res.send("API LISTENING");
   });
 }
-
-app.use(routes);
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/senseappDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-// Start the API server
-app.listen(PORT, function () {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
