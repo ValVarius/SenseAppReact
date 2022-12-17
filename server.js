@@ -27,6 +27,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(routes);
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
   // Serve static files from the React frontend app
@@ -43,7 +44,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.use(routes);
+
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/senseappDB", {
   useNewUrlParser: true,
