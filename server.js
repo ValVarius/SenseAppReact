@@ -27,10 +27,23 @@ app.use(
     credentials: true,
   })
 );
+// Serve up static assets
+if (process.env.NODE_ENV === "production") {
+  // Serve static files from the React frontend app
+  app.use(express.static(path.join(__dirname, "client/build")));
+  // app.use(express.static("client/build"));
+
+  // Anything that doesn't match the above, send back index.html
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("API LISTENING");
+  });
+}
+
 app.use(routes);
-
-
-
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/senseappDB", {
   useNewUrlParser: true,
@@ -41,20 +54,3 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/senseappDB", {
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
-
-
-// Serve up static assets
-if (process.env.NODE_ENV === "production") {
-  // Serve static files from the React frontend app
-  app.use(express.static(path.join(__dirname, "client/build")));
-  // app.use(express.static("client/build"));
-
-  // Anything that doesn't match the above, send back index.html
-  // app.get("*", (req, res) => {
-  //   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  // });
-} else {
-  app.get("/", (req, res) => {
-    res.send("API LISTENING");
-  });
-}
