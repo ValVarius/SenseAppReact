@@ -18,6 +18,9 @@ export default function FoodPanel(props) {
   useEffect(() => {
     API.getMenu().then((result) => {
       setMenu(result.data);
+      console.log(result.data);
+      console.log(result);
+      
     });
   }, []);
 
