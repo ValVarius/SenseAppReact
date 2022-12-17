@@ -3,6 +3,8 @@ const db = require("../models");
 // Defining methods for the MenusController
 module.exports = {
   findAll: function(req, res) {
+    console.log("Getting the menu...");
+    console.log(req);
     db.Menu
       .find(req.query)
       .then(dbModel => res.json(dbModel))
