@@ -66,6 +66,8 @@ export default function Login(props) {
     });
   };
   const login = (event) => {
+        event.preventDefault();
+
     API.login(credentials).then((res) => {
       if (res.data === "incorrect password") {
         setIncorrect("Incorrect Password");
