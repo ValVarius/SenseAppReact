@@ -123,7 +123,7 @@ export default function Login(props) {
             ></button>
             <div className="warning">{incorrect}</div>
           </div>
-          <button className="control" type="button" onClick={login}>
+          <button className="control" type="button" cursor='pointer' onClick={login}>
             LOGIN
           </button>
         </form>
@@ -192,7 +192,7 @@ export default function Login(props) {
               onClick={togglePassword}
             ></button>
           </div>
-          <button className="control" type="button" onClick={signup}>
+          <button className="control" type="button" cursor='pointer'onClick={signup}>
             SIGN UP
           </button>
         </form>
