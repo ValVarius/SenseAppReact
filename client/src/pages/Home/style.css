@@ -1,5 +1,6 @@
 body {
-  min-width: 600px;
+  /* min-width: 600px; */
+  
   /* background-image: url("../../public/newdots.jpg"); */
   background-image: url("../../public/background.svg");
   background-image: url("../Login/background2.png");
@@ -7,6 +8,7 @@ body {
   /* background: #abb0b6; */
   background-size: cover;
   /* background-repeat: no-repeat; */
+  
 }
 #backgroundimage{
   position: fixed;
