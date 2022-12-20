@@ -1,27 +1,19 @@
 body {
-  /* min-width: 600px; */
-  
-  /* background-image: url("../../public/newdots.jpg"); */
   background-image: url("../../public/background.svg");
   background-image: url("../Login/background2.png");
-  /* background: #0c2950; */
-  /* background: #abb0b6; */
   background-size: cover;
-  /* background-repeat: no-repeat; */
   
 }
 #backgroundimage{
   position: fixed;
   z-index: -1;
-  /* width:100vw; */
   height:100vh;
-  /* opacity: 0.5; */
 }
 .home{
   display: flex;
-  /* align-items: flex-start; */
   justify-content: space-evenly;
   margin-top: 10px;
+  max-height: 100%;
 
 }
 
@@ -49,18 +41,14 @@ body {
     /* background-color: blue; */
   }
 }
-
 @media (max-width: 1000px) {
   .home {
     display: block;
   }
   .container {
     zoom: 1;
-    /* background-color: blue; */
   }
 }
-
-
 @media (max-width: 750px) {
   .container {
     max-width: 95%;

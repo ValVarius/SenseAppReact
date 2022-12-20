@@ -1,4 +1,7 @@
-
+.login-card{
+  max-width: 90%;
+  min-width: 300px;
+}
 button {
     background: transparent;
     border: 0;
@@ -24,7 +27,7 @@ button {
     margin-top: 20px;
     height: 50px;
     width: 100px;
-    margin-left: 65%;
+    margin-left: 60%;
     margin-bottom: 20px;
     transition: 0.3s all linear;
     box-shadow: 0px 0px 5px #aac5c6;
@@ -77,6 +80,7 @@ button {
     background: #703eff;
     background: rgba(2, 228, 231);
     color: #f9f9f9;
+    color:#1b3239;
     border: 0;
     font-family: inherit;
     font-size: 1rem;
@@ -84,6 +88,11 @@ button {
     text-align: center;
     letter-spacing: 2px;
     transition: all 0.375s;
+  }
+  .login-form > button.control:hover{
+    color: #f9f9f9;
+    background-color: #1b3239;
+
   }
   
   .password {

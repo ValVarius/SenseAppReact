@@ -8,6 +8,18 @@
     background-color: #1b3239;
   }
 
+  /* SMALL SCREENS */
+  @media (max-width: 500px) {
+    .navbar {
+      zoom: 0.7;
+    }
+  }
+@media (max-width: 320px) {
+    .navbar {
+      zoom: 0.6;
+    }
+  }
+
   /* BIG SCREENS */
 @media (min-width: 2500px) {
     .navbar  {
