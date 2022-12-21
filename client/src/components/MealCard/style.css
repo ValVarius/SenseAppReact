@@ -86,6 +86,42 @@
     zoom: 1;
   }
 }
+@media (max-width: 800px) {
+  .cardcontainer {
+    zoom: 0.9;
+  }
+}
+@media (max-width: 700px) {
+  .cardcontainer {
+    zoom: 0.8;
+  }
+}
+@media (max-width: 600px) {
+  .cardcontainer {
+    zoom: 0.7;
+  }
+}
+@media (max-width: 500px) {
+  .cardcontainer {
+    zoom: 0.6;
+  }
+}
+@media (max-width: 400px) {
+  .cardcontainer {
+    zoom: 0.5;
+  }
+}
+@media (max-width: 350px) {
+  .cardcontainer {
+    zoom: 0.4;
+  }
+}
+@media (max-width: 300px) {
+  .cardcontainer {
+    zoom: 0.3;
+  }
+}
+
 
 /* BIG SCREENS */
 @media (min-width: 2500px) {

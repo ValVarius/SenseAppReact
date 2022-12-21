@@ -56,6 +56,7 @@ export default function FoodPanel(props) {
 
   return (
     <>
+    <div className="foodpanelcontainer">
       <input
         aria-label="Search Name"
         id="namesearch"
@@ -86,7 +87,7 @@ export default function FoodPanel(props) {
         <option value="Seafood">Seafood</option>
         <option value="Nuts/OilsMiscFood">Nuts/OilsMiscFood</option>
       </select>
-
+      </div>
       {searchedCategory || searchedItem ? 
       <div id="foodbuttonslist">
         {searchedCategory
