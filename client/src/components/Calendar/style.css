@@ -13,7 +13,7 @@ select {
   display: flex;
 }
 .select-date option {
-  font-size: 25px;
+  /* font-size: 25px; */
 }
 .select-date > select {
   color: #040c0e;

@@ -1,39 +1,38 @@
+.foodpanelcontainer{
+    display: flex;
 
+}
 #foodbuttonslist{
     position: absolute;
-    background-color: aliceblue;
-    border-radius: 10px;
-    /* left: 12%; */
+    /* background-color: aliceblue; */
+     border-radius: 10px; 
     z-index: 2;
     overflow-y:scroll;
-    height:420px;
-    box-shadow: 0px 0px 5px black
+    /* height:420px; */
+    max-height: 50%;
+    max-width: 50%;
+    box-shadow: 0px 0px 5px white  
 
     
 }
 
 .menubutton{
-    /* width: 100%; */
-    margin-bottom: 5px;
-    display: block;
+    margin-bottom: 5px; 
     margin: auto;
-    margin-left: 10px;
-    margin-right: 10px;
     margin-top: 5px;
-    width: 300px;
+    width: 50%; 
+
 }
 
 #namesearch{
-    height: 60px;
-    margin-top: 10px;
-    width: 300px;
-    border-radius: 10px;
-    font-size: 20px;
+     
+     border-radius: 10px;
+    font-size: 20px; 
 }
-#category-select{
-    height: 60px;
-    width: 300px;
-    margin: auto;
-    margin-top: 10px;
+#category-select > option {
+    /* background-color: red; */
+    /* font-size: 20px; */
+    background-color: pink;
+    font-size: large;
 
 }
