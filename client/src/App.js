@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import React, { useState, useEffect } from "react";
 import API from "./utils/API";
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -21,19 +20,16 @@ function App() {
   });
 
   const [currentUser, setCurrentUser] = useState(false); 
-  const navigate = useNavigate();
+
   
 
   useEffect(() => {
-
     API.readSessions().then((res) => {
       console.log(res.data);
 
       if (res.data.user) {
         console.log("USER ANCORA QUI!!!");
-        setCurrentUser(res.data.user);
-        navigate("/Home");
- 
+        setCurrentUser(res.data.user); 
       }
     })
     let d = new Date();

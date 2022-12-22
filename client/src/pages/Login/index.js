@@ -4,6 +4,13 @@ import API from "../../utils/API";
 import { useNavigate } from "react-router-dom";
 
 export default function Login(props) {
+  useEffect(() => {
+    if (props.currentUser) navigate("/Home");
+    
+    
+
+  }, []);
+
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
