@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import React, { useState, useEffect } from "react";
 import API from "./utils/API";
+import { useNavigate } from "react-router-dom";
+
 
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
   });
 
   const [currentUser, setCurrentUser] = useState(false); 
-
+  const navigate = useNavigate();
   
 
   useEffect(() => {
@@ -30,14 +32,10 @@ function App() {
       if (res.data.user) {
         console.log("USER ANCORA QUI!!!");
         setCurrentUser(res.data.user);
+        navigate("/Home");
+ 
       }
     })
-
-
-
-
-
-
     let d = new Date();
     setDate({
       day: d.getDate(),
