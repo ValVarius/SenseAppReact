@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 export default function Login(props) {
   useEffect(() => {
     if (props.currentUser) navigate("/Home");
-    
+    console.log("LOGIN DICE CHE USER E`:");
+    console.log(props.currentUser);
     
 
-  }, []);
+  }, [props.currentUser]);
 
   const [credentials, setCredentials] = useState({
     username: "",
