@@ -1,9 +1,11 @@
 const express = require("express");
+const session = require('express-session')
 const cors = require("cors");
 require("dotenv").config({ path: "./config.env" });
 const path = require("path");
 
 const fileUpload = require("express-fileupload");
+const MongoStore = require('connect-mongo')(session)
 
 const mongoose = require("mongoose");
 
@@ -43,12 +45,23 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false },
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}))
+
 app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/senseappDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+mongoose.connection.once('open', () => {
+  console.log('Connected to MongoDB')
+})
 
 // Start the API server
 app.listen(PORT, function () {
