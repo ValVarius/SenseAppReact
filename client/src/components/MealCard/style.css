@@ -10,6 +10,7 @@
   text-align: left;
   padding: 2%;
   font-family: "Times New Roman", Times, serif;
+  zoom: 0.7;
 
 
 }
@@ -75,13 +76,7 @@
   text-align: center;
 }
 
-@media (max-width: 1500px) {
-  .cardcontainer {
-    /* zoom: 0.7; */
-  }
-  .MealCardTitle h1 {
-  }
-}
+
 @media (max-width: 1000px) {
   .cardcontainer {
     margin: auto;
