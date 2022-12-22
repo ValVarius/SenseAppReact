@@ -9,7 +9,6 @@ export default function Navbar(props) {
 
   const handleLogoutClick = (event) => {
     API.logout().then((res) => {
-      console.log(res);
       props.setCurrentUser(false);
       navigate("/");
     });
