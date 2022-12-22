@@ -9,9 +9,10 @@ router
 .route("/readsessions")
 .get(userController.readSession)
 // Matches with "/api/user/logout"
+/api/user/logout
 router
 .route("/logout")
-.post(userController.logout)
+.get(userController.logout)
 // Matches with "/api/user/login"
 router
 .route("/login")
