@@ -30,6 +30,9 @@ const API = {
   login: function (data) {
     return axios.post(`${BASE_URL}/api/user/login`,data);
   },
+  readSessions:function(){
+    return axios.get(`${BASE_URL}/api/user/readsessions`,{withCredentials:true})
+},
   getUserMeals: function (data) {
     return axios.get(`${BASE_URL}/api/meals/day?user=${data}`,data);
   },
