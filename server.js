@@ -1,11 +1,11 @@
 const express = require("express");
-const session = require('express-session')
+const session = require("express-session");
 const cors = require("cors");
 require("dotenv").config({ path: "./config.env" });
 const path = require("path");
 
 const fileUpload = require("express-fileupload");
-const MongoStore = require('connect-mongo')(session)
+const MongoStore = require("connect-mongo")(session);
 
 const mongoose = require("mongoose");
 
@@ -20,7 +20,7 @@ app.use(fileUpload());
 
 const origins = [
   "http://localhost:3000", // Development
-"https://sensapp.herokuapp.com" //Production
+  "https://sensapp.herokuapp.com", //Production
 ];
 
 app.use(
@@ -45,14 +45,18 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.use(session({
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false },
-  ttl: 12 * 60 * 60,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}))
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 12 * 60 * 60,
+    }),
+  })
+);
 
 app.use(routes);
 
@@ -60,9 +64,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/senseappDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-mongoose.connection.once('open', () => {
-  console.log('Connected to MongoDB')
-})
+mongoose.connection.once("open", () => {
+  console.log("Connected to MongoDB");
+});
 
 // Start the API server
 app.listen(PORT, function () {
