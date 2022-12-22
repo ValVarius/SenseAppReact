@@ -25,10 +25,7 @@ function App() {
 
   useEffect(() => {
     API.readSessions().then((res) => {
-      console.log(res.data);
-
       if (res.data.user) {
-        console.log("USER ANCORA QUI!!!");
         setCurrentUser(res.data.user); 
       }
     })
@@ -43,7 +40,7 @@ function App() {
   return (
     <BrowserRouter>
       <div id="app">
-        <Navbar date={date} setDate={setDate} />
+        <Navbar date={date} setDate={setDate} currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <Routes>
           <Route exact path="/" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} />}></Route>
           <Route

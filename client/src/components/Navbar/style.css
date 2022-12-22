@@ -1,45 +1,61 @@
-#navbarlogo{
-    max-width: 100px; 
-    margin-top: -7px
+#navbarlogo {
+  max-width: 100px;
+  margin-top: -7px;
 }
 .navbar {
-    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
-    border-radius: 0 0 10px 10px ;
-    background-color: #1b3239;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
+  border-radius: 0 0 10px 10px;
+  background-color: #1b3239;
+}
+#logoutbutton {
+  margin: auto;
+  margin-left: 0;
+}
+/* SMALL SCREENS */
+@media (max-width: 550px) {
+  .navbar {
+    zoom: 0.7;
   }
+}
+@media (max-width: 400px) {
+  .navbar {
+    zoom: 0.6;
+  }
+}
+@media (max-width: 350px) {
+  .navbar {
+    zoom: 0.5;
+  }
+}
+@media (max-width: 300px) {
+  .navbar {
+    zoom: 0.4;
+  }
+}
+@media (max-width: 250px) {
+  .navbar {
+    zoom: 0.3;
+  }
+}
 
-  /* SMALL SCREENS */
-  @media (max-width: 520px) {
-    .navbar {
-      zoom: 0.7;
-    }
-  }
-@media (max-width: 320px) {
-    .navbar {
-      zoom: 0.6;
-    }
-  }
-
-  /* BIG SCREENS */
+/* BIG SCREENS */
 @media (min-width: 2500px) {
-    .navbar  {
-      zoom: 1.4;
-    }
+  .navbar {
+    zoom: 1.4;
   }
-  @media (min-width: 3500px) {
-    .navbar  {
-      zoom: 1.6;
-    }
+}
+@media (min-width: 3500px) {
+  .navbar {
+    zoom: 1.6;
   }
-  @media (min-width: 4500px) {
-    .navbar  {
-      zoom: 1.8;
-    }
+}
+@media (min-width: 4500px) {
+  .navbar {
+    zoom: 1.8;
   }
-  @media (min-width: 5500px) {
-    .navbar  {
-      zoom: 2;
-    }
+}
+@media (min-width: 5500px) {
+  .navbar {
+    zoom: 2;
   }
-  
-  
+}
