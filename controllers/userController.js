@@ -41,20 +41,6 @@ module.exports = {
         if (req.session.user) {
             res.json(dbUser)
         }
-
-      //   req.session.user = {
-      //     uuid: '12234-2345-2323423'
-      // } //THIS SETS AN OBJECT - 'USER'
-      // req.session.save(err => {
-      //     if(err){
-      //         console.log(err);
-      //     } else {
-      //         res.send(req.session.user) // YOU WILL GET THE UUID IN A JSON FORMAT
-      //     }
-      // });
-
-
-
         else if (!dbUser) {
           req.session.user = false
           console.log("WRONG USER");
