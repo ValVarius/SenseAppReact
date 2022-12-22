@@ -56,8 +56,12 @@ export default function MealCard(props) {
 
       {/* FOOD ITEMS LOGGED */}
       <div className="cardbody">
-        <div className= "foodItemlist">
-        {props.log.food ? <div className="cardtitle">Food Eaten:</div> : <div className="cardtitle">No Food Recorded:</div>}
+        <div className="foodItemlist">
+          {props.log.food ? (
+            <div className="cardtitle">Food Eaten:</div>
+          ) : (
+            <div className="cardtitle">No Food Recorded:</div>
+          )}
 
           {props.log.food
             ? props.log.food.map((result) => {
@@ -70,53 +74,60 @@ export default function MealCard(props) {
             : ""}
         </div>
         {/* SIDE EFFECT */}
-              <div className="sideffects">
-        {props.log.bloating.occurred ||
-        props.log.headache.occurred ||
-        props.log.gas.occurred ||
-        props.log.itchiness.occurred ||
-        props.log.reflux.occurred ||
-        props.log.redness.occurred ||
-        props.log.noseRunning.occurred ? (
-          <div className="cardtitle">Side Effects:</div>
-        ) : (
-          <div className="cardtitle">NO Side Effects.</div>
-        )}
-        {props.log.bloating.occurred ? (
-          <div>Bloating... {props.log.bloating.when}</div>
-        ) : (
-          ""
-        )}
-        {props.log.headache.occurred ? (
-          <div>Headache... {props.log.headache.when}</div>
-        ) : (
-          ""
-        )}
-        {props.log.gas.occurred ? <div>Gas...{props.log.gas.when}</div> : ""}
-        {props.log.itchiness.occurred ? (
-          <div>Itchiness... {props.log.itchiness.when}</div>
-        ) : (
-          ""
-        )}
-        {props.log.reflux.occurred ? (
-          <div>Reflux... {props.log.reflux.when}</div>
-        ) : (
-          ""
-        )}
-        {props.log.redness.occurred ? (
-          <div>Redness... {props.log.redness.when}</div>
-        ) : (
-          ""
-        )}
-        {props.log.noseRunning.occurred ? (
-          <div>NoseRunning... {props.log.noseRunning.when}</div>
-        ) : (
-          ""
-        )}
+        <div className="sideffects">
+          {props.log.bloating.occurred ||
+          props.log.headache.occurred ||
+          props.log.gas.occurred ||
+          props.log.itchiness.occurred ||
+          props.log.reflux.occurred ||
+          props.log.redness.occurred ||
+          props.log.noseRunning.occurred ? (
+            <div className="cardtitle">Side Effects:</div>
+          ) : (
+            <div className="cardtitle">NO Side Effects.</div>
+          )}
+          {props.log.bloating.occurred ? (
+            <div>Bloating... {props.log.bloating.when}</div>
+          ) : (
+            ""
+          )}
+          {props.log.headache.occurred ? (
+            <div>Headache... {props.log.headache.when}</div>
+          ) : (
+            ""
+          )}
+          {props.log.gas.occurred ? <div>Gas...{props.log.gas.when}</div> : ""}
+          {props.log.itchiness.occurred ? (
+            <div>Itchiness... {props.log.itchiness.when}</div>
+          ) : (
+            ""
+          )}
+          {props.log.reflux.occurred ? (
+            <div>Reflux... {props.log.reflux.when}</div>
+          ) : (
+            ""
+          )}
+          {props.log.redness.occurred ? (
+            <div>Redness... {props.log.redness.when}</div>
+          ) : (
+            ""
+          )}
+          {props.log.noseRunning.occurred ? (
+            <div>NoseRunning... {props.log.noseRunning.when}</div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       {/* OTHER */}
-      {props.log.other ? <><div className="cardtitle comm">Comments:</div><div className= "comments">{props.log.other}</div></> : ""}
+      {props.log.other ? (
+        <>
+          <div className="cardtitle comm">Comments:</div>
+          <div className="comments">{props.log.other}</div>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

@@ -66,9 +66,7 @@ module.exports = {
     res.json(req.session);
   },
   logout: function (req, res) {
-    console.log(req.session);
     req.session.destroy();
-    console.log(req.session);
     res.json("logged out!");
   },
 };
