@@ -22,6 +22,11 @@ router
 .route("/login")
 .post(userController.login)
 
+// Matches with "/api/user/logout"
+router
+.route("/logout")
+.post(userController.logout)
+
 
 // Matches with "/api/user/id/:id"
 router

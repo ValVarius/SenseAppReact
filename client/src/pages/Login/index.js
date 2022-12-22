@@ -6,10 +6,6 @@ import { useNavigate } from "react-router-dom";
 export default function Login(props) {
   useEffect(() => {
     if (props.currentUser) navigate("/Home");
-    console.log("LOGIN DICE CHE USER E`:");
-    console.log(props.currentUser);
-    
-
   }, [props.currentUser]);
 
   const [credentials, setCredentials] = useState({
@@ -53,7 +49,7 @@ export default function Login(props) {
 
   const togglePassword = (event) => {
     event.target.classList =
-      event.target.classList == "toggle showing" ? "toggle" : "toggle showing";
+      event.target.classList === "toggle showing" ? "toggle" : "toggle showing";
     event.target.parentElement.children[0].type =
       event.target.parentElement.children[0].type === "password"
         ? "text"
