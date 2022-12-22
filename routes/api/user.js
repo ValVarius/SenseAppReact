@@ -8,7 +8,14 @@ const userController = require("../../controllers/userController");
 router
 .route("/readsessions")
 .get(userController.readSession)
-
+// Matches with "/api/user/logout"
+router
+.route("/logout")
+.post(userController.logout)
+// Matches with "/api/user/login"
+router
+.route("/login")
+.post(userController.login)
 
 // Matches with "/api/user"
 router
@@ -17,15 +24,9 @@ router
 .post(userController.create)
 .delete(userController.remove)
 
-// Matches with "/api/user/login"
-router
-.route("/login")
-.post(userController.login)
 
-// Matches with "/api/user/logout"
-router
-.route("/logout")
-.post(userController.logout)
+
+
 
 
 // Matches with "/api/user/id/:id"
