@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import React, { useState, useEffect } from "react";
+import API from "./utils/API";
+
 
 function App() {
   // This should be passed to the form and calendar component
@@ -21,6 +23,21 @@ function App() {
   
 
   useEffect(() => {
+
+    API.readSessions().then((res) => {
+      console.log(res.data);
+
+      if (res.data.user) {
+        console.log("USER ANCORA QUI!!!");
+        setCurrentUser(res.data.user);
+      }
+    })
+
+
+
+
+
+
     let d = new Date();
     setDate({
       day: d.getDate(),
