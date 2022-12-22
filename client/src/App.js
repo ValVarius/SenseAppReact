@@ -45,7 +45,7 @@ function App() {
       <div id="app">
         <Navbar date={date} setDate={setDate} />
         <Routes>
-          <Route exact path="/" element={<Login setCurrentUser={setCurrentUser} />}></Route>
+          <Route exact path="/" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} />}></Route>
           <Route
             exact
             path="/Home"
