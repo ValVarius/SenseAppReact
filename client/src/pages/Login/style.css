@@ -77,9 +77,8 @@ button {
     width: 100%;
     height: 56px;
     padding: 0 16px;
-    background: #703eff;
     background: rgba(2, 228, 231);
-    color: #f9f9f9;
+    box-shadow: 0px 0px 5px #1b3239;
     color:#1b3239;
     border: 0;
     font-family: inherit;
@@ -91,7 +90,8 @@ button {
   }
   .login-form > button.control:hover{
     color: #f9f9f9;
-    background-color: #1b3239;
+    background-color: #5a4f79;
+
 
   }
   
