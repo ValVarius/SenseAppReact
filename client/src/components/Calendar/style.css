@@ -1,10 +1,11 @@
 select {
   margin-right: 5px;
+  padding: 5px;
 }
 
 #date {
-  margin-right: 25px;
-  color: black;
+  /* margin-right: 25px; */
+  /* color: black; */
 }
 .select-date {
   font-size: large;
@@ -12,13 +13,15 @@ select {
   overflow: auto;
   display: flex;
 }
-.select-date option {
-  /* font-size: 25px; */
-}
+
 .select-date > select {
-  color: #040c0e;
+  /* color: #040c0e; */
+  color: aliceblue;
   font-style: oblique;
-  background-color: #dca36e;
+  /* background-color: #dca36e; */
+  /* color:#1b3239; */
+
+  background-color: #5a4f79;
   border-radius: 10px;
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
 }
