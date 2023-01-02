@@ -13,6 +13,10 @@ export default function Navbar(props) {
       navigate("/");
     });
   };
+  const toStats = (event) => {
+    event.preventDefault();
+    navigate("/Stats");
+  }
   return (
     <nav className="navbar navbar-expand" aria-label="">
       <div className="container-fluid">
@@ -23,15 +27,32 @@ export default function Navbar(props) {
             id="navbarlogo"
           />
         </a>
+
         {props.currentUser ? (
-          <button
-            className="control switch"
-            id="logoutbutton"
-            type="button"
-            onClick={handleLogoutClick}
-          >
-            Log Out
-          </button>
+          <>
+            <button
+              className="control switch"
+              id="logoutbutton"
+              type="button"
+              onClick={handleLogoutClick}
+            >
+              Log Out
+            </button>
+
+            <button
+              type="button"
+              className="btn btn-light"
+              id="statslink"
+              onClick={toStats}
+            >
+              <img
+                src={require("../../public/stats.png")}
+                alt="Stats Logo"
+                id="statlogo"
+              />
+              Statistics
+            </button>
+          </>
         ) : null}
 
         {props.date.date ? (

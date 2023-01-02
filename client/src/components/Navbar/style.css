@@ -8,10 +8,37 @@
   /* border-radius: 0 0 10px 10px; */
   /* background-color: #1b3239; */
 }
+
+#statslink {
+  margin-right: 10px;
+  color: #5a4f79;
+  font-size: large;
+  font-style: oblique;
+  padding-bottom: 0%;
+  box-shadow: 0px 0px 5px #5a4f79;
+  transition: 0.3s all linear;
+}
+#statslink:hover {
+  background-color: #5a4f79;
+  color: #edeaf7;
+}
+
+#statlogo {
+  max-width: 40px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  border: 1px solid red;
+}
+#statslink:hover {
+  /* transition: 0.3s all linear;
+  box-shadow: 0px 0px 5px #aac5c6;
+  box-shadow: 0px 0px 5px red; */
+}
 #logoutbutton {
   margin: auto;
   margin-left: 0;
 }
+
 /* SMALL SCREENS */
 @media (max-width: 550px) {
   .navbar {
