@@ -40,27 +40,32 @@
 }
 
 /* SMALL SCREENS */
-@media (max-width: 550px) {
+@media (max-width: 850px) {
+  .navbar {
+    zoom: 0.9;
+  }
+}
+@media (max-width: 760px) {
   .navbar {
     zoom: 0.7;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 640px) {
   .navbar {
     zoom: 0.6;
   }
 }
-@media (max-width: 350px) {
+@media (max-width: 580px) {
   .navbar {
     zoom: 0.5;
   }
 }
-@media (max-width: 300px) {
+@media (max-width: 460px) {
   .navbar {
     zoom: 0.4;
   }
 }
-@media (max-width: 250px) {
+@media (max-width: 380px) {
   .navbar {
     zoom: 0.3;
   }

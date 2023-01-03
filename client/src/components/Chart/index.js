@@ -22,7 +22,7 @@ ChartJS.register(
 
 export default function Chart(props) {
   let name = props.symtom;
-  console.log(props);
+  //   console.log(props);
 
   // console.log(props.data[name]);
   //  Sort keys in ascending order
@@ -35,10 +35,11 @@ export default function Chart(props) {
   keysSorted.forEach((item) => {
     values.push(props.data[name][item]);
   });
-  console.log(values);
+  //   console.log(values);
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
@@ -52,22 +53,30 @@ export default function Chart(props) {
       },
     },
     scales: {
-        x: {
-          title: {
-            display: true,
-            text: 'Foods'
-          }
+      x: {
+        title: {
+          display: true,
+          text: "Foods",
         },
-        y: {
-          title: {
-            display: true,
-            text: 'Occurences'
+        ticks: {
+          font: {
+            family: 'Times New Roman',
+            size: 14
           },
-          ticks: {
-            stepSize: 1
-          }
-        }
-    
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Occurences",
+        },
+        ticks: {
+          stepSize: 1,
+          font: {
+            size: 14,
+          },
+        },
+      },
     },
   };
 
@@ -75,11 +84,11 @@ export default function Chart(props) {
 
   const data = {
     labels: labels,
+
     datasets: [
       {
         label: "",
         data: values,
-        // backgroundColor: "rgba(255, 99, 132, 0.5)",
         backgroundColor: "#76c072",
       },
       //   {
