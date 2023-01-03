@@ -16,7 +16,7 @@ export default function Navbar(props) {
   const toStats = (event) => {
     event.preventDefault();
     navigate("/Stats");
-  }
+  };
   return (
     <nav className="navbar navbar-expand" aria-label="">
       <div className="container-fluid">
@@ -52,11 +52,10 @@ export default function Navbar(props) {
               />
               Statistics
             </button>
+            {props.date.date ? (
+              <Calendar date={props.date} setDate={props.setDate} />
+            ) : null}
           </>
-        ) : null}
-
-        {props.date.date ? (
-          <Calendar date={props.date} setDate={props.setDate} />
         ) : null}
       </div>
     </nav>
