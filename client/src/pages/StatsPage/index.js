@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Chart from "../../components/Chart";
 
 export default function StatsPage(props) {
   const navigate = useNavigate();
 
+  const [bloating, setBloating] = useState();
+
   useEffect(() => {
     if (!props.currentUser) navigate("/");
     else {
+      // Creating array for each symtom
       let bloatingFood = [];
       let gasFood = [];
       let headacheFood = [];
@@ -15,6 +19,7 @@ export default function StatsPage(props) {
       let rednessFood = [];
       let refluxFood = [];
 
+      // Filling the symtoms array whith the foods that caused them
       props.currentUser.meals.forEach((meal) => {
         if (meal.bloating.occurred) {
           bloatingFood = bloatingFood.concat(meal.food);
@@ -47,6 +52,7 @@ export default function StatsPage(props) {
       let redness = {};
       let reflux = {};
 
+      // enumerating the occurrences of each symptoms for each food
       // BLOATING
       for (let i = 0; i < bloatingFood.length; i++) {
         if (bloating[bloatingFood[i]]) {
@@ -56,6 +62,7 @@ export default function StatsPage(props) {
         }
       }
       console.log(bloating);
+      setBloating({ bloating });
       // GAS
       for (let i = 0; i < gasFood.length; i++) {
         if (gas[gasFood[i]]) {
@@ -111,13 +118,14 @@ export default function StatsPage(props) {
       }
       console.log(reflux);
 
-      // Sort keys in ascending order
-      // let keysSorted = Object.keys(bloating).sort(function (a, b) {
-      //   return bloating[b] - bloating[a];
-      // });
-      // console.log(keysSorted);
+     
     }
   }, []);
 
-  return <div>user info:</div>;
+  return (
+    <>
+    {bloating ? <Chart data={bloating} symtom="bloating" /> : ""}
+      
+    </>
+  );
 }
