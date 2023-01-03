@@ -10,7 +10,6 @@ select {
 .select-date {
   font-size: large;
   text-align: center;
-  overflow: auto;
   display: flex;
 }
 
@@ -43,8 +42,8 @@ select {
   }
 }
 
-/* BIG SCREENS */
-/* @media (min-width: 2500px) {
+/* BIG SCREENS  */
+ @media (min-width: 2500px) {
   .select-date  {
     zoom: 1.4;
   }
@@ -63,4 +62,4 @@ select {
   .select-date  {
     zoom: 2;
   }
-} */
+}
