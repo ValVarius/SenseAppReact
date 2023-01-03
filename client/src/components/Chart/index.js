@@ -9,6 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import "./style.css";
 
 ChartJS.register(
   CategoryScale,
@@ -22,12 +23,13 @@ ChartJS.register(
 export default function Chart(props) {
   let name = props.symtom;
   console.log(props);
+
   // console.log(props.data[name]);
   //  Sort keys in ascending order
   let keysSorted = Object.keys(props.data[name]).sort(function (a, b) {
     return props.data[name][b] - props.data[name][a];
   });
-  console.log(keysSorted);
+  //   console.log(keysSorted);
   // Sort values in ascending order
   let values = [];
   keysSorted.forEach((item) => {
@@ -36,7 +38,7 @@ export default function Chart(props) {
   console.log(values);
 
   const options = {
-    responsive: false,
+    responsive: true,
     plugins: {
       legend: {
         position: "top",
@@ -46,8 +48,26 @@ export default function Chart(props) {
         text: props.symtom.toUpperCase(),
       },
       animation: {
-        duration: 0,
+        duration: 1,
       },
+    },
+    scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Foods'
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Occurences'
+          },
+          ticks: {
+            stepSize: 1
+          }
+        }
+    
     },
   };
 
@@ -57,9 +77,10 @@ export default function Chart(props) {
     labels: labels,
     datasets: [
       {
-        label: "Dataset 1",
+        label: "",
         data: values,
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        // backgroundColor: "rgba(255, 99, 132, 0.5)",
+        backgroundColor: "#76c072",
       },
       //   {
       //     label: "Dataset 2",
@@ -71,10 +92,8 @@ export default function Chart(props) {
   return (
     <>
       {/* <div style={{ width: "1200px", margin: "auto auto" }}> */}
-      <div
-        style={{ width: "1000px", background: "white", margin: "auto auto" }}
-      >
-        <Bar options={options} data={data} />
+      <div className="chart">
+        <Bar className="bar" options={options} data={data} />
       </div>
     </>
   );

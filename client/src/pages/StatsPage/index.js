@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Chart from "../../components/Chart";
+import "./style.css";
 
 export default function StatsPage(props) {
   const navigate = useNavigate();
 
   const [bloating, setBloating] = useState();
+  const [gas, setGas] = useState();
+  const [headache, setHeadache] = useState();
+  const [itchiness, setItchiness] = useState();
+  const [noseRunning, setNoseRunning] = useState();
+  const [redness, setRedness] = useState();
+  const [reflux, setReflux] = useState();
 
   useEffect(() => {
     if (!props.currentUser) navigate("/");
@@ -61,7 +68,7 @@ export default function StatsPage(props) {
           bloating[bloatingFood[i]] = 1;
         }
       }
-      console.log(bloating);
+      // console.log(bloating);
       setBloating({ bloating });
       // GAS
       for (let i = 0; i < gasFood.length; i++) {
@@ -71,7 +78,8 @@ export default function StatsPage(props) {
           gas[gasFood[i]] = 1;
         }
       }
-      console.log(gas);
+      // console.log(gas);
+      setGas({ gas });
       // HEADACHE
       for (let i = 0; i < headacheFood.length; i++) {
         if (headache[headacheFood[i]]) {
@@ -80,7 +88,8 @@ export default function StatsPage(props) {
           headache[headacheFood[i]] = 1;
         }
       }
-      console.log(headache);
+      // console.log(headache);
+      setHeadache({ headache });
       // ITCHINESS
       for (let i = 0; i < itchinessFood.length; i++) {
         if (itchiness[itchinessFood[i]]) {
@@ -89,7 +98,8 @@ export default function StatsPage(props) {
           itchiness[itchinessFood[i]] = 1;
         }
       }
-      console.log(itchiness);
+      // console.log(itchiness);
+      setItchiness({ itchiness });
       // NOSERUNNING
       for (let i = 0; i < noseRunningFood.length; i++) {
         if (noseRunning[noseRunningFood[i]]) {
@@ -98,7 +108,8 @@ export default function StatsPage(props) {
           noseRunning[noseRunningFood[i]] = 1;
         }
       }
-      console.log(noseRunning);
+      // console.log(noseRunning);
+      setNoseRunning({ noseRunning });
       // REDNESS
       for (let i = 0; i < rednessFood.length; i++) {
         if (redness[rednessFood[i]]) {
@@ -107,7 +118,8 @@ export default function StatsPage(props) {
           redness[rednessFood[i]] = 1;
         }
       }
-      console.log(redness);
+      // console.log(redness);
+      setRedness({ redness });
       // REFLUX
       for (let i = 0; i < refluxFood.length; i++) {
         if (reflux[refluxFood[i]]) {
@@ -116,16 +128,20 @@ export default function StatsPage(props) {
           reflux[refluxFood[i]] = 1;
         }
       }
-      console.log(reflux);
-
-     
+      // console.log(reflux);
+      setReflux({ reflux });
     }
   }, []);
 
   return (
-    <>
-    {bloating ? <Chart data={bloating} symtom="bloating" /> : ""}
-      
-    </>
+    <div className="chartpage">
+      {bloating ? <Chart data={bloating} symtom="bloating" /> : ""}
+      {gas ? <Chart data={gas} symtom="gas" /> : ""}
+      {headache ? <Chart data={headache} symtom="headache" /> : ""}
+      {itchiness ? <Chart data={itchiness} symtom="itchiness" /> : ""}
+      {noseRunning ? <Chart data={noseRunning} symtom="noseRunning" /> : ""}
+      {redness ? <Chart data={redness} symtom="redness" /> : ""}
+      {reflux ? <Chart data={reflux} symtom="reflux" /> : ""}
+    </div>
   );
 }
