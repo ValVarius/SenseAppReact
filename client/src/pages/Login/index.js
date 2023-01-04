@@ -70,7 +70,7 @@ export default function Login(props) {
     });
   };
   const login = (event) => {
-        event.preventDefault();
+    event.preventDefault();
 
     API.login(credentials).then((res) => {
       if (res.data === "incorrect password") {
@@ -129,7 +129,14 @@ export default function Login(props) {
             ></button>
             <div className="warning">{incorrect}</div>
           </div>
-          <button className="control" type="button" style={{cursor:"pointer"}} onClick={login}>
+          <button
+            className="control"
+            type="button"
+            style={{ cursor: "pointer" }}
+            onClick={login}
+            onMouseDown={login}
+            onMouseUp={login}
+          >
             LOGIN
           </button>
         </form>
@@ -198,7 +205,12 @@ export default function Login(props) {
               onClick={togglePassword}
             ></button>
           </div>
-          <button className="control" type="button" style={{cursor:"pointer"}} onClick={signup}>
+          <button
+            className="control"
+            type="button"
+            style={{ cursor: "pointer" }}
+            onClick={signup}
+          >
             SIGN UP
           </button>
         </form>
