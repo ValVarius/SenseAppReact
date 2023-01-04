@@ -39,8 +39,9 @@ module.exports = {
     db.Meal.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => {
         console.log("IN UPDATE...");
+        console.log(dbModel.user);
 
-        db.User.findById(req.params.id)
+        db.User.findById(dbModel.user)
           .populate("meals")
           .then((dbUser) => {
             console.log("SENDING BACK:");
@@ -58,12 +59,15 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   removeByDateTitle: function (req, res) {
-    db.Meal.deleteOne({ date: req.body.date, title: req.body.title, user: req.body.user, })
+    db.Meal.deleteOne({
+      date: req.body.date,
+      title: req.body.title,
+      user: req.body.user,
+    })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => {
         console.log(err);
-        res.status(422).json(err)
-      }
-      );
+        res.status(422).json(err);
+      });
   },
 };
