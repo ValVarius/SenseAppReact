@@ -123,12 +123,8 @@ export default function Form(props) {
     if (update) {
       // api update
 
-      API.mealUpdate(info, id).then((res) => {
-        // console.log(res.data._id);
-        console.log(res);
-        // console.log(propsCurrentUser);
-        // THIS SHOULD UPDATE THE CURRENT USER AS WELL SO THE STATS ARE UP TO DATE*******************************************
-
+      API.mealUpdate(info, id).then((UserUpdate) => {
+        props.setCurrentUser(UserUpdate.data);
       });
     } else {
       API.mealRegistration(info).then((UserUpdate) => {
