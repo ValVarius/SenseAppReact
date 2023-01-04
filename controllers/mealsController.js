@@ -40,7 +40,7 @@ module.exports = {
       .then((dbModel) => {
         console.log("IN UPDATE...");
 
-        db.User.findByIdAndUpdate(req.params.id)
+        db.User.findById(req.params.id)
           .populate("meals")
           .then((dbUser) => {
             console.log("SENDING BACK:");
