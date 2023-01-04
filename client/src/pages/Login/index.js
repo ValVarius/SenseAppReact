@@ -22,6 +22,7 @@ export default function Login(props) {
   const [registered, setRegistered] = useState(true);
   const [incorrect, setIncorrect] = useState("");
   const [notfound, setNotfound] = useState("");
+  const [notError, setNotError] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -73,6 +74,7 @@ export default function Login(props) {
     event.preventDefault();
 
     API.login(credentials).then((res) => {
+      console;
       if (res.data === "incorrect password") {
         setIncorrect("Incorrect Password");
         setNotfound("");
@@ -89,6 +91,8 @@ export default function Login(props) {
           password: "",
         });
         navigate("/Home");
+      } else {
+        setNotError("RES: " + res);
       }
     });
   };
@@ -134,11 +138,10 @@ export default function Login(props) {
             type="button"
             style={{ cursor: "pointer" }}
             onClick={login}
-            // onMouseDown={login}
-            // onMouseUp={login}
           >
             LOGIN
           </button>
+          <div className="warning">{notError}</div>
         </form>
       </div>
     );
