@@ -134,8 +134,8 @@ export default function Login(props) {
             type="button"
             style={{ cursor: "pointer" }}
             onClick={login}
-            onMouseDown={login}
-            onMouseUp={login}
+            // onMouseDown={login}
+            // onMouseUp={login}
           >
             LOGIN
           </button>
