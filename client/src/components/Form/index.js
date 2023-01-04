@@ -3,7 +3,6 @@ import "./style.css";
 import API from "../../utils/API";
 import FoodPanel from "../FoodPanel";
 import DeleteButton from "../DeleteButton";
-import MealCard from "../MealCard";
 
 export default function Form(props) {
   const [info, setInfo] = useState({
@@ -124,7 +123,13 @@ export default function Form(props) {
     if (update) {
       // api update
 
-      API.mealUpdate(info, id).then((res) => {});
+      API.mealUpdate(info, id).then((res) => {
+        // console.log(res.data._id);
+        console.log(res);
+        // console.log(propsCurrentUser);
+        // THIS SHOULD UPDATE THE CURRENT USER AS WELL SO THE STATS ARE UP TO DATE*******************************************
+
+      });
     } else {
       API.mealRegistration(info).then((UserUpdate) => {
         props.setCurrentUser(UserUpdate.data);
