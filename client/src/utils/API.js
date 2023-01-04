@@ -4,31 +4,31 @@ import axios from "axios";
 const BASE_URL = "https://sensapp.herokuapp.com";
 const API = {
   mealRegistration: function (data) {
-    return axios.post(`${BASE_URL}/api/meals`, data);
+    return axios.post(`${BASE_URL}/api/meals`, data,{withCredentials:true});
   },
   deletePrevious: function(data) {
-    return axios.delete(`${BASE_URL}/api/meals`, {data})
+    return axios.delete(`${BASE_URL}/api/meals`, {data},{withCredentials:true})
   },
   deleteId: function (id) {
-    return axios.delete(`${BASE_URL}/api/meals/id/${id}`);
+    return axios.delete(`${BASE_URL}/api/meals/id/${id}`,{withCredentials:true});
   },
   pdfRead: function (data) {
-    return axios.post(`${BASE_URL}/api/pdf`, data);
+    return axios.post(`${BASE_URL}/api/pdf`, data,{withCredentials:true});
   },
   storeUserMenu: function (data) {
-    return axios.post(`${BASE_URL}/api/menu`, data);
+    return axios.post(`${BASE_URL}/api/menu`, data,{withCredentials:true});
   },
   getMenu: function () {
-    return axios.get(`${BASE_URL}/api/menu`);
+    return axios.get(`${BASE_URL}/api/menu`,{withCredentials:true});
   },
   getMealsbyDay: function (data) {
-    return axios.get(`${BASE_URL}/api/meals/day?date=${data}`);
+    return axios.get(`${BASE_URL}/api/meals/day?date=${data}`,{withCredentials:true});
   },
   createUser: function (data) {
-    return axios.post(`${BASE_URL}/api/user`, data)
+    return axios.post(`${BASE_URL}/api/user`, data,{withCredentials:true})
   },
   login: function (data) {
-    return axios.post(`${BASE_URL}/api/user/login`,data);
+    return axios.post(`${BASE_URL}/api/user/login`,data,{withCredentials:true});
   },
   logout:function(){
     return axios.get(`${BASE_URL}/api/user/logout`,{withCredentials:true})
@@ -37,13 +37,13 @@ const API = {
     return axios.get(`${BASE_URL}/api/user/readsessions`,{withCredentials:true})
 },
   getUserMeals: function (data) {
-    return axios.get(`${BASE_URL}/api/meals/day?user=${data}`,data);
+    return axios.get(`${BASE_URL}/api/meals/day?user=${data}`,data),{withCredentials:true};
   },
   updateUser: function (data) {
-    return axios.put(`${BASE_URL}/api/user/id/${data}`,data);
+    return axios.put(`${BASE_URL}/api/user/id/${data}`,data,{withCredentials:true});
   },
   mealUpdate: function (data,id) {
-    return axios.put(`${BASE_URL}/api/meals/id/${id}`,data);
+    return axios.put(`${BASE_URL}/api/meals/id/${id}`,data,{withCredentials:true});
   },
 
 
