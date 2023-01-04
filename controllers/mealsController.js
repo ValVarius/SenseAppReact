@@ -32,7 +32,13 @@ module.exports = {
   },
   update: function (req, res) {
     db.Meal.findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then((dbModel) => res.json(dbModel))
+      .then((dbModel) => {
+        db.User.findById(dbModel.user)
+          .populate("meals")
+          .then((dbUser) => {
+            res.json(dbUser);
+          });
+      })
       .catch((err) => res.status(422).json(err));
   },
   remove: function (req, res) {
@@ -42,12 +48,15 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   removeByDateTitle: function (req, res) {
-    db.Meal.deleteOne({ date: req.body.date, title: req.body.title, user: req.body.user, })
+    db.Meal.deleteOne({
+      date: req.body.date,
+      title: req.body.title,
+      user: req.body.user,
+    })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => {
         console.log(err);
-        res.status(422).json(err)
-      }
-      );
+        res.status(422).json(err);
+      });
   },
 };

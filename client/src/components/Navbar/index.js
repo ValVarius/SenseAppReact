@@ -13,29 +13,49 @@ export default function Navbar(props) {
       navigate("/");
     });
   };
+  const toStats = (event) => {
+    event.preventDefault();
+    navigate("/Stats");
+  };
   return (
     <nav className="navbar navbar-expand" aria-label="">
       <div className="container-fluid">
-        <a href="/" className="navbar-brand">
+        <a href="/Home" className="navbar-brand">
           <img
             src="https://cellsciencesystems.com/images/cell-science-systems-logo.png"
             alt="cell science systems logo"
             id="navbarlogo"
           />
         </a>
-        {props.currentUser ? (
-          <button
-            className="control switch"
-            id="logoutbutton"
-            type="button"
-            onClick={handleLogoutClick}
-          >
-            Log Out
-          </button>
-        ) : null}
 
-        {props.date.date ? (
-          <Calendar date={props.date} setDate={props.setDate} />
+        {props.currentUser ? (
+          <>
+            <button
+              className="control switch"
+              id="logoutbutton"
+              type="button"
+              onClick={handleLogoutClick}
+            >
+              Log Out
+            </button>
+
+            <button
+              type="button"
+              className="btn btn-light"
+              id="statslink"
+              onClick={toStats}
+            >
+              <img
+                src={require("../../public/stats.png")}
+                alt="Stats Logo"
+                id="statlogo"
+              />
+              Statistics
+            </button>
+            {props.date.date ? (
+              <Calendar date={props.date} setDate={props.setDate} />
+            ) : null}
+          </>
         ) : null}
       </div>
     </nav>

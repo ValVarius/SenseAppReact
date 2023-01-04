@@ -5,7 +5,6 @@ import API from "../../utils/API";
 export default function MealCard(props) {
   const deletecard = () => {
     API.deleteId(props.log._id).then((res) => {
-      console.log(props.currentUser);
       for (let i = 0; i < props.currentUser.meals.length; i++) {
         if (props.currentUser.meals[i]._id === props.log._id) {
           let newArr = [...props.currentUser.meals];
