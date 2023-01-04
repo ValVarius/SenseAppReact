@@ -30,23 +30,12 @@ module.exports = {
 
       .catch((err) => res.status(422).json(err));
   },
-  // update: function (req, res) {
-  //   db.Meal.findOneAndUpdate({ _id: req.params.id }, req.body)
-  //     .then((dbModel) => res.json(dbModel))
-  //     .catch((err) => res.status(422).json(err));
-  // },
   update: function (req, res) {
     db.Meal.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => {
-        console.log("IN UPDATE...");
-        console.log(dbModel.user);
-
         db.User.findById(dbModel.user)
           .populate("meals")
           .then((dbUser) => {
-            console.log("SENDING BACK:");
-
-            console.log(dbUser);
             res.json(dbUser);
           });
       })
