@@ -32,18 +32,9 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   login: function (req, res) {
-    console.log(
-      "REQUEST:###########################################################"
-    );
-    console.log(req);
-    console.log(
-      "REQUEST BODY:###########################################################"
-    );
-    console.log(req.body);
     db.User.findOne({ username: req.body.username })
       .populate("meals")
       .then((dbUser) => {
-        console.log("IN THE THEN");
         if (req.session.user) {
           console.log("USER ALREADY IN SESSION");
           res.json(dbUser);
