@@ -32,26 +32,32 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   login: function (req, res) {
+    console.log(
+      "REQUEST:###########################################################"
+    );
+    console.log(req);
+    console.log(
+      "REQUEST BODY:###########################################################"
+    );
+    console.log(req.body);
     db.User.findOne({ username: req.body.username })
       .populate("meals")
-      //   .sort({ date: -1 })
       .then((dbUser) => {
-
-        console.log(req.session);
+        console.log("IN THE THEN");
         if (req.session.user) {
-            res.json(dbUser)
-        }
-        else if (!dbUser) {
-          req.session.user = false
+          console.log("USER ALREADY IN SESSION");
+          res.json(dbUser);
+        } else if (!dbUser) {
+          req.session.user = false;
           console.log("WRONG USER");
           res.send("no user found");
         } else if (bcrypt.compareSync(req.body.password, dbUser.password)) {
-          req.session.user = dbUser
-          console.log("JUST CREATED SESSION:", req.session);
+          req.session.user = dbUser;
+          // console.log("JUST CREATED SESSION:", req.session);
           console.log("PASSWORD MATCH");
           res.json(dbUser);
         } else {
-          req.session.user = false
+          req.session.user = false;
           console.log("WRONG password");
           res.send("incorrect password");
         }
