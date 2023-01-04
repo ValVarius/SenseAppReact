@@ -3,7 +3,6 @@ body {
   background-image: url("../Login/background2.png");
   background-size: cover;
   min-width: 320px;
-
   -webkit-text-size-adjust: 100%;
 }
 .home {

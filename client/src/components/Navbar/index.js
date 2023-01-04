@@ -31,17 +31,17 @@ export default function Navbar(props) {
         {props.currentUser ? (
           <>
             <button
-              className="control switch"
+              className="btn navbtn"
               id="logoutbutton"
               type="button"
               onClick={handleLogoutClick}
             >
-              Log Out
+              LogOut
             </button>
 
             <button
               type="button"
-              className="btn btn-light"
+              className="btn btn-light navbtn"
               id="statslink"
               onClick={toStats}
             >
