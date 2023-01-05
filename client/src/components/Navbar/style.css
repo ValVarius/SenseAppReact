@@ -8,12 +8,30 @@
   /* border-radius: 0 0 10px 10px; */
   /* background-color: #1b3239; */
 }
-
-#statslink {
-  margin-right: 10px;
-  color: #5a4f79;
+.navbtn {
   font-size: large;
   font-style: oblique;
+}
+
+#logoutbutton {
+  background-color: #5a4f79;
+  color: #edeaf7;
+  transition: 0.3s all linear;
+  box-shadow: 0px 0px 5px #aac5c6;
+  margin: auto;
+  margin-left: 0;
+  margin-right: 10px;
+}
+#logoutbutton:hover {
+  background-color: #edeaf7;
+  color: #5a4f79;
+}
+
+#statslink {
+  /* margin-left: 10px; */
+  margin: auto;
+  margin-left: 0;
+  color: #5a4f79;
   padding-bottom: 0%;
   box-shadow: 0px 0px 5px #5a4f79;
   transition: 0.3s all linear;
@@ -29,66 +47,72 @@
   margin-bottom: 10px;
   border: 1px solid red;
 }
-#statslink:hover {
-  /* transition: 0.3s all linear;
-  box-shadow: 0px 0px 5px #aac5c6;
-  box-shadow: 0px 0px 5px red; */
-}
-#logoutbutton {
-  margin: auto;
-  margin-left: 0;
-}
 
-/* SMALL SCREENS */
-@media (max-width: 850px) {
-  .navbar {
-    zoom: 0.9;
+@supports not (-webkit-touch-callout: none) {
+  /* CSS for other than iOS devices */
+  /* SMALL SCREENS */
+  @media (max-width: 850px) {
+    .navbar {
+      zoom: 0.9;
+    }
   }
-}
-@media (max-width: 760px) {
-  .navbar {
-    zoom: 0.7;
+  @media (max-width: 760px) {
+    .navbar {
+      zoom: 0.7;
+    }
   }
-}
-@media (max-width: 640px) {
-  .navbar {
-    zoom: 0.6;
+  @media (max-width: 640px) {
+    .navbar {
+      zoom: 0.6;
+    }
   }
-}
-@media (max-width: 580px) {
-  .navbar {
-    zoom: 0.5;
+  @media (max-width: 580px) {
+    .navbar {
+      zoom: 0.5;
+    }
   }
-}
-@media (max-width: 460px) {
-  .navbar {
-    zoom: 0.4;
+  @media (max-width: 460px) {
+    .navbar {
+      zoom: 0.4;
+    }
   }
-}
-@media (max-width: 380px) {
-  .navbar {
-    zoom: 0.3;
+  @media (max-width: 380px) {
+    .navbar {
+      zoom: 0.3;
+    }
   }
-}
 
-/* BIG SCREENS */
-@media (min-width: 2500px) {
-  .navbar {
-    zoom: 1.4;
+  /* BIG SCREENS */
+  @media (min-width: 2500px) {
+    .navbar {
+      zoom: 1.4;
+    }
+  }
+  @media (min-width: 3500px) {
+    .navbar {
+      zoom: 1.6;
+    }
+  }
+  @media (min-width: 4500px) {
+    .navbar {
+      zoom: 1.8;
+    }
+  }
+  @media (min-width: 5500px) {
+    .navbar {
+      zoom: 2;
+    }
   }
 }
-@media (min-width: 3500px) {
-  .navbar {
-    zoom: 1.6;
-  }
-}
-@media (min-width: 4500px) {
-  .navbar {
-    zoom: 1.8;
-  }
-}
-@media (min-width: 5500px) {
-  .navbar {
-    zoom: 2;
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+
+  @media (max-width: 460px) {
+    .navbtn{
+      zoom: 0.4;
+    }
+    #navbarlogo{
+      zoom: 0.5;
+    }
   }
 }

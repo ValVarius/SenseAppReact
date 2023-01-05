@@ -9,7 +9,7 @@ select {
 }
 .select-date {
   font-size: large;
-  text-align: center;
+  /* text-align: center; */
   display: flex;
 }
 
@@ -38,7 +38,7 @@ select {
 
  @media (max-width: 1000px) {
   .select-date option {
-    font-size: 5px;
+    /* font-size: 5px; */
   }
 }
 
@@ -61,5 +61,17 @@ select {
 @media (min-width: 5500px) {
   .select-date  {
     zoom: 2;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+
+  @media (max-width: 460px) {
+    .select-date > select{
+      /* font-size: 1px; */
+      zoom: 0.3;
+      margin-right: 10px;
+    }
   }
 }
