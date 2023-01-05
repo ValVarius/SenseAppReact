@@ -1,5 +1,6 @@
 .foodpanelcontainer{
     display: flex;
+    justify-content: space-evenly;
 
 }
 #foodbuttonslist{
@@ -26,12 +27,18 @@
 #namesearch{
      
      border-radius: 10px;
-    font-size: 20px; 
+     font-size: large;
+     width: 40%;
+    /* font-size: 20px;  */
+}
+#category-select{
+    width: 40%;
+
 }
 #category-select > option {
     /* background-color: red; */
     /* font-size: 20px; */
-    background-color: pink;
+    background-color: rgb(166, 226, 166);
     font-size: large;
 
 }

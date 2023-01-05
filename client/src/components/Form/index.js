@@ -959,7 +959,7 @@ export default function Form(props) {
           />
           <button
             type="submit"
-            className="btn btn-outline-danger"
+            className="btn "
             id="savebtn"
             value="Send form data!"
             onClick={handleFormSubmit}
