@@ -29,20 +29,29 @@ export default function Chart(props) {
   let keysSorted = Object.keys(props.data[name]).sort(function (a, b) {
     return props.data[name][b] - props.data[name][a];
   });
-  //   console.log(keysSorted);
+  // console.log(keysSorted);
+
   // Sort values in ascending order
   let values = [];
   keysSorted.forEach((item) => {
     values.push(props.data[name][item]);
   });
-  //   console.log(values);
+  // console.log(values);
+
+  // Not displaying more than 20 items
+
+  keysSorted.length = 15;
+  values.length = 15;
+
+  // console.log(window.innerWidth);
+  let labelsize = (window.innerWidth > 800) ? 14 : 8;
 
   const options = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: "top",
+        display: false,
       },
       title: {
         display: true,
@@ -60,8 +69,8 @@ export default function Chart(props) {
         },
         ticks: {
           font: {
-            family: 'Times New Roman',
-            size: 14
+            family: "Times New Roman",
+            size: labelsize,
           },
         },
       },
@@ -73,7 +82,7 @@ export default function Chart(props) {
         ticks: {
           stepSize: 1,
           font: {
-            size: 14,
+            size: labelsize,
           },
         },
       },
@@ -87,7 +96,6 @@ export default function Chart(props) {
 
     datasets: [
       {
-        label: "",
         data: values,
         backgroundColor: "#76c072",
       },
@@ -98,9 +106,9 @@ export default function Chart(props) {
       //   },
     ],
   };
+
   return (
     <>
-      {/* <div style={{ width: "1200px", margin: "auto auto" }}> */}
       <div className="chart">
         <Bar className="bar" options={options} data={data} />
       </div>
