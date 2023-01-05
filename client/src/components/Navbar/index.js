@@ -8,7 +8,6 @@ import { useLocation } from "react-router-dom";
 export default function Navbar(props) {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.pathname);
 
   const handleLogoutClick = (event) => {
     API.logout().then((res) => {
