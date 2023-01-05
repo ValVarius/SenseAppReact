@@ -1,6 +1,13 @@
 #navbarlogo {
   max-width: 100px;
-  margin-top: -7px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s all linear;
+  border-radius: 10px;
+  padding: 2px;
+}
+#navbarlogo:hover {
+  background-color: #edeaf7;
 }
 
 .navbar {
@@ -11,30 +18,36 @@
 .navbtn {
   font-size: large;
   font-style: oblique;
+  transition: 0.3s all linear;
+  margin: auto;
+  margin-left: 0;
 }
 
 #logoutbutton {
   background-color: #5a4f79;
   color: #edeaf7;
-  transition: 0.3s all linear;
   box-shadow: 0px 0px 5px #aac5c6;
-  margin: auto;
-  margin-left: 0;
   margin-right: 10px;
 }
 #logoutbutton:hover {
   background-color: #edeaf7;
   color: #5a4f79;
 }
+#backbutton {
+  background-color: #5a4f79;
+  color: #edeaf7;
+  box-shadow: 0px 0px 5px #aac5c6;
+  margin-right: 80%;
+}
+#backbutton:hover {
+  background-color: #edeaf7;
+  color: #5a4f79;
+}
 
 #statslink {
-  /* margin-left: 10px; */
-  margin: auto;
-  margin-left: 0;
   color: #5a4f79;
   padding-bottom: 0%;
   box-shadow: 0px 0px 5px #5a4f79;
-  transition: 0.3s all linear;
 }
 #statslink:hover {
   background-color: #5a4f79;
@@ -108,10 +121,10 @@
   /* CSS specific to iOS devices */
 
   @media (max-width: 460px) {
-    .navbtn{
+    .navbtn {
       zoom: 0.4;
     }
-    #navbarlogo{
+    #navbarlogo {
       zoom: 0.5;
     }
   }
