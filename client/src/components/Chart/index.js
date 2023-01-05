@@ -39,12 +39,20 @@ export default function Chart(props) {
   // console.log(values);
 
   // Not displaying more than 20 items
-
-  keysSorted.length = 15;
-  values.length = 15;
-
+  // if (keysSorted.length <= 8) {
+  //   keysSorted.length = 10;
+  //   values.length = 10;
+  // }
+  // else{
+  //   keysSorted.length = 20;
+  //   values.length = 20;
+  // }
+  if (keysSorted.length > 20) {
+    keysSorted.length = 20;
+    values.length = 20;
+  }
   // console.log(window.innerWidth);
-  let labelsize = (window.innerWidth > 800) ? 14 : 8;
+  let labelsize = window.innerWidth > 800 ? 14 : 8;
 
   const options = {
     responsive: true,
