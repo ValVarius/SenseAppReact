@@ -19,7 +19,7 @@ The frontend is build with React and uses MongoDB for the database.
 
 ## Screenshots
 
-![screenshot](./public/images/sensapp.png)
+![screenshot](./public/images/sensapp.gif)
 
 
 
