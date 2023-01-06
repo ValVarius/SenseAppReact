@@ -1,10 +1,7 @@
 .chart {
-  /* width: fit-content; */
-  /* height: fit-content; */
   min-width: 310px;
   min-height: 300px;
-
-  max-width: 90%;
+  max-width: 95%;
   height: 30vw;
   background-color: aliceblue;
   margin: auto;
@@ -39,20 +36,20 @@
   .chart {
     height: 80vw;
     max-width: 95%;
-    zoom: 0.5;
+    /* zoom: 0.5; */
   }
 }
 /* BIGGER SCREENS */
- @media (min-width: 2000px) {
+@media (min-width: 2000px) {
   .chart {
     /* zoom: 2; */
     /* height: 10vw; */
 
     /* font-weight: 900; */
   }
-} 
+}
 @media (min-width: 2500px) {
   .chart {
     /* zoom: 2; */
   }
-} 
+}
