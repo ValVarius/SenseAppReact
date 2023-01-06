@@ -22,8 +22,8 @@ ChartJS.register(
 
 export default function Chart(props) {
   let name = props.symtom;
-  //   console.log(props);
-
+    // console.log(props);
+    
   // console.log(props.data[name]);
   //  Sort keys in ascending order
   let keysSorted = Object.keys(props.data[name]).sort(function (a, b) {

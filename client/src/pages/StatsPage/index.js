@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Chart from "../../components/Chart";
+import StatsCalendar from "../../components/StatsCalendar";
 import "./style.css";
 
 export default function StatsPage(props) {
   const navigate = useNavigate();
+
+  const [beginning, setBeginning] = useState(
+    (
+      props.date.month +
+      "|" +
+      props.date.day +
+      "|" +
+      (props.date.year - 2)
+    ).split("|")
+  );
+  // const [end, setEnd] = useState(props.date.date.split("|"));
 
   const [bloating, setBloating] = useState();
   const [gas, setGas] = useState();
@@ -28,27 +40,49 @@ export default function StatsPage(props) {
 
       // Filling the symtoms array whith the foods that caused them
       props.currentUser.meals.forEach((meal) => {
-        if (meal.bloating.occurred) {
-          bloatingFood = bloatingFood.concat(meal.food);
+        let month = parseInt(meal.date.split("|")[0]);
+        let day = parseInt(meal.date.split("|")[1]);
+        let year = parseInt(meal.date.split("|")[2]);
+
+        console.log(parseInt(beginning[2]) <= year);
+        console.log(parseInt(beginning[0]) <= month);
+        console.log(parseInt(beginning[1]) <= day);
+
+        // beginning must be less or equal
+
+        let previous = false;
+
+        if (parseInt(beginning[2]) < year) previous = true;
+        else if ( parseInt(beginning[2]) === year && parseInt(beginning[0]) < month) previous = true
+        else if (parseInt(beginning[2]) === year && parseInt(beginning[0]) === month && parseInt(beginning[1]) <= day) previous = true
+        
+
+          
+
+        if(previous) {
+          if (meal.bloating.occurred) {
+            bloatingFood = bloatingFood.concat(meal.food);
+          }
+          if (meal.gas.occurred) {
+            gasFood = gasFood.concat(meal.food);
+          }
+          if (meal.headache.occurred) {
+            headacheFood = headacheFood.concat(meal.food);
+          }
+          if (meal.itchiness.occurred) {
+            itchinessFood = itchinessFood.concat(meal.food);
+          }
+          if (meal.noseRunning.occurred) {
+            noseRunningFood = noseRunningFood.concat(meal.food);
+          }
+          if (meal.redness.occurred) {
+            rednessFood = rednessFood.concat(meal.food);
+          }
+          if (meal.reflux.occurred) {
+            refluxFood = refluxFood.concat(meal.food);
+          }
         }
-        if (meal.gas.occurred) {
-          gasFood = gasFood.concat(meal.food);
-        }
-        if (meal.headache.occurred) {
-          headacheFood = headacheFood.concat(meal.food);
-        }
-        if (meal.itchiness.occurred) {
-          itchinessFood = itchinessFood.concat(meal.food);
-        }
-        if (meal.noseRunning.occurred) {
-          noseRunningFood = noseRunningFood.concat(meal.food);
-        }
-        if (meal.redness.occurred) {
-          rednessFood = rednessFood.concat(meal.food);
-        }
-        if (meal.reflux.occurred) {
-          refluxFood = refluxFood.concat(meal.food);
-        }
+       
       });
 
       let bloating = {};
@@ -131,10 +165,15 @@ export default function StatsPage(props) {
       // console.log(reflux);
       setReflux({ reflux });
     }
-  }, []);
+  }, [beginning]);
 
   return (
     <div className="chartpage">
+      <StatsCalendar
+        beginning={beginning}
+        setBeginning={setBeginning}
+        date={props.date}
+      />
       {bloating ? <Chart data={bloating} symtom="bloating" /> : ""}
       {gas ? <Chart data={gas} symtom="gas" /> : ""}
       {headache ? <Chart data={headache} symtom="headache" /> : ""}
