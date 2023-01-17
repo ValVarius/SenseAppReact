@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import "./style.css";
-// import $ from "jquery";
 
 export default function StatsCalendar(props) {
-  console.log(props);
   const [daysOptions, setdaysOptions] = useState([]);
   const [yearOptions, setyearOptions] = useState([]);
 
@@ -41,14 +39,10 @@ export default function StatsCalendar(props) {
   };
 
   const handleChange = (event) => {
-    console.log(event.target.parentElement.children[0].value);
-    console.log(event.target.parentElement.children[1].value);
-    console.log(event.target.parentElement.children[2].value);
-    // const { name, value } = event.target;
-    // props.setDate({
-    //   ...props.date,
-    //   [name]: value,
-    // });
+    // console.log(event.target.parentElement.children[0].value);
+    // console.log(event.target.parentElement.children[1].value);
+    // console.log(event.target.parentElement.children[2].value);
+    
     props.setBeginning(
       (event.target.parentElement.children[0].value +
         "|" +
