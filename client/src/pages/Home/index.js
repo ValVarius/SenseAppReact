@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import "./style.css";
 
 import Form from "../../components/Form";
 import MealCard from "../../components/MealCard";
 import { useNavigate } from "react-router-dom";
+
+// The form should maintain a vertical alignment until it becomes visually umpleasant...
 
 export default function Home(props) {
   const [logs, setLogs] = useState([]);
