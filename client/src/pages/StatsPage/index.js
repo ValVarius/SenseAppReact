@@ -44,22 +44,24 @@ export default function StatsPage(props) {
         let day = parseInt(meal.date.split("|")[1]);
         let year = parseInt(meal.date.split("|")[2]);
 
-        console.log(parseInt(beginning[2]) <= year);
-        console.log(parseInt(beginning[0]) <= month);
-        console.log(parseInt(beginning[1]) <= day);
-
         // beginning must be less or equal
 
         let previous = false;
 
         if (parseInt(beginning[2]) < year) previous = true;
-        else if ( parseInt(beginning[2]) === year && parseInt(beginning[0]) < month) previous = true
-        else if (parseInt(beginning[2]) === year && parseInt(beginning[0]) === month && parseInt(beginning[1]) <= day) previous = true
-        
+        else if (
+          parseInt(beginning[2]) === year &&
+          parseInt(beginning[0]) < month
+        )
+          previous = true;
+        else if (
+          parseInt(beginning[2]) === year &&
+          parseInt(beginning[0]) === month &&
+          parseInt(beginning[1]) <= day
+        )
+          previous = true;
 
-          
-
-        if(previous) {
+        if (previous) {
           if (meal.bloating.occurred) {
             bloatingFood = bloatingFood.concat(meal.food);
           }
@@ -82,7 +84,6 @@ export default function StatsPage(props) {
             refluxFood = refluxFood.concat(meal.food);
           }
         }
-       
       });
 
       let bloating = {};
