@@ -5,9 +5,8 @@ import StatsCalendar from "../../components/StatsCalendar";
 import "./style.css";
 
 
-// Calendar should not go beyond the cuurent date.
 // Also, it could be usefull to have last month, last year, last week buttons??
-// The useeffect is too complex. Try optimizing. 
+// The useeffect is quite complex. Try optimizing. 
 
 export default function StatsPage(props) {
   const navigate = useNavigate();
