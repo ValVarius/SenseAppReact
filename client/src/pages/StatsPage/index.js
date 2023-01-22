@@ -4,10 +4,9 @@ import Chart from "../../components/Chart";
 import StatsCalendar from "../../components/StatsCalendar";
 import "./style.css";
 
-
 // Calendar should not go beyond the cuurent date.
 // Also, it could be usefull to have last month, last year, last week buttons??
-// The useeffect is too complex. Try optimizing. 
+// The useeffect is too complex. Try optimizing.
 
 export default function StatsPage(props) {
   const navigate = useNavigate();
@@ -57,14 +56,15 @@ export default function StatsPage(props) {
         else if (
           parseInt(beginning[2]) === year &&
           parseInt(beginning[0]) < month
-        )
+        ) {
           previous = true;
-        else if (
+        } else if (
           parseInt(beginning[2]) === year &&
           parseInt(beginning[0]) === month &&
           parseInt(beginning[1]) <= day
-        )
+        ) {
           previous = true;
+        }
 
         if (previous) {
           if (meal.bloating.occurred) {
@@ -101,71 +101,71 @@ export default function StatsPage(props) {
 
       // enumerating the occurrences of each symptoms for each food
       // BLOATING
-      for (let i = 0; i < bloatingFood.length; i++) {
-        if (bloating[bloatingFood[i]]) {
-          bloating[bloatingFood[i]]++;
+      for (const element of bloatingFood) {
+        if (bloating[element]) {
+          bloating[element]++;
         } else {
-          bloating[bloatingFood[i]] = 1;
+          bloating[element] = 1;
         }
       }
       // console.log(bloating);
       setBloating({ bloating });
       // GAS
-      for (let i = 0; i < gasFood.length; i++) {
-        if (gas[gasFood[i]]) {
-          gas[gasFood[i]]++;
+      for (const element of gasFood) {
+        if (gas[element]) {
+          gas[element]++;
         } else {
-          gas[gasFood[i]] = 1;
+          gas[element] = 1;
         }
       }
       // console.log(gas);
       setGas({ gas });
       // HEADACHE
-      for (let i = 0; i < headacheFood.length; i++) {
-        if (headache[headacheFood[i]]) {
-          headache[headacheFood[i]]++;
+      for (const element of headacheFood) {
+        if (headache[element]) {
+          headache[element]++;
         } else {
-          headache[headacheFood[i]] = 1;
+          headache[element] = 1;
         }
       }
       // console.log(headache);
       setHeadache({ headache });
       // ITCHINESS
-      for (let i = 0; i < itchinessFood.length; i++) {
-        if (itchiness[itchinessFood[i]]) {
-          itchiness[itchinessFood[i]]++;
+      for (const element of itchinessFood) {
+        if (itchiness[element]) {
+          itchiness[element]++;
         } else {
-          itchiness[itchinessFood[i]] = 1;
+          itchiness[element] = 1;
         }
       }
       // console.log(itchiness);
       setItchiness({ itchiness });
       // NOSERUNNING
-      for (let i = 0; i < noseRunningFood.length; i++) {
-        if (noseRunning[noseRunningFood[i]]) {
-          noseRunning[noseRunningFood[i]]++;
+      for (const element of noseRunningFood) {
+        if (noseRunning[element]) {
+          noseRunning[element]++;
         } else {
-          noseRunning[noseRunningFood[i]] = 1;
+          noseRunning[element] = 1;
         }
       }
       // console.log(noseRunning);
       setNoseRunning({ noseRunning });
       // REDNESS
-      for (let i = 0; i < rednessFood.length; i++) {
-        if (redness[rednessFood[i]]) {
-          redness[rednessFood[i]]++;
+      for (const element of rednessFood) {
+        if (redness[element]) {
+          redness[element]++;
         } else {
-          redness[rednessFood[i]] = 1;
+          redness[element] = 1;
         }
       }
       // console.log(redness);
       setRedness({ redness });
       // REFLUX
-      for (let i = 0; i < refluxFood.length; i++) {
-        if (reflux[refluxFood[i]]) {
-          reflux[refluxFood[i]]++;
+      for (const element of refluxFood) {
+        if (reflux[element]) {
+          reflux[element]++;
         } else {
-          reflux[refluxFood[i]] = 1;
+          reflux[element] = 1;
         }
       }
       // console.log(reflux);
