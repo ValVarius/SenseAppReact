@@ -6,10 +6,18 @@ import "./style.css";
 export default function Calendar(props) {
   const [daysOptions, setdaysOptions] = useState([]);
   const [yearOptions, setyearOptions] = useState([]);
+  const [today, setToday] = useState({});
 
   useEffect(() => {
     setyearOptions(setYears());
     setdaysOptions(setDays());
+    let d = new Date();
+    setToday({
+      day: d.getDate(),
+      month: d.getMonth() + 1,
+      year: d.getFullYear(),
+      date: d.getMonth() + 1 + "|" + d.getDate() + "|" + d.getFullYear(),
+    });
   }, []);
 
   // make sure the number of days correspond with the selected month
@@ -38,23 +46,47 @@ export default function Calendar(props) {
 
     return display;
   };
+  const backToToday = () => {
+    props.setDate(today);
+  }
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    props.setDate({
-      ...props.date,
-      [name]: value,
-    });
-    props.setDate({
-      ...props.date,
-      [name]: value,
-      date:
-        event.target.parentElement.children[0].value +
-        "|" +
-        event.target.parentElement.children[1].value +
-        "|" +
-        event.target.parentElement.children[2].value,
-    });
+    let day = event.target.parentElement.children[1].value;
+    let month = event.target.parentElement.children[0].value;
+    let year = event.target.parentElement.children[2].value;
+
+    let toofar = false;
+
+    if (year == today.year) {
+      if (month > today.month) {
+        // setFuture(true);
+        toofar = true;
+      } else if (month == today.month) {
+        if (day > today.day) {
+          // setFuture(true);
+          toofar = true;
+        }
+      }
+    }
+
+    // Should happen oly of date precedes today
+    if (!toofar) {
+      const { name, value } = event.target;
+      props.setDate({
+        ...props.date,
+        [name]: value,
+      });
+      props.setDate({
+        ...props.date,
+        [name]: value,
+        date:
+          event.target.parentElement.children[0].value +
+          "|" +
+          event.target.parentElement.children[1].value +
+          "|" +
+          event.target.parentElement.children[2].value,
+      });
+    }
   };
 
   return (
@@ -94,13 +126,14 @@ export default function Calendar(props) {
       >
         {yearOptions}
       </select>
-      {/* <button
-        className="btn btn-outline-danger"
+      {(today.date !== props.date.date) ? <button
+        className="btn btn-success"
         id="daysearch"
-        onClick={searchDay}
+        onClick={backToToday}
       >
-        Search
-      </button> */}
+        Back to Today
+      </button> : "" }
+      
     </div>
   );
 }
