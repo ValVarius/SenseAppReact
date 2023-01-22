@@ -24,6 +24,13 @@
   transition: 0.3s all linear;
   box-shadow: 0px 0px 5px #aac5c6;
 }
+#futureDateWarning{
+  /* all: unset; */
+
+  color: rgb(164, 21, 21);
+  margin-top: 10px;
+
+}
 
 /* BIG SCREENS  */
 @media (min-width: 2500px) {

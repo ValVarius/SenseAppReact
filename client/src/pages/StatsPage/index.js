@@ -4,9 +4,10 @@ import Chart from "../../components/Chart";
 import StatsCalendar from "../../components/StatsCalendar";
 import "./style.css";
 
+
 // Calendar should not go beyond the cuurent date.
 // Also, it could be usefull to have last month, last year, last week buttons??
-// The useeffect is too complex. Try optimizing.
+// The useeffect is too complex. Try optimizing. 
 
 export default function StatsPage(props) {
   const navigate = useNavigate();
@@ -31,8 +32,8 @@ export default function StatsPage(props) {
   const [reflux, setReflux] = useState();
 
   useEffect(() => {
-    if (!props.currentUser) navigate("/");
-    else {
+    if (props.currentUser) {
+   
       // Creating array for each symtom
       let bloatingFood = [];
       let gasFood = [];
@@ -56,15 +57,19 @@ export default function StatsPage(props) {
         else if (
           parseInt(beginning[2]) === year &&
           parseInt(beginning[0]) < month
-        ) {
+        ){
           previous = true;
-        } else if (
+        }
+          
+        else if (
           parseInt(beginning[2]) === year &&
           parseInt(beginning[0]) === month &&
           parseInt(beginning[1]) <= day
-        ) {
+        )
+        {
           previous = true;
         }
+          
 
         if (previous) {
           if (meal.bloating.occurred) {
@@ -170,7 +175,8 @@ export default function StatsPage(props) {
       }
       // console.log(reflux);
       setReflux({ reflux });
-    }
+  }
+  else navigate("/");
   }, [beginning]);
 
   return (

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 
 export default function StatsCalendar(props) {
+  const [future, setFuture] = useState(false);
   const [daysOptions, setdaysOptions] = useState([]);
   const [yearOptions, setyearOptions] = useState([]);
 
@@ -39,17 +40,36 @@ export default function StatsCalendar(props) {
   };
 
   const handleChange = (event) => {
-    // console.log(event.target.parentElement.children[0].value);
-    // console.log(event.target.parentElement.children[1].value);
-    // console.log(event.target.parentElement.children[2].value);
-    
-    props.setBeginning(
-      (event.target.parentElement.children[0].value +
-        "|" +
-        event.target.parentElement.children[1].value +
-        "|" +
-        event.target.parentElement.children[2].value).split("|")
-    );
+    let day = event.target.parentElement.children[1].value;
+    let month = event.target.parentElement.children[0].value;
+    let year = event.target.parentElement.children[2].value;
+    // console.log(props.date.day);
+    // console.log(props.date.month);
+    // console.log(props.date.year);
+    let toofar = false;
+    if (year == props.date.year) {
+      if (month > props.date.month) {
+        setFuture(true);
+        toofar = true;
+      } else if (month == props.date.month) {
+        if (day > props.date.day) {
+          setFuture(true);
+          toofar = true;
+        }
+      }
+    }
+    if (!toofar) {
+      setFuture(false);
+      props.setBeginning(
+        (
+          month +
+          "|" +
+          day +
+          "|" +
+          year
+        ).split("|")
+      );
+    }
   };
 
   return (
@@ -89,7 +109,7 @@ export default function StatsCalendar(props) {
       >
         {yearOptions}
       </select>
-      Starting Date
+ {future ? <div id="futureDateWarning">Starting Date Cannot be in the future</div> : "Starting Date"}
     </div>
   );
 }
