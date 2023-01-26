@@ -10,13 +10,13 @@ export default function StatsCalendar(props) {
   useEffect(() => {
     setyearOptions(setYears());
     setdaysOptions(setDays());
-  }, []);
+  }, [props.beginning]);
 
   // make sure the number of days correspond with the selected month
   const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const setDays = () => {
     let display = [];
-    for (let i = 1; i <= daysInMonth[props.date.month - 1]; i++) {
+    for (let i = 1; i <= daysInMonth[props.beginning[0] - 1]; i++) {
       display.push(
         <option key={i} value={i}>
           {i}
@@ -39,10 +39,49 @@ export default function StatsCalendar(props) {
     return display;
   };
 
+  const searchWeek = (event) => {
+    if (props.date.day > 7) {
+      let day = props.date.day - 7;
+      props.setBeginning(
+        (props.date.month + "|" + day + "|" + props.date.year).split("|")
+      );
+    } else {
+      if (props.date.month == 1) {
+        let day = 31 - props.date.day;
+        props.setBeginning((12 + "|" + day + "|" + props.date.year).split("|"));
+      } else {
+        // month -- if month > 1 else month =12 year--
+
+        let day = daysInMonth[props.date.month - 2] - props.date.day;
+        props.setBeginning(
+          (props.date.month - 1 + "|" + day + "|" + props.date.year).split("|")
+        );
+      }
+    }
+  };
+  const searchMonth = (event) => {
+    if (props.date.month == 1) {
+      props.setBeginning(
+        (12 + "|" + props.date.day + "|" + (props.date.year-1)).split("|")
+      );
+    } else {
+      let day = props.date.day < 28 ? props.date.day : 28;
+      let month = props.date.month--;
+      props.setBeginning(
+        (month + "|" + day + "|" + props.date.year).split("|")
+      );
+    }
+  };
+  const searchYear = (event) => {
+    props.setBeginning(
+      (props.date.month + "|" + props.date.day + "|" + (props.date.year-1)).split("|")
+    );
+  }
   const handleChange = (event) => {
-    let day = event.target.parentElement.children[1].value;
-    let month = event.target.parentElement.children[0].value;
-    let year = event.target.parentElement.children[2].value;
+    let year = event.target.parentElement.children[3].value;
+    let month = event.target.parentElement.children[1].value;
+    let day = event.target.parentElement.children[2].value;
+
     // console.log(props.date.day);
     // console.log(props.date.month);
     // console.log(props.date.year);
@@ -60,20 +99,32 @@ export default function StatsCalendar(props) {
     }
     if (!toofar) {
       setFuture(false);
-      props.setBeginning(
-        (
-          month +
-          "|" +
-          day +
-          "|" +
-          year
-        ).split("|")
-      );
+      props.setBeginning((month + "|" + day + "|" + year).split("|"));
     }
   };
 
   return (
     <div className="select-beginning ">
+      <div id="lastcontainer">
+        <button
+          className="btn timesearch "
+          id="weeksearch"
+          onClick={searchWeek}
+        >
+          Last Week
+        </button>
+        <button
+          className="btn timesearch "
+          id="monthsearch"
+          onClick={searchMonth}
+        >
+          Last Month
+        </button>
+        <button className="btn timesearch " id="yearsearch" onClick={searchYear}>
+          Last Year 
+        </button>
+      </div>
+
       <select
         name="month"
         id="beginning-month"
@@ -109,7 +160,11 @@ export default function StatsCalendar(props) {
       >
         {yearOptions}
       </select>
- {future ? <div id="futureDateWarning">Starting Date Cannot be in the future</div> : "Starting Date"}
+      {future ? (
+        <div id="futureDateWarning">Starting Date Cannot Be In The Future</div>
+      ) : (
+        "Or Select A Specific Starting Date"
+      )}
     </div>
   );
 }

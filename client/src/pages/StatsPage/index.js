@@ -17,7 +17,7 @@ export default function StatsPage(props) {
       "|" +
       props.date.day +
       "|" +
-      (props.date.year - 2)
+      (props.date.year - 1)
     ).split("|")
   );
   // const [end, setEnd] = useState(props.date.date.split("|"));
