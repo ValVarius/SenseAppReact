@@ -163,7 +163,7 @@ export default function StatsCalendar(props) {
       {future ? (
         <div id="futureDateWarning">Starting Date Cannot Be In The Future</div>
       ) : (
-        "Or Select A Specific Starting Date"
+        "Select A Specific Starting Date"
       )}
     </div>
   );
