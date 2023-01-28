@@ -4,8 +4,8 @@
   font-style: oblique;
   color: aliceblue;
 }
-#lastcontainer{
-margin-bottom: 10px;
+#lastcontainer {
+  margin-bottom: 10px;
 }
 .timesearch {
   margin-right: 5px;
@@ -16,7 +16,7 @@ margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
 }
-.timesearch:hover{
+.timesearch:hover {
   background-color: #5a4f79;
 }
 .select-beginning > select {
@@ -71,5 +71,11 @@ margin-bottom: 10px;
       zoom: 0.3;
       margin-right: 10px;
     }
+  }
+}
+
+@media (max-width: 470px) {
+  .select-beginning {
+    zoom: 0.6;
   }
 }
