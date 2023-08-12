@@ -15,17 +15,22 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
-  create: function (req, res) {
-    db.User.create(req.body)
-        .then((dbModel) => res.json(dbModel))
-        .catch((err) => {
-            if (err.name === 'MongoError' && err.code === 11000) {
-                // Duplicate email error code from MongoDB
-                res.status(409).json({ message: 'Email already exists' });
-            } else {
-                res.status(422).json(err);
-            }
-        });
+create: function (req, res) {
+  db.User.create(req.body)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => {
+          if (err.name === 'MongoError' && err.code === 11000) {
+              if (err.keyValue && err.keyValue.username) {
+                  res.status(409).json({ message: 'Username already exists' });
+              } else if (err.keyValue && err.keyValue.email) {
+                  res.status(409).json({ message: 'Email already exists' });
+              } else {
+                  res.status(409).json({ message: 'Duplicate value detected' });
+              }
+          } else {
+              res.status(422).json(err);
+          }
+      });
 },
   update: function (req, res) {
     db.User.findOneAndUpdate({ _id: req.params.id }, req.body)

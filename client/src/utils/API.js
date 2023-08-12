@@ -74,8 +74,12 @@ const API = {
       .catch((error) => {
         let errorMessage;
 
-        if (error.response && error.response.data.code === 11000 && error.response.data.keyPattern.email) {
-            errorMessage = `The email ${error.response.data.keyValue.email} already exists. Please use a different email.`;
+        if (error.response && error.response.data.code === 11000) {
+            if (error.response.data.keyPattern.email) {
+                errorMessage = `The email ${error.response.data.keyValue.email} already exists. Please use a different email.`;
+            } else if (error.response.data.keyPattern.username) {
+                errorMessage = `The username ${error.response.data.keyValue.username} already exists. Please choose a different username.`;
+            }
         } else if (error.response) {
             // Here, you can either use a generic message or further process the error.response.data as needed
             errorMessage = 'An error occurred';
@@ -85,7 +89,11 @@ const API = {
 
         // Display the error message
         alert(errorMessage);
+
+        // Rethrow the error for further handling if necessary
+        throw error;
       });
   },
+
 };
 export default API;
