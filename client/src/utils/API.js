@@ -74,6 +74,7 @@ const API = {
       .catch((error) => {
         let errorMessage;
         console.error(error.message);
+        console.log(error);
         
         // If the error message indicates a duplicate email, visually convey this to the user
         if (error.message === "Email already exists") {
