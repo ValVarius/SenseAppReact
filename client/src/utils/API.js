@@ -73,26 +73,18 @@ const API = {
       })
       .catch((error) => {
         let errorMessage;
-        console.error(error.message);
-        console.log(error);
-        
-        // If the error message indicates a duplicate email, visually convey this to the user
-        if (error.message === "Email already exists") {
-            alert("The email you entered is already in use. Please use a different email.");
-        }
-        if (error.response) {
-          // If server responded with a non-2xx status code, use its error message
-          errorMessage = error.response.data.message || "An error occurred";
-        } else if (error.request) {
-          // The request was made but no response was received
-          errorMessage = "No response received from server";
+
+        if (error.response && error.response.data.code === 11000 && error.response.data.keyPattern.email) {
+            errorMessage = `The email ${error.response.data.keyValue.email} already exists. Please use a different email.`;
+        } else if (error.response) {
+            // Here, you can either use a generic message or further process the error.response.data as needed
+            errorMessage = 'An error occurred';
         } else {
-          // Something happened in setting up the request or other error scenario
-          errorMessage = error.message;
+            errorMessage = error.message || 'An error occurred';
         }
 
-        // Throw the error message so it can be caught by the caller
-        throw new Error(errorMessage);
+        // Display the error message
+        alert(errorMessage);
       });
   },
 };
