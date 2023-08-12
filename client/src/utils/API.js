@@ -73,7 +73,12 @@ const API = {
       })
       .catch((error) => {
         let errorMessage;
-
+        console.error(error.message);
+        
+        // If the error message indicates a duplicate email, visually convey this to the user
+        if (error.message === "Email already exists") {
+            alert("The email you entered is already in use. Please use a different email.");
+        }
         if (error.response) {
           // If server responded with a non-2xx status code, use its error message
           errorMessage = error.response.data.message || "An error occurred";
