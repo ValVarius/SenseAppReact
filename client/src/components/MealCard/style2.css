@@ -1,0 +1,132 @@
+.cardcontainer {
+  /* background-color: #f4e9d8;  light paper color */
+  background-image: url("../../public/torn_paper.jpg"); /* If you have an image that looks like a torn paper edge */
+
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); /* softer shadow for elevation effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* animate both the transform and the shadow */
+  width: 500px;
+  /* color: white; */
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
+  margin-bottom: 15px;
+  font-size: 30px;
+  text-align: left;
+  padding: 2%;
+  font-family: "Caveat", cursive;
+  /* font-family: "Times New Roman", Times, serif; */
+  /* zoom: 0.7; */
+}
+
+.cardcontainer:hover {
+  transition: 0.3s all linear;
+  transform: scale(1.1);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* increased shadow on hover */
+}
+
+/* TITLE */
+.MealCardTitle {
+  border-bottom: 1px solid #ccc; /* subtle line for division */
+  display: flex;
+  border-bottom: 0.5px solid #344056;
+  justify-content: space-evenly;
+  justify-content: space-between;
+  padding: 3%;
+  font-size: 40px;
+}
+.MealCardTitle h1 {
+  font-weight: 600;
+}
+
+.deleteMeal {
+  width: 70px;
+  height: 70px;
+  background-color: rgb(179, 59, 61);
+  font-size: xx-large;
+  color: bisque;
+  text-align: left;
+  border-color: gray;
+  font-weight: 800;
+}
+.deleteMeal:hover {
+  transition: 0.1s all linear;
+  transform: scale(1.1);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* increased shadow on hover */
+}
+/* Consider a more handwritten font for a more authentic paper note feel */
+.cardtitle,
+.comments,
+.fooditem,
+.sideffects div {
+  font-family: "Caveat", cursive;
+  /* ... your other styles ... */
+}
+
+@media (max-width: 1000px) {
+  .cardcontainer {
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    width: 90%;
+    font-size: 35px;
+    zoom: 1;
+  }
+}
+@media (max-width: 800px) {
+  .cardcontainer {
+    zoom: 0.9;
+  }
+}
+@media (max-width: 700px) {
+  .cardcontainer {
+    zoom: 0.8;
+  }
+}
+@media (max-width: 600px) {
+  .cardcontainer {
+    zoom: 0.7;
+  }
+}
+@media (max-width: 500px) {
+  .cardcontainer {
+    zoom: 0.6;
+  }
+}
+@media (max-width: 400px) {
+  .cardcontainer {
+    zoom: 0.5;
+  }
+}
+@media (max-width: 350px) {
+  .cardcontainer {
+    zoom: 0.4;
+  }
+}
+@media (max-width: 300px) {
+  .cardcontainer {
+    zoom: 0.3;
+  }
+}
+
+/* BIG SCREENS */
+@media (min-width: 2500px) {
+  .cardcontainer {
+    zoom: 1.2;
+  }
+}
+@media (min-width: 3500px) {
+  .cardcontainer {
+    zoom: 1.4;
+  }
+}
+@media (min-width: 4500px) {
+  .cardcontainer {
+    zoom: 1.6;
+  }
+}
+@media (min-width: 5500px) {
+  .cardcontainer {
+    zoom: 1.8;
+  }
+}
