@@ -12,6 +12,19 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 
 const app = express();
+// Enforce HTTPS in production
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+
+  app.use((req, res, next) => {
+    if (req.header("x-forwarded-proto") !== "https") {
+      res.redirect(`https://${req.header("host")}${req.url}`);
+    } else {
+      next();
+    }
+  });
+}
+
 const PORT = process.env.PORT;
 
 app.use(express.urlencoded({ extended: true }));
@@ -47,10 +60,10 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(
   session({
-    secret: "secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false },
+    cookie: { secure: process.env.NODE_ENV === "production" },
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
       ttl: 12 * 60 * 60,
