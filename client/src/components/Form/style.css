@@ -1,7 +1,9 @@
 #formcontainer {
   max-width: 50%;
-  /* max-height: fit-content; */
-  max-height: 1500px;
+  max-height: fit-content;
+  /* max-height: 1500px; */
+  font-family: "Caveat", cursive;
+  /* font-size: xx-large; */
 }
 
 #foodform {
@@ -18,10 +20,11 @@
   text-align: center;
   font-size: xx-large;
   font-weight: bolder;
-  background-color: #344056;
+  /* background-color: #344056; */
+  background-color: #aac5c6;
   margin: auto;
   border: 0.1vw solid rgba(2, 228, 231, 0.8);
-  color: #fbfbf8;
+  /* color: #fbfbf8; */
 }
 #mealTitle:hover {
   transition: 0.3s all linear;
@@ -48,7 +51,8 @@
 .foodeaten-button {
   max-width: 300px;
   margin: auto;
-  font-size: 10px;
+  font-size: 15px;
+  font-weight: 800;
   margin-right: 5px;
   margin-left: 5px;
 }
@@ -79,9 +83,11 @@
 }
 
 .effect {
+  /* display: flex;  */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between;   */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 /* FORM CHECK INPUT RADIO BUTTON */
 
@@ -90,8 +96,14 @@
   display: flex;
   border-radius: 10px;
   border: 0.1vw solid rgba(2, 228, 231, 0.8);
-  /* margin: auto; */
   margin-top: 10px;
+  width: 48%;
+  margin: auto;
+  margin-top: 5px;
+  /* height: 400px; */
+  /* height: fit-content; */
+  /* justify-content: space-between; */
+  /* justify-content: space-evenly; */
 }
 .form-check {
   /* background-color: red; */
@@ -106,16 +118,31 @@
   display: flex;
 }
 .form-check-label {
-  margin-left: 5px;
+  /* margin-top: 40px; */
+  /* background-color: green; */
+  font-size: 20px;
+  margin-left: 10px;
 }
 .form-switch input {
+  /* background-color: orange; */
+  /* height: 50px; */
+  /* margin: auto; */
 }
 .form-switch {
-  font-size:large;
-  margin-left: 5px;
+  /* background-color: red; */
+  justify-content: space-between;
+  justify-content: center;
+  display: inline-flex;
+  /* font-size:large; */
+  /* margin-left: 5px; */
+  margin: auto;
+  /* height: 100%; */
+  width: 50%;
+  /* width: 100%; */
+  height: 100px;
 }
 .form-check-inline {
-  
+  /* background-color: aquamarine; */
 }
 .form-check-input {
   box-shadow: 0px 0px 5px #aac5c6;
@@ -124,6 +151,8 @@
   transition: 0.5s all linear;
   transition: all 0.5 ease-in-out;
   cursor: pointer;
+  /* height: 40px; 
+ width: 40px;  */
 }
 .form-check-input:checked {
   border: 1px solid #344056;
@@ -132,14 +161,23 @@
 /* RADIOS */
 .form-label {
   margin: auto;
-  margin-top: 5px;
+  margin-top: 40px;
   font-size: large;
   font-weight: 1000;
 }
-
+.labelTitle {
+  font-size: 25px;
+  margin-left: 10px;
+  /* background-color: blue; */
+  /* margin-top: 5px; */
+}
+.titleCheck {
+  /* background-color: yellow; */
+  font-size: 25px;
+}
 /* Save Button */
 #savebtn {
-  background-color: red;
+  background-color: rgb(172, 71, 71);
   color: aliceblue;
   font-size: large;
   transition: 0.3s all linear;
@@ -152,7 +190,7 @@
   margin-bottom: 10px;
   margin-top: 10px;
 }
-#savebtn:hover{
+#savebtn:hover {
   background-color: aliceblue;
   color: red;
 }

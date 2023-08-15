@@ -240,7 +240,7 @@ export default function Form(props) {
                     <div className="foodeaten" key={result}>
                       <button
                         type="button"
-                        className="btn btn-success foodeaten-button"
+                        className="btn  foodeaten-button"
                         name="food"
                         value={result}
                         disabled
@@ -266,7 +266,7 @@ export default function Form(props) {
             <div className="checks">
               <div className="form-check form-switch">
                 <input
-                  className="form-check-input"
+                  className="form-check-input titleCheck"
                   type="checkbox"
                   role="switch"
                   id="bloat"
@@ -275,7 +275,7 @@ export default function Form(props) {
                   onChange={handleCheckbox}
                 />
                 <label
-                  className="form-check-label"
+                  className="form-check-label labelTitle"
                   htmlFor="flexSwitchCheckDefault"
                 >
                   Bloating
@@ -365,7 +365,7 @@ export default function Form(props) {
             <div className="checks">
               <div className="form-check form-switch">
                 <input
-                  className="form-check-input"
+                  className="form-check-input titleCheck"
                   type="checkbox"
                   role="switch"
                   id="head"
@@ -374,7 +374,7 @@ export default function Form(props) {
                   onChange={handleCheckbox}
                 />
                 <label
-                  className="form-check-label"
+                  className="form-check-label labelTitle"
                   htmlFor="flexSwitchCheckDefault"
                 >
                   Headache
@@ -463,7 +463,7 @@ export default function Form(props) {
             <div className="checks">
               <div className="form-check form-switch">
                 <input
-                  className="form-check-input"
+                  className="form-check-input titleCheck"
                   type="checkbox"
                   role="switch"
                   id="gas"
@@ -472,7 +472,7 @@ export default function Form(props) {
                   onChange={handleCheckbox}
                 />
                 <label
-                  className="form-check-label"
+                  className="form-check-label labelTitle"
                   htmlFor="flexSwitchCheckDefault"
                 >
                   Gas
@@ -557,7 +557,7 @@ export default function Form(props) {
             <div className="checks">
               <div className="form-check form-switch">
                 <input
-                  className="form-check-input"
+                  className="form-check-input titleCheck"
                   type="checkbox"
                   role="switch"
                   id="itchiness"
@@ -566,7 +566,7 @@ export default function Form(props) {
                   onChange={handleCheckbox}
                 />
                 <label
-                  className="form-check-label"
+                  className="form-check-label labelTitle"
                   htmlFor="flexSwitchCheckDefault"
                 >
                   Itchiness
@@ -655,7 +655,7 @@ export default function Form(props) {
             <div className="checks">
               <div className="form-check form-switch">
                 <input
-                  className="form-check-input"
+                  className="form-check-input titleCheck"
                   type="checkbox"
                   role="switch"
                   id="reflux"
@@ -664,7 +664,7 @@ export default function Form(props) {
                   onChange={handleCheckbox}
                 />
                 <label
-                  className="form-check-label"
+                  className="form-check-label labelTitle"
                   htmlFor="flexSwitchCheckDefault"
                 >
                   Reflux
@@ -750,7 +750,7 @@ export default function Form(props) {
             <div className="checks">
               <div className="form-check form-switch">
                 <input
-                  className="form-check-input"
+                  className="form-check-input titleCheck"
                   type="checkbox"
                   role="switch"
                   id="redness"
@@ -759,10 +759,10 @@ export default function Form(props) {
                   onChange={handleCheckbox}
                 />
                 <label
-                  className="form-check-label"
+                  className="form-check-label labelTitle"
                   htmlFor="flexSwitchCheckDefault"
                 >
-                  Redness/Flushing
+                  Flushing
                 </label>
               </div>
               <div className="timeframeDiv">
@@ -848,7 +848,7 @@ export default function Form(props) {
             <div className="checks">
               <div className="form-check form-switch">
                 <input
-                  className="form-check-input"
+                  className="form-check-input titleCheck"
                   type="checkbox"
                   role="switch"
                   id="noseRunning"
@@ -857,7 +857,7 @@ export default function Form(props) {
                   onChange={handleCheckbox}
                 />
                 <label
-                  className="form-check-label"
+                  className="form-check-label labelTitle"
                   htmlFor="flexSwitchCheckDefault"
                 >
                   Nose Running
