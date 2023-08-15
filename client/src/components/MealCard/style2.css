@@ -20,9 +20,10 @@
 }
 
 .cardcontainer:hover {
-  transition: 0.3s all linear;
+  /* transition: 0.3s all linear;
   transform: scale(1.1);
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* increased shadow on hover */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); 
+  increased shadow on hover */
 }
 
 /* TITLE */
@@ -42,11 +43,12 @@
 .deleteMeal {
   width: 70px;
   height: 70px;
-  background-color: rgb(179, 59, 61);
+  /* background-color: rgb(179, 59, 61); */
+  background-color:gray;
   font-size: xx-large;
   color: bisque;
   text-align: left;
-  border-color: gray;
+  border-color: black;
   font-weight: 800;
 }
 .deleteMeal:hover {
