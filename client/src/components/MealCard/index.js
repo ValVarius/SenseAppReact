@@ -41,7 +41,7 @@ export default function MealCard(props) {
             <div className="timelogged">No time logged</div>
           )}
           {!props.log.weight && props.log.title == "breakfast" ? (
-            <div className="timelogged">No weight logged</div>
+            <div className="timelogged">No weight</div>
           ) : (
             ""
           )}

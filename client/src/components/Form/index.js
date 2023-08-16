@@ -100,6 +100,12 @@ export default function Form(props) {
       [event.target.name]: { occurred: true, when: event.target.value },
     }));
   };
+  const handleSelectTime = (event) => {
+    setInfo((prevState) => ({
+      ...prevState,
+      [event.target.name]: { occurred: true, when: event.target.value },
+    }));
+  };
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // event.target.id= "savebtnSaved"
@@ -282,84 +288,19 @@ export default function Form(props) {
                 </label>
               </div>
 
-              <div className="timeframeDiv">
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="bloating"
-                    id="inlineRadio1"
-                    defaultValue="Immediately"
-                    checked={
-                      info.bloating.when == "Immediately" &&
-                      info.bloating.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    Immediately
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="bloating"
-                    id="inlineRadio2"
-                    defaultValue="Within 1st Hour"
-                    checked={
-                      info.bloating.when == "Within 1st Hour" &&
-                      info.bloating.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio2">
-                    1st Hour
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="bloating"
-                    id="inlineRadio3"
-                    defaultValue="1 to 2 Hours"
-                    checked={
-                      info.bloating.when == "1 to 2 Hours" &&
-                      info.bloating.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio3">
-                    1 to 2 Hours
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="bloating"
-                    id="inlineRadio1"
-                    defaultValue="2 - 4 hours"
-                    checked={
-                      info.bloating.when == "2 - 4 hours" &&
-                      info.bloating.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    2 - 4 hours
-                  </label>
-                </div>
-              </div>
+              {info.bloating.occurred ? <select
+            className="form-select timeoption"
+            aria-label="Default select example"
+            name="bloating"
+            type="time"
+            id=""
+            onChange={handleSelectTime}
+          >
+            <option value="Immediately">Immediately</option>
+            <option value="Within 1st Hour">1st Hour</option>
+            <option value="1 to 2 Hours">1 to 2 Hours</option>
+            <option value="2 - 4 hours">2 - 4 hours</option>
+          </select> : ""}
             </div>
             {/* HEADACHE */}
             <div className="checks">
@@ -380,84 +321,19 @@ export default function Form(props) {
                   Headache
                 </label>
               </div>
-              <div className="timeframeDiv">
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="headache"
-                    id="inlineRadio1"
-                    defaultValue="Immediately"
-                    checked={
-                      info.headache.when == "Immediately" &&
-                      info.headache.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    Immediately
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="headache"
-                    id="inlineRadio2"
-                    defaultValue="Within 1st Hour"
-                    checked={
-                      info.headache.when == "Within 1st Hour" &&
-                      info.headache.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio2">
-                    1st Hour
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="headache"
-                    id="inlineRadio3"
-                    defaultValue="1 to 2 Hours"
-                    checked={
-                      info.headache.when == "1 to 2 Hours" &&
-                      info.headache.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio3">
-                    1 to 2 Hours
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="headache"
-                    id="inlineRadio1"
-                    defaultValue="2 - 4 hours"
-                    checked={
-                      info.headache.when == "2 - 4 hours" &&
-                      info.headache.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    2 - 4 hours
-                  </label>
-                </div>
-              </div>
+              {info.headache.occurred ? <select
+            className="form-select timeoption"
+            aria-label="Default select example"
+            name="headache"
+            type="time"
+            id=""
+            onChange={handleSelectTime}
+          >
+            <option value="Immediately">Immediately</option>
+            <option value="Within 1st Hour">1st Hour</option>
+            <option value="1 to 2 Hours">1 to 2 Hours</option>
+            <option value="2 - 4 hours">2 - 4 hours</option>
+          </select> : ""}
             </div>
             {/* GAS */}
             <div className="checks">
@@ -478,80 +354,19 @@ export default function Form(props) {
                   Gas
                 </label>
               </div>
-              <div className="timeframeDiv">
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="gas"
-                    id="inlineRadio1"
-                    defaultValue="Immediately"
-                    checked={
-                      info.gas.when == "Immediately" && info.gas.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    Immediately
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="gas"
-                    id="inlineRadio2"
-                    defaultValue="Within 1st Hour"
-                    checked={
-                      info.gas.when == "Within 1st Hour" && info.gas.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio2">
-                    1st Hour
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="gas"
-                    id="inlineRadio3"
-                    defaultValue="1 to 2 Hours"
-                    checked={
-                      info.gas.when == "1 to 2 Hours" && info.gas.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio3">
-                    1 to 2 Hours
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="gas"
-                    id="inlineRadio1"
-                    defaultValue="2 - 4 hours"
-                    checked={
-                      info.gas.when == "2 - 4 hours" && info.gas.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    2 - 4 hours
-                  </label>
-                </div>
-              </div>
+              {info.gas.occurred ? <select
+            className="form-select timeoption"
+            aria-label="Default select example"
+            name="gas"
+            type="time"
+            id=""
+            onChange={handleSelectTime}
+          >
+            <option value="Immediately">Immediately</option>
+            <option value="Within 1st Hour">1st Hour</option>
+            <option value="1 to 2 Hours">1 to 2 Hours</option>
+            <option value="2 - 4 hours">2 - 4 hours</option>
+          </select> : ""}
             </div>
             {/* ITCHINESS */}
             <div className="checks">
@@ -572,84 +387,19 @@ export default function Form(props) {
                   Itchiness
                 </label>
               </div>
-              <div className="timeframeDiv">
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="itchiness"
-                    id="inlineRadio1"
-                    defaultValue="Immediately"
-                    checked={
-                      info.itchiness.when == "Immediately" &&
-                      info.itchiness.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    Immediately
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="itchiness"
-                    id="inlineRadio2"
-                    defaultValue="Within 1st Hour"
-                    checked={
-                      info.itchiness.when == "Within 1st Hour" &&
-                      info.itchiness.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio2">
-                    1st Hour
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="itchiness"
-                    id="inlineRadio3"
-                    defaultValue="1 to 2 Hours"
-                    checked={
-                      info.itchiness.when == "1 to 2 Hours" &&
-                      info.itchiness.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio3">
-                    1 to 2 Hours
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="itchiness"
-                    id="inlineRadio1"
-                    defaultValue="2 - 4 hours"
-                    checked={
-                      info.itchiness.when == "2 - 4 hours" &&
-                      info.itchiness.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    2 - 4 hours
-                  </label>
-                </div>
-              </div>
+              {info.itchiness.occurred ? <select
+            className="form-select timeoption"
+            aria-label="Default select example"
+            name="itchiness"
+            type="time"
+            id=""
+            onChange={handleSelectTime}
+          >
+            <option value="Immediately">Immediately</option>
+            <option value="Within 1st Hour">1st Hour</option>
+            <option value="1 to 2 Hours">1 to 2 Hours</option>
+            <option value="2 - 4 hours">2 - 4 hours</option>
+          </select> : ""}
             </div>
             {/* REFLUX */}
             <div className="checks">
@@ -670,81 +420,19 @@ export default function Form(props) {
                   Reflux
                 </label>
               </div>
-              <div className="timeframeDiv">
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="reflux"
-                    id="inlineRadio1"
-                    defaultValue="Immediately"
-                    checked={
-                      info.reflux.when == "Immediately" && info.reflux.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    Immediately
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="reflux"
-                    id="inlineRadio2"
-                    defaultValue="Within 1st Hour"
-                    checked={
-                      info.reflux.when == "Within 1st Hour" &&
-                      info.reflux.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio2">
-                    1st Hour
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="reflux"
-                    id="inlineRadio3"
-                    defaultValue="1 to 2 Hours"
-                    checked={
-                      info.reflux.when == "1 to 2 Hours" && info.reflux.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio3">
-                    1 to 2 Hours
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="reflux"
-                    id="inlineRadio1"
-                    defaultValue="2 - 4 hours"
-                    checked={
-                      info.reflux.when == "2 - 4 hours" && info.reflux.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    2 - 4 hours
-                  </label>
-                </div>
-              </div>
+              {info.reflux.occurred ? <select
+            className="form-select timeoption"
+            aria-label="Default select example"
+            name="reflux"
+            type="time"
+            id=""
+            onChange={handleSelectTime}
+          >
+            <option value="Immediately">Immediately</option>
+            <option value="Within 1st Hour">1st Hour</option>
+            <option value="1 to 2 Hours">1 to 2 Hours</option>
+            <option value="2 - 4 hours">2 - 4 hours</option>
+          </select> : ""}
             </div>
             {/* REDNESS */}
             <div className="checks">
@@ -765,84 +453,19 @@ export default function Form(props) {
                   Flushing
                 </label>
               </div>
-              <div className="timeframeDiv">
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="redness"
-                    id="inlineRadio1"
-                    defaultValue="Immediately"
-                    checked={
-                      info.redness.when == "Immediately" &&
-                      info.redness.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    Immediately
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="redness"
-                    id="inlineRadio2"
-                    defaultValue="Within 1st Hour"
-                    checked={
-                      info.redness.when == "Within 1st Hour" &&
-                      info.redness.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio2">
-                    1st Hour
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="redness"
-                    id="inlineRadio3"
-                    defaultValue="1 to 2 Hours"
-                    checked={
-                      info.redness.when == "1 to 2 Hours" &&
-                      info.redness.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio3">
-                    1 to 2 Hours
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="redness"
-                    id="inlineRadio1"
-                    defaultValue="2 - 4 hours"
-                    checked={
-                      info.redness.when == "2 - 4 hours" &&
-                      info.redness.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    2 - 4 hours
-                  </label>
-                </div>
-              </div>
+              {info.redness.occurred ? <select
+            className="form-select timeoption"
+            aria-label="Default select example"
+            name="redness"
+            type="time"
+            id=""
+            onChange={handleSelectTime}
+          >
+            <option value="Immediately">Immediately</option>
+            <option value="Within 1st Hour">1st Hour</option>
+            <option value="1 to 2 Hours">1 to 2 Hours</option>
+            <option value="2 - 4 hours">2 - 4 hours</option>
+          </select> : ""}
             </div>
             {/* RUNNING NOSE */}
             <div className="checks">
@@ -863,84 +486,19 @@ export default function Form(props) {
                   Nose Running
                 </label>
               </div>
-              <div className="timeframeDiv">
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="noseRunning"
-                    id="inlineRadio1"
-                    defaultValue="Immediately"
-                    checked={
-                      info.noseRunning.when == "Immediately" &&
-                      info.noseRunning.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    Immediately
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="noseRunning"
-                    id="inlineRadio2"
-                    defaultValue="Within 1st Hour"
-                    checked={
-                      info.noseRunning.when == "Within 1st Hour" &&
-                      info.noseRunning.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio2">
-                    1st Hour
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="noseRunning"
-                    id="inlineRadio3"
-                    defaultValue="1 to 2 Hours"
-                    checked={
-                      info.noseRunning.when == "1 to 2 Hours" &&
-                      info.noseRunning.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio3">
-                    1 to 2 Hours
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="noseRunning"
-                    id="inlineRadio1"
-                    defaultValue="2 - 4 hours"
-                    checked={
-                      info.noseRunning.when == "2 - 4 hours" &&
-                      info.noseRunning.occurred
-                        ? true
-                        : false
-                    }
-                    onChange={handleRadio}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    2 - 4 hours
-                  </label>
-                </div>
-              </div>
+              {info.noseRunning.occurred ? <select
+            className="form-select timeoption"
+            aria-label="Default select example"
+            name="noseRunning"
+            type="time"
+            id=""
+            onChange={handleSelectTime}
+          >
+            <option value="Immediately">Immediately</option>
+            <option value="Within 1st Hour">1st Hour</option>
+            <option value="1 to 2 Hours">1 to 2 Hours</option>
+            <option value="2 - 4 hours">2 - 4 hours</option>
+          </select> : ""}
             </div>
           </div>
           {/* END OF SIDE EFFECTS */}

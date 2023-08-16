@@ -62,9 +62,23 @@
 .fooditem,
 .sideffects div {
   font-family: "Caveat", cursive;
-  /* ... your other styles ... */
+}
+.MealCardTitle {
+  /* background-color: red; */
+}
+.deleteMeal {
+  margin: auto;
 }
 
+.MealCardTitle h1 {
+  margin: auto;
+}
+
+.timeweight {
+  margin: auto;
+}
+.timelogged {
+}
 @media (max-width: 1000px) {
   .cardcontainer {
     margin: auto;
