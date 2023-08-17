@@ -504,7 +504,7 @@ export default function Form(props) {
           {/* END OF SIDE EFFECTS */}
 
           <label htmlFor="food eaten" className="form-label">
-            Other:
+            Comments:
           </label>
           <textarea
             className="form-control"
