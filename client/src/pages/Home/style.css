@@ -8,6 +8,7 @@ body {
 .home {
   display: flex;
   justify-content: space-evenly;
+  align-items: flex-start;
   margin-top: 10px;
 }
 
