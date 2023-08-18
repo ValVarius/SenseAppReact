@@ -10,11 +10,12 @@
   border: 0;
   /* background: #ff2c6c; */
   background: #db3b2a;
-  font-size: 10px;
+  /* font-size: 10px; */
   font-weight: 1000;
-  font-family: "Euclid Circular A";
+  /* font-family: "Euclid Circular A"; */
   color: #f9f9f9;
-  padding: 0 0 0 24px;
+  /* padding: 0 0 0 24px; */
+  padding: 0 0 0 10px;
   width: 100px;
   height: 30px;
   cursor: pointer;
