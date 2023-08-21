@@ -1,44 +1,35 @@
-.foodpanelcontainer{
-    display: flex;
-    justify-content: space-evenly;
-
+.foodpanelcontainer {
+  display: flex;
+  justify-content: space-evenly;
 }
-#foodbuttonslist{
-    position: absolute;
-    background-color: aliceblue;
-     border-radius: 10px; 
-    z-index: 2;
-    overflow-y:scroll;
-    max-width: 50%;
-    min-width: 40%;
-    max-height: 50%;
-    
-    box-shadow: 0px 0px 5px white  
+#foodbuttonslist {
+  position: absolute;
+  background-color: aliceblue;
+  border-radius: 10px;
+  z-index: 2;
+  overflow-y: scroll;
+  max-width: 50%;
+  min-width: 40%;
+  max-height: 50%;
 
-    
+  box-shadow: 0px 0px 5px white;
 }
 
-.menubutton{
-    width: 40%; 
-    margin: 5px;
-
+.menubutton {
+  width: 40%;
+  margin: 5px;
 }
 
-#namesearch{
-     
-     border-radius: 10px;
-     font-size: large;
-     width: 40%;
-    /* font-size: 20px;  */
+#namesearch {
+  border-radius: 10px;
+  width: 40%;
+  font-size: 30px;
 }
-#category-select{
-    width: 40%;
-
+#category-select {
+  width: 40%;
+  font-size: 30px;
 }
 #category-select > option {
-    /* background-color: red; */
-    /* font-size: 20px; */
-    background-color: rgb(166, 226, 166);
-    font-size: large;
-
+  font-size: 30px;
+  background-color: rgb(166, 226, 166);
 }
