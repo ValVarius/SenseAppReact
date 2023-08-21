@@ -25,7 +25,7 @@ export default function DeleteButton (props) {
         handleClick();
         props.deleteItem(props.item);
       }}
-      className={isDeleting || isDeleted ? "delbuttuon deleting " : "delbuttuon "}
+      className={isDeleting || isDeleted ? "delbutton deleting " : "delbutton "}
       disabled={isDeleting || isDeleted}
     >
       <span className="button-text">
