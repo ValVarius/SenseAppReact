@@ -16,7 +16,6 @@
   padding: 2%;
   font-family: "Caveat", cursive;
   /* font-family: "Times New Roman", Times, serif; */
-  /* zoom: 0.7; */
 }
 
 .cardcontainer:hover {
@@ -86,42 +85,46 @@
     margin-bottom: 100px;
     width: 90%;
     font-size: 35px;
-    zoom: 1;
   }
 }
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .cardcontainer {
     zoom: 0.9;
   }
-}
+} */
 @media (max-width: 700px) {
   .cardcontainer {
-    zoom: 0.8;
+    zoom: 0.9;
+
+  }
+  .MealCardTitle h1  {
+    font-size: 50px;
+
   }
 }
 @media (max-width: 600px) {
   .cardcontainer {
-    zoom: 0.7;
+    zoom: 0.8;
   }
 }
 @media (max-width: 500px) {
   .cardcontainer {
-    zoom: 0.6;
+    zoom: 0.7;
   }
 }
 @media (max-width: 400px) {
   .cardcontainer {
-    zoom: 0.5;
+    zoom: 0.6;
   }
 }
 @media (max-width: 350px) {
   .cardcontainer {
-    zoom: 0.4;
+    zoom: 0.5;
   }
 }
 @media (max-width: 300px) {
   .cardcontainer {
-    zoom: 0.3;
+    zoom: 0.4;
   }
 }
 
